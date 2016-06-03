@@ -15,8 +15,6 @@
                        company
                        auctex
                        company-auctex
-                       ;flycheck-ycmd
-                       ;company-ycmd
                        cmake-ide
                        xcscope
                        helm-cscope
@@ -27,8 +25,6 @@
                        helm-c-yasnippet
                        smooth-scrolling
                        fill-column-indicator
-                       ;;color-identifiers-mode
-                       ;;rainbow-delimiters
                        idea-darkula-theme
                        color-theme-approximate
                        clang-format
@@ -92,7 +88,12 @@
 (load-theme 'idea-darkula t)
 (color-theme-approximate-on)
 ;;;;; ------ theme ---------------------------------------------
-
+;;;;; ------ flycheck ---------------------------------------------
+(require 'flycheck)
+(add-hook 'after-init-hook #'global-flycheck-mode)
+;(require 'flycheck-ycmd)
+;(flycheck-ycmd-setup)
+;;;;; ------ flycheck ---------------------------------------------
 ;;;;; ------ rtags ---------------------------------------------
 (load-file "/home/oliver/.tools/scripts-and-more/emacs/rtags/src/rtags.el")
 (load-file "/home/oliver/.tools/scripts-and-more/emacs/rtags/src/company-rtags.el")
@@ -113,13 +114,12 @@
 (setq rtags-completions-enabled t)
 (push 'company-rtags company-backends)
 (global-company-mode)
+;;(add-hook 'after-init-hook 'global-company-mode)
 (define-key c-mode-base-map (kbd "<C-tab>") (function company-complete))
+(add-hook 'after-init-hook 'global-company-mode)
 
 ;;;;; ------ rtags ---------------------------------------------
 
-
-;;(package 'rainbow-delimiters)
-;;(add-hook 'prog-mode-hook 'rainbow-delimiters)
 
 
 ;;;;; ------ mode-hook ---------------------------------------------
@@ -141,10 +141,6 @@
 ;;;;; ------ mode-hook ---------------------------------------------
 
 
-;;;;; ------ company ---------------------------------------------
-(require 'company)
-(add-hook 'after-init-hook 'global-company-mode)
-;;;;; ------ company ---------------------------------------------
 ;;;;; ------ ycmd ---------------------------------------------
 ;(require 'company-ycmd)
 (company-ycmd-setup)
@@ -154,12 +150,6 @@
 (add-to-list 'company-begin-commands 'c-electric-lt-gt)
 (require 'ycmd-next-error)
 ;;;;; ------ ycmd ---------------------------------------------
-;;;;; ------ flycheck ---------------------------------------------
-(require 'flycheck)
-(add-hook 'after-init-hook #'global-flycheck-mode)
-;(require 'flycheck-ycmd)
-;(flycheck-ycmd-setup)
-;;;;; ------ flycheck ---------------------------------------------
 (require 'xcscope)
 (cscope-setup)
 
