@@ -330,7 +330,8 @@
 (require 'helm-c-yasnippet)
 (setq helm-yas-space-match-any-greedy t)
 (global-set-key (kbd "C-c y") 'helm-yas-complete)
-(yas-global-mode 1)
+(yas-global-mode t)
+(add-to-list 'yas-snippet-dirs "/home/oliver/Documents/development/scripts-and-more/yasnippet/")
 ;;(yas-indent-line 'fixed)
 ;;(yas-load-directory "")
 
