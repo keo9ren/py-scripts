@@ -16,8 +16,6 @@
                        auctex
                        company-auctex
                        cmake-ide
-                       xcscope
-                       helm-cscope
                        helm
                        helm-projectile
                        helm-ls-git
@@ -33,6 +31,9 @@
                        markdown-mode
                        yasnippet
                        octave
+                       company-shell
+                       helm-company
+                       ;;company-jedi 
                        ))
 
 (defun cfg:install-packages ()
@@ -84,6 +85,18 @@
  '(doc-view-continuous t)
  '(initial-frame-alist (quote ((fullscreen . maximized)))))
 ;;;;; ------ okular ---------------------------------------------
+;;;;; ------ company-shell ---------------------------------------------
+(add-to-list 'company-backends 'company-shell)
+;;;;; ------ company-shell---------------------------------------------
+;;;;; ------ helm-company ---------------------------------------------
+(eval-after-load 'company
+  '(progn
+     (define-key company-mode-map (kbd "C-:") 'helm-company)
+     (define-key company-active-map (kbd "C-:") 'helm-company)))
+;;;;; ------ helm-company ---------------------------------------------
+
+                       
+                       
 ;;;;; ------ theme ---------------------------------------------
 (load-theme 'idea-darkula t)
 (color-theme-approximate-on)
@@ -141,17 +154,9 @@
 ;;;;; ------ mode-hook ---------------------------------------------
 
 
-;;;;; ------ ycmd ---------------------------------------------
-;(require 'company-ycmd)
-(company-ycmd-setup)
-;(set-variable 'ycmd-server-command '("python" "/home/oliver/.vim/bundle/YouCompleteMe/third_party/ycmd/ycmd"))
-;(add-to-list 'company-backends 'company-ycm)
 (add-to-list 'company-begin-commands 'c-electric-colon)
 (add-to-list 'company-begin-commands 'c-electric-lt-gt)
-(require 'ycmd-next-error)
 ;;;;; ------ ycmd ---------------------------------------------
-(require 'xcscope)
-(cscope-setup)
 
 ;;;;; ------ gdb ---------------------------------------------
 ; decent gdb setup
