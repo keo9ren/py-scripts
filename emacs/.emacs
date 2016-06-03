@@ -15,12 +15,13 @@
                        company
                        auctex
                        company-auctex
-                       flycheck-ycmd
-                       company-ycmd
+                       ;flycheck-ycmd
+                       ;company-ycmd
+                       cmake-ide
                        xcscope
+                       helm-cscope
                        helm
                        helm-projectile
-                       helm-cscope
                        helm-ls-git
                        helm-dictionary
                        helm-c-yasnippet
@@ -92,6 +93,30 @@
 (color-theme-approximate-on)
 ;;;;; ------ theme ---------------------------------------------
 
+;;;;; ------ rtags ---------------------------------------------
+(load-file "/home/oliver/.tools/scripts-and-more/emacs/rtags/src/rtags.el")
+(load-file "/home/oliver/.tools/scripts-and-more/emacs/rtags/src/company-rtags.el")
+(load-file "/home/oliver/.tools/scripts-and-more/emacs/rtags/src/flycheck-rtags.el")
+(require 'rtags)
+(cmake-ide-setup)
+(add-hook 'c-mode-common-hook 'rtags-start-process-unless-running)
+(add-hook 'c++-mode-common-hook 'rtags-start-process-unless-running)
+(defun my-flycheck-rtags-setup ()
+  (flycheck-select-checker 'rtags)
+  (setq-local flycheck-highlighting-mode nil) ;; RTags creates more accurate overlays.
+  (setq-local flycheck-check-syntax-automatically nil))
+;; c-mode-common-hook is also called by c++-mode
+(add-hook 'c-mode-common-hook #'my-flycheck-rtags-setup)
+(require 'company)
+(setq rtags-autostart-diagnostics t)
+(rtags-diagnostics)
+(setq rtags-completions-enabled t)
+(push 'company-rtags company-backends)
+(global-company-mode)
+(define-key c-mode-base-map (kbd "<C-tab>") (function company-complete))
+
+;;;;; ------ rtags ---------------------------------------------
+
 
 ;;(package 'rainbow-delimiters)
 ;;(add-hook 'prog-mode-hook 'rainbow-delimiters)
@@ -121,10 +146,10 @@
 (add-hook 'after-init-hook 'global-company-mode)
 ;;;;; ------ company ---------------------------------------------
 ;;;;; ------ ycmd ---------------------------------------------
-(require 'company-ycmd)
+;(require 'company-ycmd)
 (company-ycmd-setup)
-(set-variable 'ycmd-server-command '("python" "/home/oliver/.vim/bundle/YouCompleteMe/third_party/ycmd/ycmd"))
-(add-to-list 'company-backends 'company-ycm)
+;(set-variable 'ycmd-server-command '("python" "/home/oliver/.vim/bundle/YouCompleteMe/third_party/ycmd/ycmd"))
+;(add-to-list 'company-backends 'company-ycm)
 (add-to-list 'company-begin-commands 'c-electric-colon)
 (add-to-list 'company-begin-commands 'c-electric-lt-gt)
 (require 'ycmd-next-error)
@@ -132,8 +157,8 @@
 ;;;;; ------ flycheck ---------------------------------------------
 (require 'flycheck)
 (add-hook 'after-init-hook #'global-flycheck-mode)
-(require 'flycheck-ycmd)
-(flycheck-ycmd-setup)
+;(require 'flycheck-ycmd)
+;(flycheck-ycmd-setup)
 ;;;;; ------ flycheck ---------------------------------------------
 (require 'xcscope)
 (cscope-setup)

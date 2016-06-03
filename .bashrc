@@ -126,4 +126,4 @@ if [ -f /etc/bash_completion ] && ! shopt -oq posix; then
     . /etc/bash_completion
 fi
 
-export PATH=$PATH:/home/oliver/Documents/development/py-scripts/
+export PATH=$PATH:/home/oliver/.tools/scripts-and-more/emacs/rtags/bin

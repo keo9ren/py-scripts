@@ -1,3 +1,6 @@
 [submodule "emacs/helm-spotify"]
 	path = emacs/helm-spotify
 	url = https://github.com/keo9ren/helm-spotify.git
+[submodule "emacs/rtags"]
+	path = emacs/rtags
+	url = https://github.com/Andersbakken/rtags.git
