@@ -5,38 +5,38 @@
 
 ;;; Code:
 (setq cfg-var:packages '(evil
-			 powerline
-			 powerline-evil
-             airline-themes
-             evil-leader
-             evil-search-highlight-persist
-             evil-terminal-cursor-changer
-			 flycheck
-			 company
-			 auctex
-			 company-auctex
-			 flycheck-ycmd
-			 company-ycmd
-			 xcscope
-			 helm
-			 helm-projectile
-             helm-cscope
-             helm-ls-git
-             helm-dictionary
-             helm-c-yasnippet
-			 smooth-scrolling
-             fill-column-indicator
-             ;;color-identifiers-mode
-             ;;rainbow-delimiters
-             idea-darkula-theme
-             color-theme-approximate
-             clang-format
-             zeal-at-point
-             web-mode
-             markdown-mode
-             yasnippet
-             octave
-			 ))
+			           powerline
+                       powerline-evil
+                       airline-themes
+                       evil-leader
+                       evil-search-highlight-persist
+                       evil-terminal-cursor-changer
+                       flycheck
+                       company
+                       auctex
+                       company-auctex
+                       flycheck-ycmd
+                       company-ycmd
+                       xcscope
+                       helm
+                       helm-projectile
+                       helm-cscope
+                       helm-ls-git
+                       helm-dictionary
+                       helm-c-yasnippet
+                       smooth-scrolling
+                       fill-column-indicator
+                       ;;color-identifiers-mode
+                       ;;rainbow-delimiters
+                       idea-darkula-theme
+                       color-theme-approximate
+                       clang-format
+                       zeal-at-point
+                       web-mode
+                       markdown-mode
+                       yasnippet
+                       octave
+                       ))
 
 (defun cfg:install-packages ()
     (let ((pkgs (remove-if #'package-installed-p cfg-var:packages)))
@@ -64,6 +64,7 @@
 ;;; disable scrollbar
 (scroll-bar-mode -1)
 ;;; open maximized
+;;;;; ------ okular ---------------------------------------------
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
@@ -85,14 +86,18 @@
     ("878e22a7fe00ca4faba87b4f16bc269b8d2be5409d1c513bb7eda025da7c1cf4" default)))
  '(doc-view-continuous t)
  '(initial-frame-alist (quote ((fullscreen . maximized)))))
+;;;;; ------ okular ---------------------------------------------
+;;;;; ------ theme ---------------------------------------------
 (load-theme 'idea-darkula t)
 (color-theme-approximate-on)
+;;;;; ------ theme ---------------------------------------------
 
 
 ;;(package 'rainbow-delimiters)
 ;;(add-hook 'prog-mode-hook 'rainbow-delimiters)
 
 
+;;;;; ------ mode-hook ---------------------------------------------
 ;;;vim like indent
 (define-key global-map (kbd "RET") 'newline-and-indent)
 ;;;fci
@@ -108,10 +113,14 @@
 (add-hook 'c-mode-hook (lambda () 
                             (fci-mode)
                             (set-fill-column 80)))
+;;;;; ------ mode-hook ---------------------------------------------
 
 
+;;;;; ------ company ---------------------------------------------
 (require 'company)
 (add-hook 'after-init-hook 'global-company-mode)
+;;;;; ------ company ---------------------------------------------
+;;;;; ------ ycmd ---------------------------------------------
 (require 'company-ycmd)
 (company-ycmd-setup)
 (set-variable 'ycmd-server-command '("python" "/home/oliver/.vim/bundle/YouCompleteMe/third_party/ycmd/ycmd"))
@@ -119,13 +128,17 @@
 (add-to-list 'company-begin-commands 'c-electric-colon)
 (add-to-list 'company-begin-commands 'c-electric-lt-gt)
 (require 'ycmd-next-error)
+;;;;; ------ ycmd ---------------------------------------------
+;;;;; ------ flycheck ---------------------------------------------
 (require 'flycheck)
 (add-hook 'after-init-hook #'global-flycheck-mode)
 (require 'flycheck-ycmd)
 (flycheck-ycmd-setup)
+;;;;; ------ flycheck ---------------------------------------------
 (require 'xcscope)
 (cscope-setup)
 
+;;;;; ------ gdb ---------------------------------------------
 ; decent gdb setup
 (setq
  ;; use gdb-many-windows by default
@@ -133,8 +146,10 @@
  ;; Non-nil means display source file containing the main routine at startup
  gdb-show-main t
  )
+;;;;; ------ gdb ---------------------------------------------
 
 
+;;;;; ------ auctex ---------------------------------------------
 ;;; Anpassungen für AUCTeX
 ;;(load "auctex.el" nil t t)
 ;maybe outdated as well integrated
@@ -143,10 +158,10 @@
 ;;; company-mode
 (require 'company-auctex)
 (company-auctex-init)
+;;;;; ------ auctex ---------------------------------------------
 
-;; flyspell 
-;;
 
+;;;;; ------ reftex ---------------------------------------------
 ;;; Anpassungen für RefTeX
 (require 'reftex)
 (add-hook 'LaTeX-mode-hook 'turn-on-reftex) 
@@ -163,14 +178,17 @@
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  )
+;;;;; ------ reftex ---------------------------------------------
 
+;;;;; ------ spell ---------------------------------------------
 ;;hunspell
+;; flyspell 
 (require 'ispell)
 (setq ispell-program-name "hunspell")
 (setq ispell-local-dictionary "en_US")
+;;;;; ------ spell ---------------------------------------------
 
-
-
+;;;;; ------ helm ---------------------------------------------
 (require 'helm-config)
 (require 'helm-misc)
 (require 'helm-projectile)
@@ -211,13 +229,11 @@
         helm-grep-default-recurse-command "ack-grep -H --no-group --no-color %e %p %f"))
 ;; TODO: helm-semantic or imenu look for noise according to ycmd
 (semantic-mode 1)
-
 (helm-mode 1)
-
-
-
 (global-set-key (kbd "M-x") 'helm-M-x)
+;;;;; ------ helm ---------------------------------------------
 
+;;;;; ------ helm-eshell ---------------------------------------------
 (require 'eshell)
 (require 'helm-eshell)
 
@@ -237,6 +253,9 @@
                          helm-c-source-recentf
                          helm-c-source-locate)
                        "*helm-my-buffer*")))
+;;;;; ------ helm-eshell ---------------------------------------------
+
+;;;;; ------ helm-cscope ---------------------------------------------
 (require 'helm-cscope)
 ;; Enable helm-cscope-mode
 (add-hook 'c-mode-hook 'helm-cscope-mode)
@@ -249,36 +268,47 @@
      (define-key helm-cscope-mode-map (kbd "M-g M-c") 'helm-cscope-find-called-function)
      (define-key helm-cscope-mode-map (kbd "M-g M-p") 'helm-cscope-find-calling-this-funtcion)
      (define-key helm-cscope-mode-map (kbd "M-s") 'helm-cscope-select)))
+;;;;; ------ helm-cscope ---------------------------------------------
+
+
+;;;;; ------ helm-dictionary ---------------------------------------------
 (require 'helm-ls-git)
 (global-set-key (kbd "C-<f6>") 'helm-ls-git-ls)
 (global-set-key (kbd "C-x C-d") 'helm-browse-project)
+;;;;; ------ helm-ls-git ---------------------------------------------
 
 
+;;;;; ------ helm-dictionary ---------------------------------------------
 (require 'helm-dictionary)
 ;; sudo apt-get install trans-de-en
+;;;;; ------ helm-dictionary ---------------------------------------------
 
 ;; display line numbers
 (require 'linum)
 (setq linum-mode t)
-                                        ;vim like scrolling
+;;;;; ------ vim-scrolling ---------------------------------------------
+;vim like scrolling
 (setq scroll-margin 5
       scroll-conservatively 9999
       scroll-step 1)
-                                        ; configure your powerline
+;;;;; ------ vim-scrolling ---------------------------------------------
+;;;;; ------ clang-format-mode ---------------------------------------------
 (require 'powerline)
 (require 'airline-themes)
 (load-theme 'airline-sol)
+;;;;; ------ clang-format-mode ---------------------------------------------
 
-                                        ;(require 'clang-format)
+;;;;; ------ clang-format-mode ---------------------------------------------
+(require 'clang-format)
 ;;Hook function
 ;;(defun clang-format-before-save ()"Add this to .emacs to clang-format on save(add-hook 'before-save-hook 'clang-format-before-save)."
 ;;       (interactive)(when (eq major-mode 'c-mode) (clang-format-buffer)))
 ;;use clang-format on save
 ;;(add-hook 'before-save-hook 'clang-format-before-save)
+;;;;; ------ clang-format-mode ---------------------------------------------
 
-
-;; autoload enhanced spotiy
-(load-file "~/Documents/development/helm-spotify/helm-spotify.el")
+;;;;; ------ spotify-mode ---------------------------------------------
+;;(load-file "/home/oliver/.tools/scripts-and-more/emacs/helm-spotify/helm-spotify.el")
 
 ;;helm spotify has errors if called without debug-on-error set. So i wrote this wrapper
 (defun john-spotify ()
@@ -297,22 +327,28 @@
 ;;(get-process "spotify")
 (show-paren-mode 1)
 (setq show-paren-delay 0)
+;;;;; ------ spotify-mode ---------------------------------------------
 
 
 ;; have to fct here to quit on one ESC
 
 ;;start maximised to be determinated
 
+;;;;; ------ zeal-mode ---------------------------------------------
 ;;browse offline documentation
 (require 'zeal-at-point)
 (global-set-key "\C-cd" 'zeal-at-point)
+;;;;; ------ zeal-mode ---------------------------------------------
 
-;;org mode
+;;;;; ------ org-mode ---------------------------------------------
 (require 'org)
 (define-key global-map "\C-cl" 'org-store-link)
 (define-key global-map "\C-ca" 'org-agenda)
 (setq org-log-done t)
+;;;;; ------ org-mode ---------------------------------------------
 
+
+;;;;; ------ markdown-mode ---------------------------------------------
 (require 'markdown-mode)
 (add-hook 'markdown-mode-hook
             (lambda ()
@@ -325,7 +361,9 @@
 ; Use only if your files usually are balanced w/r/t double-quotes
 ; <http://stackoverflow.com/questions/9527593/>
 (add-hook 'markdown-mode-hook (lambda () (modify-syntax-entry ?\" "\"" markdown-mode-syntax-table)))
+;;;;; ------ markdown-mode ---------------------------------------------
 
+;;;;; ------ yasnippet-mode ---------------------------------------------
 (require 'yasnippet)
 (require 'helm-c-yasnippet)
 (setq helm-yas-space-match-any-greedy t)
@@ -334,9 +372,10 @@
 (add-to-list 'yas-snippet-dirs "/home/oliver/Documents/development/scripts-and-more/yasnippet/")
 ;;(yas-indent-line 'fixed)
 ;;(yas-load-directory "")
+;;;;; ------ yasnippet-mode ---------------------------------------------
 
-(require 'octave)
 ;;;;; ------ Octave-mode ---------------------------------------------
+(require 'octave)
 ;; a tip from Jason Mobarak, http://cs.unm.edu/~jmob/windows-octave.txt
 ;; I don't know the reason
 ;(setenv "DISPLAY" "127.0.0.1:0.0")
@@ -366,9 +405,8 @@
 
 ;;;;; ------ Octave-mode-end ---------------------------------------------
 
-
-
-                                        ; should alway be the last
+;;;;; ------ evil-mode-start ---------------------------------------------
+; should alway be the last
 (require 'evil)
 (evil-mode 1)
 ;;browse visual-line
@@ -396,6 +434,7 @@
 (setq evil-visual-state-cursor '("red" box))
 (setq evil-insert-state-cursor '("green" bar))
 (setq evil-emacs-state-cursor '("blue" hbar))
+;;;;; ------ evil-mode-end ---------------------------------------------
 
 (provide '.emacs)
 ;;; .emacs ends here
