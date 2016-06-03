@@ -1,0 +1,5 @@
+# -*- mode: snippet -*-
+# name: si_num
+# key: nu
+# --
+\num{${1:Number}} $0

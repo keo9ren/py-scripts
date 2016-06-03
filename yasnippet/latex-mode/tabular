@@ -1,0 +1,20 @@
+# -*- mode: snippet -*-
+# name: tabular
+# key: tb
+# --
+
+\begin{table}%
+  \centering%
+  \caption[${4:short caption}]{${3:caption}}%
+  \begin{tabular}{${1:number of columns and direction}}
+    \toprule
+     & \\\\
+    \midrule
+     & \\\\
+     & \\\\
+     & \\\\
+    \bottomrule
+  \end{tabular}
+  \label{tab:${2:label}}
+\end{table}
+$0

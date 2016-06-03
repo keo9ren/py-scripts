@@ -1,0 +1,8 @@
+# -*- mode: snippet -*-
+# name: chapter
+# key: cha
+# --
+\chapter{${1:Chapter Titel}}
+\label{cha:${1:$(downcase yas-text)}}
+%
+$0

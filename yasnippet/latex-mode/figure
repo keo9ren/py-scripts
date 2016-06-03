@@ -1,0 +1,11 @@
+# -*- mode: snippet -*-
+# name: figure
+# key: fig
+# --
+\begin{figure}[ht]
+  \centering
+  \includegraphics[width=\textwidth]{${1:path.pdf}}
+  \caption[${2:short caption}]{${3:long caption}}
+  \label{fig:${1:$(downcase (file-name-sans-extension (file-name-nondirectory yas-text)))}}
+\end{figure}
+$0

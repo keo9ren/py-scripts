@@ -1,0 +1,8 @@
+# -*- mode: snippet -*-
+# name: section
+# key: sec
+# --
+\section{${1:Section Titel}}
+\label{sec:${1:$(downcase yas-text)}}
+%
+$0

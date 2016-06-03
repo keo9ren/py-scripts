@@ -1,0 +1,10 @@
+# -*- mode: snippet -*-
+# name: equation
+# key: eq
+# --
+\begin{equation}%
+  \begin{aligned}%
+  ${1:Equation}\\\\%
+  \end{aligned}%
+  \label{eq:${2:label}}%
+\end{equation}%
