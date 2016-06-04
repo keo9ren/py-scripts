@@ -85,9 +85,6 @@
  '(doc-view-continuous t)
  '(initial-frame-alist (quote ((fullscreen . maximized)))))
 ;;;;; ------ okular ---------------------------------------------
-;;;;; ------ company-shell ---------------------------------------------
-(add-to-list 'company-backends 'company-shell)
-;;;;; ------ company-shell---------------------------------------------
 ;;;;; ------ helm-company ---------------------------------------------
 (eval-after-load 'company
   '(progn
@@ -104,8 +101,6 @@
 ;;;;; ------ flycheck ---------------------------------------------
 (require 'flycheck)
 (add-hook 'after-init-hook #'global-flycheck-mode)
-;(require 'flycheck-ycmd)
-;(flycheck-ycmd-setup)
 ;;;;; ------ flycheck ---------------------------------------------
 ;;;;; ------ rtags ---------------------------------------------
 (load-file "/home/oliver/.tools/scripts-and-more/emacs/rtags/src/rtags.el")
@@ -125,6 +120,9 @@
 (setq rtags-autostart-diagnostics t)
 (rtags-diagnostics)
 (setq rtags-completions-enabled t)
+;;;;; ------ company-shell ---------------------------------------------
+(add-to-list 'company-backends 'company-shell)
+;;;;; ------ company-shell---------------------------------------------
 (push 'company-rtags company-backends)
 (global-company-mode)
 ;;(add-hook 'after-init-hook 'global-company-mode)
