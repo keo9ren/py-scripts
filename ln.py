@@ -4,16 +4,20 @@ import apt
 import subprocess
 
 current_user = 'oliver'
+home_path = '/home' + '/' + current_user + '/'
+script_path =  home_path + '.tools/scripts-and-more/'
 
 # bashrc
-subprocess.call(['rm','/home/' +current_user + '/.bashrc'])
-subprocess.call(['cp','.bashrc','/home/' + current_user + '/.bashrc'])
+subprocess.call(['rm', home_path + '.bashrc'])
+#subprocess.call(['cp','.bashrc','/home/' + current_user + '/.bashrc'])
+subprocess.call(['ln','-sf', script_path + '.bashrc',home_path + '.bashrc'])
 
 # init.el
 subprocess.call(['rm','/home/oliver/.emacs'])
 subprocess.call(['rm','/home/oliver/.emacs.d/init.el'])
 subprocess.call(['rm','/home/oliver/.emacs.d/init.el~'])
-subprocess.call(['cp','emacs/.emacs','/home/oliver/.emacs.d/init.el'])
+emacs_path = home_path + '.emacs.d/'
+subprocess.call(['ln','-sf', script_path + 'emacs/.emacs', emacs_path + 'init.el'])
 
 
 def install(pkg_name):
