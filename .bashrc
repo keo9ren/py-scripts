@@ -127,3 +127,4 @@ if [ -f /etc/bash_completion ] && ! shopt -oq posix; then
 fi
 
 export PATH=$PATH:/home/oliver/.tools/scripts-and-more/emacs/rtags/bin
+export PATH=$PATH:/home/oliver/.tools/scripts-and-more

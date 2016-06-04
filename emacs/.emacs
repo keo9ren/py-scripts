@@ -387,7 +387,7 @@
 (setq helm-yas-space-match-any-greedy t)
 (global-set-key (kbd "C-c y") 'helm-yas-complete)
 (yas-global-mode t)
-(add-to-list 'yas-snippet-dirs "/home/oliver/Documents/development/scripts-and-more/yasnippet/")
+(add-to-list 'yas-snippet-dirs "/home/oliver/.tools/scripts-and-more/emacs/yasnippet/")
 ;;(yas-indent-line 'fixed)
 ;;(yas-load-directory "")
 ;;;;; ------ yasnippet-mode ---------------------------------------------

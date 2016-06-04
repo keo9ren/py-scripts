@@ -9,7 +9,6 @@ script_path =  home_path + '.tools/scripts-and-more/'
 
 # bashrc
 subprocess.call(['rm', home_path + '.bashrc'])
-#subprocess.call(['cp','.bashrc','/home/' + current_user + '/.bashrc'])
 subprocess.call(['ln','-sf', script_path + '.bashrc',home_path + '.bashrc'])
 
 # init.el
