@@ -128,6 +128,7 @@
 ;;(add-hook 'after-init-hook 'global-company-mode)
 (define-key c-mode-base-map (kbd "<C-tab>") (function company-complete))
 (add-hook 'after-init-hook 'global-company-mode)
+(setq rtags-use-helm t)
 
 ;;;;; ------ rtags ---------------------------------------------
 
