@@ -17,6 +17,13 @@ subprocess.call(['rm','/home/oliver/.emacs.d/init.el'])
 subprocess.call(['rm','/home/oliver/.emacs.d/init.el~'])
 emacs_path = home_path + '.emacs.d/'
 subprocess.call(['ln','-sf', script_path + 'emacs/.emacs', emacs_path + 'init.el'])
+#lua5.2
+#open sockets
+subprocess.call(['cp','/home/oliver/.tools/scripts-and-more/emacs/rdm.service','/home/oliver/.config/systemd/user/rdm.service'])
+subprocess.call(['cp','/home/oliver/.tools/scripts-and-more/emacs/rdm.socket','/home/oliver/.config/systemd/user/rdm.socket'])
+subprocess.call(['sudo','systemctl','--user','enable','rdm.socket'])
+subprocess.call(['sudo','systemctl','--user','start','rdm.socket'])
+
 
 
 def install(pkg_name):

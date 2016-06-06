@@ -1,0 +1,8 @@
+[Unit]
+Description=RTags daemon
+
+Requires=rdm.socketp
+
+[Service]
+Type=simple
+ExecStart=/home/oliver/.tools/scripts-and-more/emacs/rtags/bin/ -v --inactivity-timeout 300

@@ -5,7 +5,7 @@
 
 ;;; Code:
 (setq cfg-var:packages '(evil
-			           powerline
+                       powerline
                        powerline-evil
                        airline-themes
                        evil-leader
@@ -13,6 +13,8 @@
                        evil-terminal-cursor-changer
                        flycheck
                        company
+                       cmake-mode
+                       cmake-project
                        auctex
                        company-auctex
                        cmake-ide
@@ -33,7 +35,6 @@
                        octave
                        company-shell
                        helm-company
-                       ;;company-jedi 
                        ))
 
 (defun cfg:install-packages ()
@@ -91,8 +92,6 @@
      (define-key company-mode-map (kbd "C-:") 'helm-company)
      (define-key company-active-map (kbd "C-:") 'helm-company)))
 ;;;;; ------ helm-company ---------------------------------------------
-
-                       
                        
 ;;;;; ------ theme ---------------------------------------------
 (load-theme 'idea-darkula t)
@@ -115,7 +114,7 @@
   (setq-local flycheck-highlighting-mode nil) ;; RTags creates more accurate overlays.
   (setq-local flycheck-check-syntax-automatically nil))
 ;; c-mode-common-hook is also called by c++-mode
-(add-hook 'c-mode-common-hook #'my-flycheck-rtags-setup)
+;;(add-hook 'c-mode-common-hook #'my-flycheck-rtags-setup)
 (require 'company)
 (setq rtags-autostart-diagnostics t)
 (rtags-diagnostics)
@@ -273,21 +272,6 @@
                          helm-c-source-locate)
                        "*helm-my-buffer*")))
 ;;;;; ------ helm-eshell ---------------------------------------------
-
-;;;;; ------ helm-cscope ---------------------------------------------
-(require 'helm-cscope)
-;; Enable helm-cscope-mode
-(add-hook 'c-mode-hook 'helm-cscope-mode)
-(add-hook 'c++-mode-hook 'helm-cscope-mode)
-;; Set key bindings
-(eval-after-load "helm-cscope"
-  '(progn
-     (define-key helm-cscope-mode-map (kbd "M-t") 'helm-cscope-find-symbol)
-     (define-key helm-cscope-mode-map (kbd "M-r") 'helm-cscope-find-global-definition)
-     (define-key helm-cscope-mode-map (kbd "M-g M-c") 'helm-cscope-find-called-function)
-     (define-key helm-cscope-mode-map (kbd "M-g M-p") 'helm-cscope-find-calling-this-funtcion)
-     (define-key helm-cscope-mode-map (kbd "M-s") 'helm-cscope-select)))
-;;;;; ------ helm-cscope ---------------------------------------------
 
 
 ;;;;; ------ helm-dictionary ---------------------------------------------
