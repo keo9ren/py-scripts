@@ -1,0 +1,43 @@
+#simple cmake file to get compile commands json
+
+SET(CMAKE_TOOLCHAIN_FILE "../cmake/arm-linux-gnueabihf.cmake")
+SET(CMAKE_MODULE_PATH ${CMAKE_MODULE_PATH} "${CMAKE_SOURCE_DIR}/cmake/modules/")
+PROJECT(emu-daemon)
+
+CMAKE_MINIMUM_REQUIRED(VERSION 2.8)
+ENABLE_LANGUAGE(ASM)
+SET(CMAKE_C_FLAGS "${CMAKE_C_FLAGS} --std=c11 -Wall -g3 -O0 -Dsset_FW_Rev_Main=0 -Dsset_FW_Rev_Sub=0 -Dsset_Rev_Feature=1")
+SET(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} --std=c++11 -Wall -g3 -O0 -Dsset_FW_Rev_Main=0 -Dsset_FW_Rev_Sub=0 -Dsset_Rev_Feature=1")
+SET(CMAKE_ASM_FLAGS "${CMAKE_ASM_FLAGS} ")
+
+
+find_package(Threads_arm_linux_gnueabihf REQUIRED)
+find_package(DL_arm_linux_gnueabihf REQUIRED)
+
+INCLUDE_DIRECTORIES(AFTER ${Threads_arm_linux_gnueabihf_INCLUDES})
+INCLUDE_DIRECTORIES(AFTER ${DL_arm_linux_gnueabihf_INCLUDES})
+
+INCLUDE_DIRECTORIES(
+  src/modules
+  src/modules/Block
+  src/modules/General
+  src/modules/HardwareInterface
+  src/modules/IIC_10bit_HAL
+  src/modules/IIC_SSET
+  src/modules/Master
+  src/modules/Master/CCU
+  src/modules/Master/PCtnl
+  src/modules/SQL
+  src/modules/SQL/sqlite3
+  src/modules/SQL/SSET
+)
+
+file(GLOB_RECURSE PROJECT_SOURCES_CXX src/*.cpp)
+file(GLOB_RECURSE PROJECT_SOURCES_C src/*.c)
+message(STATUS "PROJECT_SOURCES_C: ${PROJECT_SOURCES_C}")
+message(STATUS "PROJECT_SOURCES_CXX: ${PROJECT_SOURCES_CXX}")
+
+
+ADD_EXECUTABLE(${CMAKE_PROJECT_NAME} ${PROJECT_SOURCES_C} ${PROJECT_SOURCES_CXX})
+target_link_libraries (${CMAKE_PROJECT_NAME} ${Threads_arm_linux_gnueabihf_LIBRARIES} ${DL_arm_linux_gnueabihf_LIBRARIES})
+
