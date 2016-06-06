@@ -101,6 +101,11 @@
 ;;;;; ------ flycheck ---------------------------------------------
 (require 'flycheck)
 (add-hook 'after-init-hook #'global-flycheck-mode)
+(dolist (hook '(text-mode-hook tex-mode-hook LaTex-mode-hook))
+  (add-hook hook (lambda () (flyspell-mode 1))))
+(dolist (hook '(change-log-mode-hook log-edit-mode-hook))
+  (add-hook hook (lambda () (flyspell-mode -1))))
+
 ;;;;; ------ flycheck ---------------------------------------------
 ;;;;; ------ rtags ---------------------------------------------
 (load-file "/home/oliver/.tools/scripts-and-more/emacs/rtags/src/rtags.el")
@@ -273,21 +278,6 @@
                          helm-c-source-locate)
                        "*helm-my-buffer*")))
 ;;;;; ------ helm-eshell ---------------------------------------------
-
-;;;;; ------ helm-cscope ---------------------------------------------
-(require 'helm-cscope)
-;; Enable helm-cscope-mode
-(add-hook 'c-mode-hook 'helm-cscope-mode)
-(add-hook 'c++-mode-hook 'helm-cscope-mode)
-;; Set key bindings
-(eval-after-load "helm-cscope"
-  '(progn
-     (define-key helm-cscope-mode-map (kbd "M-t") 'helm-cscope-find-symbol)
-     (define-key helm-cscope-mode-map (kbd "M-r") 'helm-cscope-find-global-definition)
-     (define-key helm-cscope-mode-map (kbd "M-g M-c") 'helm-cscope-find-called-function)
-     (define-key helm-cscope-mode-map (kbd "M-g M-p") 'helm-cscope-find-calling-this-funtcion)
-     (define-key helm-cscope-mode-map (kbd "M-s") 'helm-cscope-select)))
-;;;;; ------ helm-cscope ---------------------------------------------
 
 
 ;;;;; ------ helm-dictionary ---------------------------------------------
