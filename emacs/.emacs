@@ -87,22 +87,55 @@
  '(doc-view-continuous t)
  '(initial-frame-alist (quote ((fullscreen . maximized)))))
 ;;;;; ------ okular ---------------------------------------------
+;;;;; ------ company-mode ---------------------------------------------
+(require 'company)
+(add-hook 'after-init-hook 'global-company-mode)
+(global-company-mode)
 ;;;;; ------ helm-company ---------------------------------------------
 (eval-after-load 'company
   '(progn
      (define-key company-mode-map (kbd "C-:") 'helm-company)
      (define-key company-active-map (kbd "C-:") 'helm-company)))
 ;;;;; ------ helm-company ---------------------------------------------
-                       
+;;;;; ------ company-mode yas-mode ---------------------------------------------
+  (defun check-expansion ()
+    (save-excursion
+      (if (looking-at "\\_>") t
+        (backward-char 1)
+        (if (looking-at "\\.") t
+          (backward-char 1)
+          (if (looking-at "->") t nil)))))
+
+  (defun do-yas-expand ()
+    (let ((yas/fallback-behavior 'return-nil))
+      (yas/expand)))
+
+  (defun tab-indent-or-complete ()
+    (interactive)
+    (if (minibufferp)
+        (minibuffer-complete)
+      (if (or (not yas/minor-mode)
+              (null (do-yas-expand)))
+          (if (check-expansion)
+              (company-complete-common)
+            (indent-for-tab-command)))))
+
+(global-set-key [tab] 'tab-indent-or-complete)
+;;;;; ------ company-mode yas-mode ---------------------------------------------
+;;;;; ------ company-mode ---------------------------------------------
+;;;;; ------ company-shell ---------------------------------------------
+(add-to-list 'company-backends 'company-shell)
+;;;;; ------ company-shell---------------------------------------------
+(push 'company-rtags company-backends)
 ;;;;; ------ theme ---------------------------------------------
 (load-theme 'idea-darkula t)
 (color-theme-approximate-on)
 ;;;;; ------ theme ---------------------------------------------
+;;;;;
 ;;;;; ------ flycheck ---------------------------------------------
 (require 'flycheck)
 (add-hook 'after-init-hook #'global-flycheck-mode)
-
-;;;;; ------ flycheck ---------------------------------------------
+;;;;;
 ;;;;; ------ rtags ---------------------------------------------
 (load-file "/home/oliver/.tools/scripts-and-more/emacs/rtags/src/rtags.el")
 (load-file "/home/oliver/.tools/scripts-and-more/emacs/rtags/src/company-rtags.el")
@@ -117,21 +150,12 @@
   (setq-local flycheck-check-syntax-automatically nil))
 ;; c-mode-common-hook is also called by c++-mode
 (add-hook 'c-mode-common-hook #'my-flycheck-rtags-setup)
-(require 'company)
+(setq rtags-completions-enabled t)
+(setq rtags-use-helm t)
 (setq rtags-autostart-diagnostics t)
 (rtags-diagnostics)
 (setq rtags-completions-enabled t)
-;;;;; ------ company-shell ---------------------------------------------
-(add-to-list 'company-backends 'company-shell)
-;;;;; ------ company-shell---------------------------------------------
-(push 'company-rtags company-backends)
-(global-company-mode)
-;;(add-hook 'after-init-hook 'global-company-mode)
-(define-key c-mode-base-map (kbd "<C-tab>") (function company-complete))
-(add-hook 'after-init-hook 'global-company-mode)
-(setq rtags-use-helm t)
-
-;;;;; ------ rtags ---------------------------------------------
+;;;; ------ rtags ---------------------------------------------
 
 
 
@@ -153,10 +177,6 @@
                             (set-fill-column 80)))
 ;;;;; ------ mode-hook ---------------------------------------------
 
-
-(add-to-list 'company-begin-commands 'c-electric-colon)
-(add-to-list 'company-begin-commands 'c-electric-lt-gt)
-;;;;; ------ ycmd ---------------------------------------------
 
 ;;;;; ------ gdb ---------------------------------------------
 ; decent gdb setup
@@ -200,15 +220,14 @@
  )
 ;;;;; ------ reftex ---------------------------------------------
 
-;;;;; ------ spell ---------------------------------------------
-;;hunspell
-;; flyspell 
+;;;;; ------ spell -----------------------------------------
 (require 'ispell)
 (setq ispell-program-name "hunspell")
 (setq ispell-local-dictionary "en_US")
 (dolist (hook '(text-mode-hook tex-mode-hook LaTex-mode-hook))
   (add-hook hook (lambda () (flyspell-mode 1))))
-(add-hook 'prog-mode-hook 'flyspell-prog-mode)
+(dolist (hook '(emacs-lisp-mode-hook prog-mode-hook))
+  (add-hook hook (lambda () (flyspell-prog-mode))))
 ;
 ;;;;; ------ spell ---------------------------------------------
 
@@ -280,7 +299,7 @@
 ;;;;; ------ helm-eshell ---------------------------------------------
 
 
-;;;;; ------ helm-dictionary ---------------------------------------------
+;;;;; ------ helm-ls-git ---------------------------------------------
 (require 'helm-ls-git)
 (global-set-key (kbd "C-<f6>") 'helm-ls-git-ls)
 (global-set-key (kbd "C-x C-d") 'helm-browse-project)
