@@ -110,18 +110,16 @@
 (add-hook 'org-mode-hook
           (lambda ()
             (setq-local company-backends '((company-files company-dabbrev)))))
-(add-hook 'nxml-mode-hook
-          (lambda ()
-            (setq-local company-backends '((company-nxml company-dabbrev-code)))))
-(add-hook 'octave-mode-hook
-          (lambda ()
-            (setq-local company-backends '((company-files company-dabbrev-code)))))
 (add-hook 'octave-mode-hook
           (lambda ()
             (setq-local company-backends '((company-files company-dabbrev-code)))))
 (add-hook 'python-mode-hook
           (lambda ()
             (setq-local company-backends '((company-files company-jedi company-dabbrev-code)))))
+(add-hook 'nxml-mode-hook
+          (lambda ()
+            (setq-local company-backends '((company-nxml company-dabbrev-code)))))
+
 
 ;;;;; ------ helm-company ---------------------------------------------
 (eval-after-load 'company
@@ -227,6 +225,12 @@
 ;;; company-mode
 (require 'company-auctex)
 (company-auctex-init)
+(add-hook 'LaTex-mode-hook
+          (lambda ()
+            (setq-local company-backends '((company-auctex company-auctex-bib-candidates company-auctex-bibs company-dabbrev-code)))))
+(add-hook 'latex-mode-hook
+          (lambda ()
+            (setq-local company-backends '((company-auctex company-auctex-bib-candidates company-auctex-bibs company-dabbrev-code)))))
 ;;;;; ------ auctex ---------------------------------------------
 
 
