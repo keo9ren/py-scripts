@@ -35,6 +35,7 @@
                        octave
                        company-shell
                        helm-company
+                       jedi-core
                        company-jedi
                        ))
 
@@ -88,9 +89,40 @@
  '(initial-frame-alist (quote ((fullscreen . maximized)))))
 ;;;;; ------ okular ---------------------------------------------
 ;;;;; ------ company-mode ---------------------------------------------
+;; unused modes;;company-semantic;company-ispell;company-etags;company-gtags;company-css
 (require 'company)
 (add-hook 'after-init-hook 'global-company-mode)
-(global-company-mode)
+(setq company-backends '((
+                          company-files
+                          company-dabbrev-code
+                          company-dabbrev
+                          company-oddmuse
+                          company-capf
+                          )))
+(add-hook 'c-mode-hook
+          (lambda ()
+            (setq-local company-backends '((company-files company-clang company-dabbrev-code company-keywords)))
+          ))
+(add-hook 'cmake-mode-hook
+          (lambda ()
+            (setq-local company-backends '((company-files company-cmake company-dabbrev-code)))
+          ))
+(add-hook 'org-mode-hook
+          (lambda ()
+            (setq-local company-backends '((company-files company-dabbrev)))))
+(add-hook 'nxml-mode-hook
+          (lambda ()
+            (setq-local company-backends '((company-nxml company-dabbrev-code)))))
+(add-hook 'octave-mode-hook
+          (lambda ()
+            (setq-local company-backends '((company-files company-dabbrev-code)))))
+(add-hook 'octave-mode-hook
+          (lambda ()
+            (setq-local company-backends '((company-files company-dabbrev-code)))))
+(add-hook 'python-mode-hook
+          (lambda ()
+            (setq-local company-backends '((company-files company-jedi company-dabbrev-code)))))
+
 ;;;;; ------ helm-company ---------------------------------------------
 (eval-after-load 'company
   '(progn
@@ -123,10 +155,6 @@
 (global-set-key [tab] 'tab-indent-or-complete)
 ;;;;; ------ company-mode yas-mode ---------------------------------------------
 ;;;;; ------ company-mode ---------------------------------------------
-;;;;; ------ company-shell ---------------------------------------------
-(add-to-list 'company-backends 'company-shell)
-;;;;; ------ company-shell---------------------------------------------
-(push 'company-rtags company-backends)
 ;;;;; ------ theme ---------------------------------------------
 (load-theme 'idea-darkula t)
 (color-theme-approximate-on)
@@ -155,6 +183,7 @@
 (setq rtags-autostart-diagnostics t)
 (rtags-diagnostics)
 (setq rtags-completions-enabled t)
+(push 'company-rtags company-backends)
 ;;;; ------ rtags ---------------------------------------------
 
 
@@ -270,7 +299,6 @@
 (when (executable-find "ack-grep")
   (setq helm-grep-default-command "ack-grep -Hn --no-group --no-color %e %p %f"
         helm-grep-default-recurse-command "ack-grep -H --no-group --no-color %e %p %f"))
-;; TODO: helm-semantic or imenu look for noise according to ycmd
 (semantic-mode 1)
 (helm-mode 1)
 (global-set-key (kbd "M-x") 'helm-M-x)
@@ -295,9 +323,8 @@
                          helm-c-source-ctags
                          helm-c-source-recentf
                          helm-c-source-locate)
-                       "*helm-my-buffer*")))
+                         "*helm-my-buffer*")))
 ;;;;; ------ helm-eshell ---------------------------------------------
-
 
 ;;;;; ------ helm-ls-git ---------------------------------------------
 (require 'helm-ls-git)
