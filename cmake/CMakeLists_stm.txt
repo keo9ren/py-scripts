@@ -1,0 +1,35 @@
+#currently just working for compile_commands.json
+SET(CMAKE_BUILD_TYPE "DEBUG")
+SET(CMAKE_TOOLCHAIN_FILE "${CMAKE_SOURCE_DIR}/cmake/gcc_mystm.cmake")
+#SET(CMAKE_MODULE_PATH ${CMAKE_MODULE_PATH} "${CMAKE_SOURCE_DIR}/cmake")
+PROJECT(emu-blockcontroller)
+
+CMAKE_MINIMUM_REQUIRED(VERSION 2.8)
+ENABLE_LANGUAGE(ASM C)
+ 
+SET(CMAKE_C_FLAGS "${CMAKE_C_FLAGS} --std=gnu11 -Wall -Wextra -DSTM32F030x8")
+SET(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} --std=gnu++11 -Wall -Wextra -DSTM32F030x8")
+SET(CMAKE_ASM_FLAGS "${CMAKE_ASM_FLAGS} ")
+
+
+INCLUDE_DIRECTORIES(
+ include
+ include/flash
+ include/digitalout
+ include/cominterface
+ system/include
+ system/include/stm32f0xx
+ system/include/cmsis
+ system/include/cmsis/device
+)
+
+
+file(GLOB_RECURSE PROJECT_SOURCES_C_SRC src/*.c)
+file(GLOB_RECURSE PROJECT_SOURCES_C_SYS system/*.c)
+message(STATUS "PROJECT_SOURCES_C_SRC ${PROJECT_SOURCES_C_SRC}")
+message(STATUS "PROJECT_SOURCES_C_SYS ${PROJECT_SOURCES_C_SYS}")
+
+
+ADD_EXECUTABLE(${CMAKE_PROJECT_NAME} ${PROJECT_SOURCES_C_SRC} ${PROJECT_SOURCES_C_SYS})
+#target_link_libraries (${CMAKE_PROJECT_NAME})
+
