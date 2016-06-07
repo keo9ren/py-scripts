@@ -101,10 +101,6 @@
 ;;;;; ------ flycheck ---------------------------------------------
 (require 'flycheck)
 (add-hook 'after-init-hook #'global-flycheck-mode)
-;(dolist (hook '(text-mode-hook tex-mode-hook LaTex-mode-hook))
-;  (add-hook hook (lambda () (flyspell-mode 1))))
-;(dolist (hook '(change-log-mode-hook log-edit-mode-hook))
- ; (add-hook hook (lambda () (flyspell-mode -1))))
 
 ;;;;; ------ flycheck ---------------------------------------------
 ;;;;; ------ rtags ---------------------------------------------
@@ -210,6 +206,10 @@
 (require 'ispell)
 (setq ispell-program-name "hunspell")
 (setq ispell-local-dictionary "en_US")
+(dolist (hook '(text-mode-hook tex-mode-hook LaTex-mode-hook))
+  (add-hook hook (lambda () (flyspell-mode 1))))
+(add-hook 'prog-mode-hook 'flyspell-prog-mode)
+;
 ;;;;; ------ spell ---------------------------------------------
 
 ;;;;; ------ helm ---------------------------------------------
