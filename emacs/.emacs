@@ -108,49 +108,6 @@
 ;; unused modes;;company-semantic;company-ispell;company-etags;company-gtags;company-css
 (require 'company)
 (add-hook 'after-init-hook 'global-company-mode)
-(setq company-backends '((
-                          company-files
-                          company-dabbrev-code
-                          company-dabbrev
-                          company-oddmuse
-                          company-capf
-                          )))
-(add-hook 'cmake-mode-hook
-          (lambda ()
-            (setq-local company-backends '((company-files company-cmake company-dabbrev-code)))
-          ))
-(add-hook 'org-mode-hook
-          (lambda ()
-            (setq-local company-backends '((company-files company-dabbrev)))))
-(add-hook 'octave-mode-hook
-          (lambda ()
-            (setq-local company-backends '((company-files company-dabbrev-code)))))
-(add-hook 'python-mode-hook
-          (lambda ()
-            (setq-local company-backends '((company-files company-jedi company-dabbrev-code)))))
-(add-hook 'nxml-mode-hook
-          (lambda ()
-            (setq-local company-backends '((company-nxml company-dabbrev-code)))))
-(add-hook 'shell-mode-hook
-          (lambda ()
-            (setq-local company-backends '((company-files company-shell company-dabbrev)))))
-;;;fci
-(add-hook 'text-mode-hook (lambda () (turn-on-auto-fill)
-                            (fci-mode)
-                            (set-fill-column 80)))
-(add-hook 'markdown-mode-hook (lambda () (turn-on-auto-fill)
-                            (fci-mode)
-                            (set-fill-column 80)))
-(add-hook 'python-mode-hook (lambda () 
-                            (fci-mode)
-                            (set-fill-column 100)))
-(add-hook 'c-mode-hook (lambda () 
-                            (fci-mode)
-                            (set-fill-column 80)))
-(add-hook 'octave-mode-hook (lambda () 
-                            (fci-mode)
-                            (set-fill-column 80)))
-;;;;;
 ;;;;; ------ helm-company ---------------------------------------------
 (eval-after-load 'company
   '(progn
@@ -197,25 +154,13 @@
 (load-file "/home/oliver/.tools/scripts-and-more/emacs/rtags/src/company-rtags.el")
 (load-file "/home/oliver/.tools/scripts-and-more/emacs/rtags/src/flycheck-rtags.el")
 (require 'rtags)
-(defun my-c-mode-hook ()
-    "MY HOOK FOR C MODE."
-    (interactive)
-    (cmake-ide-setup)
-    (setq rtags-completions-enabled t)
-    ;(setq rtags-use-helm t)
-    ;(setq rtags-autostart-diagnostics t)
-    ;(rtags-diagnostics)
-    (cmake-ide-run-cmake)
-)
-(defun my-c++-mode-hook ()
+;;;; ------ rtags ---------------------------------------------
+;;;;
+;;;; ------ apply-mode-hooks ---------------------------------------------
+(defun my-c++-mode-hooks ()
   "MY C++."
   (interactive)
-  (cmake-ide-setup)
   (setq rtags-completions-enabled t)
-  )
-(defun my-c-company-backends ()
-  "MY C++."
-  (interactive)
   (setq-local company-backends '(
   (company-clang)
   (company-rtags); slow compared to clang
@@ -224,13 +169,71 @@
   (company-dabbrev)
   (company-oddmuse)
   (company-capf)
-  )))
-(add-hook 'c-mode-hook #'my-c++-mode-hook)
-(add-hook 'c-mode-hook #'my-c-company-backends)
-(add-hook 'c++-mode-hook #'my-c++-mode-hook)
-(add-hook 'c++-mode-hook #'my-c-company-backends)
-;;;; ------ rtags ---------------------------------------------
-
+  ))
+  )
+(add-hook 'c++-mode-hook #'my-c++-mode-hooks)
+(defun my-c-mode-hooks ()
+  "MY C++."
+  (interactive)
+  (cmake-ide-setup)
+  (setq rtags-completions-enabled t)
+  (setq-local company-backends '(
+  (company-clang)
+  (company-rtags); slow compared to clang
+  (company-files)
+  (company-dabbrev-code)
+  (company-dabbrev)
+  (company-oddmuse)
+  (company-capf)
+  ))
+  )
+(add-hook 'c-mode-hook #'my-c-mode-hooks)
+(setq company-backends '((
+                          company-files
+                          company-dabbrev-code
+                          company-dabbrev
+                          company-oddmuse
+                          company-capf
+                          )))
+;;; substitute lambdas with functions
+(add-hook 'cmake-mode-hook
+          (lambda ()
+            (setq-local company-backends '((company-files company-cmake company-dabbrev-code)))
+          ))
+(add-hook 'org-mode-hook
+          (lambda ()
+            (setq-local company-backends '((company-files company-dabbrev)))))
+(add-hook 'octave-mode-hook
+          (lambda ()
+            (setq-local company-backends '((company-files company-dabbrev-code)))))
+(add-hook 'python-mode-hook
+          (lambda ()
+            (setq-local company-backends '((company-files company-jedi company-dabbrev-code)))))
+(add-hook 'nxml-mode-hook
+          (lambda ()
+            (setq-local company-backends '((company-nxml company-dabbrev-code)))))
+(add-hook 'shell-mode-hook
+          (lambda ()
+            (setq-local company-backends '((company-files company-shell company-dabbrev)))))
+;;;fci
+(add-hook 'text-mode-hook (lambda () (turn-on-auto-fill)
+                            (fci-mode)
+                            (set-fill-column 80)))
+(add-hook 'markdown-mode-hook (lambda () (turn-on-auto-fill)
+                            (fci-mode)
+                            (set-fill-column 80)))
+(add-hook 'python-mode-hook (lambda () 
+                            (fci-mode)
+                            (set-fill-column 100)))
+(add-hook 'c-mode-hook (lambda () 
+                            (fci-mode)
+                            (set-fill-column 80)))
+(add-hook 'octave-mode-hook (lambda () 
+                            (fci-mode)
+                            (set-fill-column 80)))
+;;;;;
+;;;;
+;;;; ------ apply-mode-hooks ---------------------------------------------
 
 
 ;;;;; ------ mode-hook ---------------------------------------------
