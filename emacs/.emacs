@@ -14,10 +14,12 @@
                        evil-terminal-cursor-changer
                        flycheck
                        company
+                       company-c-headers
                        cmake-mode
                        cmake-project
                        auctex
                        company-auctex
+                       rtags
                        cmake-ide
                        helm
                        helm-projectile
@@ -113,10 +115,6 @@
                           company-oddmuse
                           company-capf
                           )))
-(add-hook 'c-mode-hook
-          (lambda ()
-            (setq-local company-backends '((company-files company-clang company-dabbrev-code company-keywords)))
-          ))
 (add-hook 'cmake-mode-hook
           (lambda ()
             (setq-local company-backends '((company-files company-cmake company-dabbrev-code)))
@@ -196,26 +194,41 @@
 (add-hook 'after-init-hook #'global-flycheck-mode)
 ;;;;;
 ;;;;; ------ rtags ---------------------------------------------
-(load-file "/home/oliver/.tools/scripts-and-more/emacs/rtags/src/rtags.el")
 (load-file "/home/oliver/.tools/scripts-and-more/emacs/rtags/src/company-rtags.el")
 (load-file "/home/oliver/.tools/scripts-and-more/emacs/rtags/src/flycheck-rtags.el")
 (require 'rtags)
-(cmake-ide-setup)
-(add-hook 'c-mode-common-hook 'rtags-start-process-unless-running)
-(add-hook 'c++-mode-common-hook 'rtags-start-process-unless-running)
-(defun my-flycheck-rtags-setup ()
-  (flycheck-select-checker 'rtags)
-  (setq-local flycheck-highlighting-mode nil) ;; RTags creates more accurate overlays.
-  (setq-local flycheck-check-syntax-automatically nil))
-;; c-mode-common-hook is also called by c++-mode
-(add-hook 'c-mode-common-hook #'my-flycheck-rtags-setup)
-(setq rtags-completions-enabled t)
-(setq rtags-use-helm t)
-(setq rtags-autostart-diagnostics t)
-(rtags-diagnostics)
-(setq rtags-completions-enabled t)
-(push 'company-rtags company-backends)
-;;;; ------ rtags-hook-for-c-mode
+(defun my-c-mode-hook ()
+    "MY HOOK FOR C MODE."
+    (interactive)
+    (cmake-ide-setup)
+    (setq rtags-completions-enabled t)
+    ;(setq rtags-use-helm t)
+    ;(setq rtags-autostart-diagnostics t)
+    ;(rtags-diagnostics)
+    (cmake-ide-run-cmake)
+)
+(defun my-c++-mode-hook ()
+  "MY C++."
+  (interactive)
+  (cmake-ide-setup)
+  (setq rtags-completions-enabled t)
+  )
+(defun my-c-company-backends ()
+  "MY C++."
+  (interactive)
+  (setq-local company-backends '(
+  (company-clang)
+  (company-rtags); slow compared to clang
+  (company-files)
+  (company-dabbrev-code)
+  (company-dabbrev)
+  (company-oddmuse)
+  (company-capf)
+  )))
+(add-hook 'c-mode-hook #'my-c++-mode-hook)
+(add-hook 'c-mode-hook #'my-c-company-backends)
+(add-hook 'c++-mode-hook #'my-c++-mode-hook)
+(add-hook 'c++-mode-hook #'my-c-company-backends)
 ;;;; ------ rtags ---------------------------------------------
 
 
@@ -243,9 +256,9 @@
 ;maybe outdated as well integrated
 ;(load "preview-latex.el" nil t t)
 (require 'tex-site)
-;;; company-mode
 (require 'company-auctex)
-(company-auctex-init)
+(add-hook 'LaTex-mode-hook 'company-auctex-init)
+(add-hook 'latex-mode-hook 'company-auctex-init)
 (add-hook 'LaTex-mode-hook
           (lambda ()
             (setq-local company-backends '((company-auctex company-auctex-bib-candidates company-auctex-bibs company-dabbrev-code)))))
