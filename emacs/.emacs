@@ -2,8 +2,9 @@
 ;;; commentary:
 (require 'cl)
 (require 'package)
-
+;;;
 ;;; Code:
+;;;;; ------ install-packages ---------------------------------------------
 (setq cfg-var:packages '(evil
                        powerline
                        powerline-evil
@@ -37,8 +38,10 @@
                        helm-company
                        jedi-core
                        company-jedi
+                       magit
+                       evil-magit
                        ))
-
+;;;
 (defun cfg:install-packages ()
     (let ((pkgs (remove-if #'package-installed-p cfg-var:packages)))
        (when pkgs
@@ -47,16 +50,17 @@
             (message "%s" " done.")
             (dolist (p cfg-var:packages)
                 (package-install p)))))
-
+;;
 (add-to-list 'package-archives '("gnu" . "http://elpa.gnu.org/packages/") t)
 (add-to-list 'package-archives '("melpa" . "http://melpa.org/packages/") t)
 (add-to-list 'package-archives '("melpa-stable" . "http://stable.melpa.org/packages/") t)
 (add-to-list 'package-archives '("org" . "http://orgmode.org/elpa/") t)
 (package-initialize)
-
+;;;;; ------ install-packages ---------------------------------------------
+;;;;;
 (cfg:install-packages)
 (setq inhibit-startup-message t)
-;;;
+;;;;
 (setq-default tab-width 4 indent-tabs-mode nil)
 ;;; open file on last edit
 (setq save-place-file "~/.emacs.d/saveplace")
@@ -88,6 +92,16 @@
  '(doc-view-continuous t)
  '(initial-frame-alist (quote ((fullscreen . maximized)))))
 ;;;;; ------ okular ---------------------------------------------
+;;;;;
+;;;;; ------ magit ---------------------------------------------
+(require 'magit)
+;;;;; ------ magit ---------------------------------------------
+;;;;;
+;;;;;
+;;;;; ------ evil-magit ---------------------------------------------
+(require 'evil-magit)
+;;;;; ------ evil-magit ---------------------------------------------
+;;;;;
 ;;;;; ------ company-mode ---------------------------------------------
 ;; unused modes;;company-semantic;company-ispell;company-etags;company-gtags;company-css
 (require 'company)
@@ -122,14 +136,27 @@
 (add-hook 'shell-mode-hook
           (lambda ()
             (setq-local company-backends '((company-files company-shell company-dabbrev)))))
-
-
+;;;fci
+(add-hook 'text-mode-hook (lambda () (turn-on-auto-fill)
+                            (fci-mode)
+                            (set-fill-column 80)))
+(add-hook 'markdown-mode-hook (lambda () (turn-on-auto-fill)
+                            (fci-mode)
+                            (set-fill-column 80)))
+(add-hook 'python-mode-hook (lambda () 
+                            (fci-mode)
+                            (set-fill-column 100)))
+(add-hook 'c-mode-hook (lambda () 
+                            (fci-mode)
+                            (set-fill-column 80)))
+;;;;;
 ;;;;; ------ helm-company ---------------------------------------------
 (eval-after-load 'company
   '(progn
      (define-key company-mode-map (kbd "C-:") 'helm-company)
      (define-key company-active-map (kbd "C-:") 'helm-company)))
 ;;;;; ------ helm-company ---------------------------------------------
+;;;;;
 ;;;;; ------ company-mode yas-mode ---------------------------------------------
   (defun check-expansion ()
     (save-excursion
@@ -185,6 +212,7 @@
 (rtags-diagnostics)
 (setq rtags-completions-enabled t)
 (push 'company-rtags company-backends)
+;;;; ------ rtags-hook-for-c-mode
 ;;;; ------ rtags ---------------------------------------------
 
 
@@ -192,19 +220,6 @@
 ;;;;; ------ mode-hook ---------------------------------------------
 ;;;vim like indent
 (define-key global-map (kbd "RET") 'newline-and-indent)
-;;;fci
-(add-hook 'text-mode-hook (lambda () (turn-on-auto-fill)
-                            (fci-mode)
-                            (set-fill-column 80)))
-(add-hook 'markdown-mode-hook (lambda () (turn-on-auto-fill)
-                            (fci-mode)
-                            (set-fill-column 80)))
-(add-hook 'python-mode-hook (lambda () 
-                            (fci-mode)
-                            (set-fill-column 100)))
-(add-hook 'c-mode-hook (lambda () 
-                            (fci-mode)
-                            (set-fill-column 80)))
 ;;;;; ------ mode-hook ---------------------------------------------
 
 
@@ -275,6 +290,8 @@
 ;; The default "C-x c" is quite close to "C-x C-c", which quits Emacs.
 ;; Changed to "C-c h". Note: We must set "C-c h" globally, because we
 ;; cannot change `helm-command-prefix-key' once `helm-config' is loaded.
+(semantic-mode 1)
+(helm-mode 1)
 (global-set-key (kbd "C-c h") 'helm-command-prefix)
 (global-unset-key (kbd "C-x c"))
 (global-set-key (kbd "M-y") 'helm-show-kill-ring)
@@ -283,12 +300,12 @@
 (global-set-key (kbd "C-c h o") 'helm-occur)
 (global-set-key (kbd "C-h SPC") 'helm-all-mark-rings)
 (global-set-key (kbd "C-c h x") 'helm-register)
-
-
+(global-set-key (kbd "M-x") 'helm-M-x)
+;;
 (define-key helm-map (kbd "<tab>") 'helm-execute-persistent-action) ; rebind tab to run persistent action
 (define-key helm-map (kbd "C-i") 'helm-execute-persistent-action) ; make TAB works in terminal
 (define-key helm-map (kbd "C-z")  'helm-select-action) ; list actions using C-z
-
+;;
 (setq helm-quick-update)
 (setq helm-bookmark-show-location t ;
       helm-buffers-fuzzy-matching t ; helm-mini
@@ -306,9 +323,7 @@
 (when (executable-find "ack-grep")
   (setq helm-grep-default-command "ack-grep -Hn --no-group --no-color %e %p %f"
         helm-grep-default-recurse-command "ack-grep -H --no-group --no-color %e %p %f"))
-(semantic-mode 1)
-(helm-mode 1)
-(global-set-key (kbd "M-x") 'helm-M-x)
+
 ;;;;; ------ helm ---------------------------------------------
 
 ;;;;; ------ helm-eshell ---------------------------------------------
