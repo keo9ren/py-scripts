@@ -149,6 +149,9 @@
 (add-hook 'c-mode-hook (lambda () 
                             (fci-mode)
                             (set-fill-column 80)))
+(add-hook 'octave-mode-hook (lambda () 
+                            (fci-mode)
+                            (set-fill-column 80)))
 ;;;;;
 ;;;;; ------ helm-company ---------------------------------------------
 (eval-after-load 'company
