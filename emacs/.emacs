@@ -119,6 +119,9 @@
 (add-hook 'nxml-mode-hook
           (lambda ()
             (setq-local company-backends '((company-nxml company-dabbrev-code)))))
+(add-hook 'shell-mode-hook
+          (lambda ()
+            (setq-local company-backends '((company-files company-shell company-dabbrev)))))
 
 
 ;;;;; ------ helm-company ---------------------------------------------
