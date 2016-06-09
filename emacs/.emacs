@@ -156,78 +156,6 @@
 (require 'rtags)
 ;;;; ------ rtags ---------------------------------------------
 ;;;;
-;;;; ------ functions-for-mode-hooks ---------------------------------------------
-(defun my-c++-mode-hooks ()
-  "MY C++."
-  (interactive)
-  (setq rtags-completions-enabled t)
-  (setq-local company-backends '(
-  (company-clang)
-  (company-rtags); slow compared to clang
-  (company-files)
-  (company-dabbrev-code)
-  (company-dabbrev)
-  (company-oddmuse)
-  (company-capf)
-  ))
-  )
-(add-hook 'c++-mode-hook #'my-c++-mode-hooks)
-(defun my-c-mode-hooks ()
-  "MY C++."
-  (interactive)
-  (cmake-ide-setup)
-  (setq rtags-completions-enabled t)
-  (setq-local company-backends '(
-  (company-clang)
-  (company-rtags); slow compared to clang
-  (company-files)
-  (company-dabbrev-code)
-  (company-dabbrev)
-  (company-oddmuse)
-  (company-capf)
-  ))
-  )
-(add-hook 'c-mode-hook #'my-c-mode-hooks)
-(setq company-backends '((
-                          company-files
-                          company-dabbrev-code
-                          company-dabbrev
-                          company-oddmuse
-                          company-capf
-                          )))
-(defun my-cmake-mode-hooks()
- "MY-CMAKE-MODE-HOOKS."
- (setq-local company-backends '((company-files company-cmake company-dabbrev-code)))
-  )
-(defun my-org-mode-hooks()
- "MY-ORG-MODE-HOOKS."
- (setq-local company-backends '((company-files company-dabbrev)))
-  )
-(defun my-octave-mode-hooks()
- "MY-OCTAVE-MODE-HOOKS."
- (setq-local company-backends '((company-files company-dabbrev-code)))
-  )
-(defun my-python-mode-hooks()
- "MY-PYTHON-MODE-HOOKS."
- (setq-local company-backends '((company-files company-jedi company-dabbrev-code)))
-  )
-(defun my-nxml-mode-hooks()
- "MY-NXML-MODE-HOOKS."
- (setq-local company-backends '((company-files company-nxml company-dabbrev-code)))
-  )
-(defun my-shell-mode-hooks()
- "MY-SHELL-MODE-HOOKS."
- (setq-local company-backends '((company-shell company-files company-dabbrev)))
-  )
-;;;; ------ apply-mode-hooks ---------------------------------------------
-(add-hook 'cmake-mode-hook #'my-cmake-mode-hooks)
-(add-hook 'org-mode-hook #'my-org-mode-hooks)
-(add-hook 'octave-mode-hook #'my-octave-mode-hooks)
-(add-hook 'python-mode-hook #'my-python-mode-hooks)
-(add-hook 'nxml-mode-hook #'my-nxml-mode-hooks)
-(add-hook 'shell-mode-hook #'my-shell-mode-hooks)
-
-;;;; ------ apply-mode-hooks-end ---------------------------------------------
 
 ;;;fci
 (add-hook 'text-mode-hook (lambda () (turn-on-auto-fill)
@@ -515,6 +443,79 @@
 
 ;;;;; ------ Octave-mode-end ---------------------------------------------
 
+;;;;; ------ my-x-mode-hooks ---------------------------------------------
+(defun my-c++-mode-hooks ()
+  "MY C++."
+  (interactive)
+  (setq rtags-completions-enabled t)
+  (setq-local company-backends '(
+  (company-clang)
+  (company-rtags); slow compared to clang
+  (company-files)
+  (company-dabbrev-code)
+  (company-dabbrev)
+  (company-oddmuse)
+  (company-capf)
+  ))
+  )
+(add-hook 'c++-mode-hook #'my-c++-mode-hooks)
+(defun my-c-mode-hooks ()
+  "MY C++."
+  (interactive)
+  (cmake-ide-setup)
+  (setq rtags-completions-enabled t)
+  (setq-local company-backends '(
+  (company-clang)
+  (company-rtags); slow compared to clang
+  (company-files)
+  (company-dabbrev-code)
+  (company-dabbrev)
+  (company-oddmuse)
+  (company-capf)
+  ))
+  )
+(add-hook 'c-mode-hook #'my-c-mode-hooks)
+(setq company-backends '((
+                          company-files
+                          company-dabbrev-code
+                          company-dabbrev
+                          company-oddmuse
+                          company-capf
+                          )))
+(defun my-cmake-mode-hooks()
+ "MY-CMAKE-MODE-HOOKS."
+ (setq-local company-backends '((company-files company-cmake company-dabbrev-code)))
+  )
+(defun my-org-mode-hooks()
+ "MY-ORG-MODE-HOOKS."
+ (setq-local company-backends '((company-files company-dabbrev)))
+  )
+(defun my-octave-mode-hooks()
+ "MY-OCTAVE-MODE-HOOKS."
+ (setq-local company-backends '((company-files company-dabbrev-code)))
+  )
+(defun my-python-mode-hooks()
+ "MY-PYTHON-MODE-HOOKS."
+ (setq-local company-backends '((company-files company-jedi company-dabbrev-code)))
+  )
+(defun my-nxml-mode-hooks()
+ "MY-NXML-MODE-HOOKS."
+ (setq-local company-backends '((company-files company-nxml company-dabbrev-code)))
+  )
+(defun my-shell-mode-hooks()
+ "MY-SHELL-MODE-HOOKS."
+ (setq-local company-backends '((company-shell company-files company-dabbrev)))
+  )
+;;;; ------ apply-mode-hooks ---------------------------------------------
+(add-hook 'cmake-mode-hook #'my-cmake-mode-hooks)
+(add-hook 'org-mode-hook #'my-org-mode-hooks)
+(add-hook 'octave-mode-hook #'my-octave-mode-hooks)
+(add-hook 'python-mode-hook #'my-python-mode-hooks)
+(add-hook 'nxml-mode-hook #'my-nxml-mode-hooks)
+(add-hook 'shell-mode-hook #'my-shell-mode-hooks)
+
+;;;;; ------ apply-mode-hooks-end ---------------------------------------------
+;;;;;
 ;;;;; ------ evil-mode-start ---------------------------------------------
 ; should alway be the last
 (require 'evil)
