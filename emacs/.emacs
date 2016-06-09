@@ -96,10 +96,6 @@
 ;;;;;
 ;;;;; ------ magit ---------------------------------------------
 (require 'magit)
-;;;;; ------ magit ---------------------------------------------
-;;;;;
-;;;;;
-;;;;; ------ evil-magit ---------------------------------------------
 (require 'evil-magit)
 ;;;;; ------ evil-magit ---------------------------------------------
 ;;;;;
@@ -440,6 +436,13 @@
 ;;;;; ------ Octave-mode-end ---------------------------------------------
 
 ;;;;; ------ my-x-mode-hooks ---------------------------------------------
+(setq company-backends '((
+                          company-files
+                          company-dabbrev-code
+                          company-dabbrev
+                          company-oddmuse
+                          company-capf
+                          )))
 (defun my-c++-mode-hooks ()
   "MY C++."
   (interactive)
@@ -447,15 +450,16 @@
   (setq rtags-completions-enabled t)
   (setq semantic-mode 1)
   (setq-local company-backends '(
-  (company-clang)
-  (company-keywords);doesn't work well
-  (company-rtags); slow compared to clang
-  (company-files)
-  (company-dabbrev-code)
-  (company-dabbrev)
-  (company-oddmuse)
-  (company-capf)
-  ))
+  (company-keywords
+  company-rtags; slow compared to clang
+  company-clang
+  company-semantic
+  company-files
+  company-dabbrev-code
+  company-dabbrev
+  company-oddmuse
+  company-capf))
+  )
   )
 (add-hook 'c++-mode-hook #'my-c++-mode-hooks)
 (defun my-c-mode-hooks ()
@@ -465,24 +469,18 @@
   (setq semantic-mode 1)
   (setq rtags-completions-enabled t)
   (setq-local company-backends '(
-  (company-clang)
-  (company-keywords);doesn't work well
-  (company-rtags); slow compared to clang
-  (company-files)
-  (company-dabbrev-code)
-  (company-dabbrev)
-  (company-oddmuse)
-  (company-capf)
+  (company-keywords
+  company-semantic
+  company-clang
+  company-rtags
+  company-files
+  company-dabbrev-code
+  company-dabbrev
+  company-oddmuse
+  company-capf)
   ))
   )
 (add-hook 'c-mode-hook #'my-c-mode-hooks)
-(setq company-backends '((
-                          company-files
-                          company-dabbrev-code
-                          company-dabbrev
-                          company-oddmuse
-                          company-capf
-                          )))
 (defun my-cmake-mode-hooks()
  "MY-CMAKE-MODE-HOOKS."
  (setq-local company-backends '((company-files company-cmake company-dabbrev-code)))
