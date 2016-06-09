@@ -24,6 +24,7 @@
                        helm-projectile
                        helm-dictionary
                        helm-c-yasnippet
+                       helm-ls-git-ls
                        smooth-scrolling
                        fill-column-indicator
                        idea-darkula-theme
