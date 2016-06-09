@@ -147,14 +147,6 @@
 ;(load "preview-latex.el" nil t t)
 (require 'tex-site)
 (require 'company-auctex)
-(add-hook 'LaTex-mode-hook 'company-auctex-init)
-(add-hook 'latex-mode-hook 'company-auctex-init)
-(add-hook 'LaTex-mode-hook
-          (lambda ()
-            (setq-local company-backends '((company-auctex company-auctex-bib-candidates company-auctex-bibs company-dabbrev-code)))))
-(add-hook 'latex-mode-hook
-          (lambda ()
-            (setq-local company-backends '((company-auctex company-auctex-bib-candidates company-auctex-bibs company-dabbrev-code)))))
 ;;;;; ------ auctex ---------------------------------------------
 ;;;;; ------ okular ---------------------------------------------
 (custom-set-variables
@@ -421,7 +413,6 @@
   (fci-mode)
   (set-fill-column 80)
   )
-(add-hook 'c++-mode-hook #'my-c++-mode-hooks)
 (defun my-c-mode-hooks ()
   "MY C++."
   (interactive)
@@ -442,35 +433,40 @@
   (fci-mode)
   (set-fill-column 80)
   )
-(add-hook 'c-mode-hook #'my-c-mode-hooks)
 (defun my-cmake-mode-hooks()
  "MY-CMAKE-MODE-HOOKS."
  (setq-local company-backends '((company-files company-cmake company-dabbrev-code)))
   )
+;
 (defun my-org-mode-hooks()
  "MY-ORG-MODE-HOOKS."
  (setq-local company-backends '((company-files company-dabbrev)))
   )
+;
 (defun my-octave-mode-hooks()
  "MY-OCTAVE-MODE-HOOKS."
  (setq-local company-backends '((company-files company-dabbrev-code)))
  (fci-mode)
  (set-fill-column 80)
   )
+;
 (defun my-python-mode-hooks()
  "MY-PYTHON-MODE-HOOKS."
  (setq-local company-backends '((company-files company-jedi company-dabbrev-code)))
  (fci-mode)
  (set-fill-column 100)
   )
+;
 (defun my-nxml-mode-hooks()
  "MY-NXML-MODE-HOOKS."
  (setq-local company-backends '((company-files company-nxml company-dabbrev-code)))
   )
+;
 (defun my-shell-mode-hooks()
  "MY-SHELL-MODE-HOOKS."
  (setq-local company-backends '((company-files company-shell company-dabbrev)))
  )
+;
 (defun my-text-mode-hooks()
  "MY-TEXT-MODE-HOOKS."
  (setq-local company-backends '((company-ispell company-files company-dabbrev)))
@@ -478,6 +474,7 @@
  (fci-mode)
  (set-fill-column 80)
  )
+;
 (defun my-markdown-mode-hooks()
  "MY-MARKDOWN-MODE-HOOKS."
  (setq-local company-backends '((company-ispell company-files company-dabbrev)))
@@ -485,10 +482,20 @@
  (fci-mode)
  (set-fill-column 80)
  )
+;
+(defun my-latex-mode-hook ()
+  "MY-LATEX-MODE-HOOK."
+   (setq-local company-backends '((company-auctex
+                                   company-auctex-bib-candidates
+                                   company-auctex-bibs
+                                   company-dabbrev-code)))
+)
 ;;;;
 ;;;; ------ apply-mode-hooks ---------------------------------------------
 ;;;;
 ;;;; ------ apply-mode-hooks ---------------------------------------------
+(add-hook 'c++-mode-hook #'my-c++-mode-hooks)
+(add-hook 'c-mode-hook #'my-c-mode-hooks)
 (add-hook 'cmake-mode-hook #'my-cmake-mode-hooks)
 (add-hook 'org-mode-hook #'my-org-mode-hooks)
 (add-hook 'octave-mode-hook #'my-octave-mode-hooks)
@@ -497,6 +504,8 @@
 (add-hook 'shell-mode-hook #'my-shell-mode-hooks)
 (add-hook 'text-mode-hook #'my-text-mode-hooks)
 (add-hook 'markdown-mode-hook #'my-markdown-mode-hooks)
+(add-hook 'LaTex-mode-hook #'my-latex-mode-hook)
+(add-hook 'latex-mode-hook #'my-latex-mode-hook)
 ;;;;;
 ;;;;; ------ apply-mode-hooks-end ---------------------------------------------
 ;;;;;
