@@ -41,6 +41,8 @@
                        company-jedi
                        magit
                        evil-magit
+                       fic-mode
+                       evil-nerd-commenter
                        ))
 ;;;
 (defun cfg:install-packages ()
@@ -103,6 +105,8 @@
 ;; unused modes;;company-semantic;company-ispell;company-etags;company-gtags;company-css
 (require 'company)
 (add-hook 'after-init-hook 'global-company-mode)
+(setq company-minimum-prefix-length 1)
+(setq company-idle-delay 0.1)
 ;;;;; ------ helm-company ---------------------------------------------
 (eval-after-load 'company
   '(progn
@@ -152,28 +156,6 @@
 (require 'rtags)
 ;;;; ------ rtags ---------------------------------------------
 ;;;;
-
-;;;fci
-(add-hook 'text-mode-hook (lambda () (turn-on-auto-fill)
-                            (fci-mode)
-                            (set-fill-column 80)))
-(add-hook 'markdown-mode-hook (lambda () (turn-on-auto-fill)
-                            (fci-mode)
-                            (set-fill-column 80)))
-(add-hook 'python-mode-hook (lambda () 
-                            (fci-mode)
-                            (set-fill-column 100)))
-(add-hook 'c-mode-hook (lambda () 
-                            (fci-mode)
-                            (set-fill-column 80)))
-(add-hook 'octave-mode-hook (lambda () 
-                            (fci-mode)
-                            (set-fill-column 80)))
-;;;;;
-;;;;
-;;;; ------ apply-mode-hooks ---------------------------------------------
-
-
 ;;;;; ------ mode-hook ---------------------------------------------
 ;;;vim like indent
 (define-key global-map (kbd "RET") 'newline-and-indent)
@@ -458,8 +440,10 @@
   company-dabbrev-code
   company-dabbrev
   company-oddmuse
-  company-capf))
-  )
+  company-capf)
+  ))
+  (fci-mode)
+  (set-fill-column 80)
   )
 (add-hook 'c++-mode-hook #'my-c++-mode-hooks)
 (defun my-c-mode-hooks ()
@@ -479,6 +463,8 @@
   company-oddmuse
   company-capf)
   ))
+  (fci-mode)
+  (set-fill-column 80)
   )
 (add-hook 'c-mode-hook #'my-c-mode-hooks)
 (defun my-cmake-mode-hooks()
@@ -492,10 +478,14 @@
 (defun my-octave-mode-hooks()
  "MY-OCTAVE-MODE-HOOKS."
  (setq-local company-backends '((company-files company-dabbrev-code)))
+ (fci-mode)
+ (set-fill-column 80)
   )
 (defun my-python-mode-hooks()
  "MY-PYTHON-MODE-HOOKS."
  (setq-local company-backends '((company-files company-jedi company-dabbrev-code)))
+ (fci-mode)
+ (set-fill-column 100)
   )
 (defun my-nxml-mode-hooks()
  "MY-NXML-MODE-HOOKS."
@@ -504,7 +494,24 @@
 (defun my-shell-mode-hooks()
  "MY-SHELL-MODE-HOOKS."
  (setq-local company-backends '((company-shell company-files company-dabbrev)))
-  )
+ )
+(defun my-text-mode-hooks()
+ "MY-TEXT-MODE-HOOKS."
+ (setq-local company-backends '((company-ispell company-files company-dabbrev)))
+ (turn-on-auto-fill)
+ (fci-mode)
+ (set-fill-column 80)
+ )
+(defun my-markdown-mode-hooks()
+ "MY-MARKDOWN-MODE-HOOKS."
+ (setq-local company-backends '((company-ispell company-files company-dabbrev)))
+ (turn-on-auto-fill)
+ (fci-mode)
+ (set-fill-column 80)
+ )
+;;;;
+;;;; ------ apply-mode-hooks ---------------------------------------------
+;;;;
 ;;;; ------ apply-mode-hooks ---------------------------------------------
 (add-hook 'cmake-mode-hook #'my-cmake-mode-hooks)
 (add-hook 'org-mode-hook #'my-org-mode-hooks)
@@ -512,7 +519,9 @@
 (add-hook 'python-mode-hook #'my-python-mode-hooks)
 (add-hook 'nxml-mode-hook #'my-nxml-mode-hooks)
 (add-hook 'shell-mode-hook #'my-shell-mode-hooks)
-
+(add-hook 'text-mode-hook #'my-text-mode-hooks)
+(add-hook 'markdown-mode-hook #'my-markdown-mode-hooks)
+;;;;;
 ;;;;; ------ apply-mode-hooks-end ---------------------------------------------
 ;;;;;
 ;;;;; ------ evil-mode-start ---------------------------------------------
