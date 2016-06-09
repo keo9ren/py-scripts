@@ -19,7 +19,6 @@
                        cmake-project
                        auctex
                        company-auctex
-                       rtags
                        cmake-ide
                        helm
                        helm-projectile
@@ -151,6 +150,7 @@
 (add-hook 'after-init-hook #'global-flycheck-mode)
 ;;;;;
 ;;;;; ------ rtags ---------------------------------------------
+(load-file "/home/oliver/.tools/scripts-and-more/emacs/rtags/src/rtags.el")
 (load-file "/home/oliver/.tools/scripts-and-more/emacs/rtags/src/company-rtags.el")
 (load-file "/home/oliver/.tools/scripts-and-more/emacs/rtags/src/flycheck-rtags.el")
 (require 'rtags)
@@ -214,7 +214,7 @@
             (setq-local company-backends '((company-nxml company-dabbrev-code)))))
 (add-hook 'shell-mode-hook
           (lambda ()
-            (setq-local company-backends '((company-files company-shell company-dabbrev)))))
+            (setq-local company-backends '((company-shell company-files company-dabbrev)))))
 ;;;fci
 (add-hook 'text-mode-hook (lambda () (turn-on-auto-fill)
                             (fci-mode)
