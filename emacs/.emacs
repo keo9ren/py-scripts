@@ -66,12 +66,12 @@
 ;;;;
 (setq-default tab-width 4 indent-tabs-mode nil)
 ;;; open file on last edit
+(require 'saveplace)
 (setq save-place-file "~/.emacs.d/saveplace")
 (setq-default save-place t)
-(require 'saveplace)
 ;;; disable scrollbar
 (scroll-bar-mode -1)
-;;; open maximized
+;;; open maximized 
 ;;;;; ------ okular ---------------------------------------------
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
@@ -101,13 +101,21 @@
 (require 'evil-magit)
 ;;;;; ------ evil-magit ---------------------------------------------
 ;;;;;
+;;;;; ------ yasnippet-mode ---------------------------------------------
+(require 'yasnippet)
+(require 'helm-c-yasnippet)
+(setq helm-yas-space-match-any-greedy t)
+(global-set-key (kbd "C-c y") 'helm-yas-complete)
+(add-hook 'prog-mode-hook #'yas-minor-mode)
+(add-to-list 'yas-snippet-dirs "/home/oliver/.tools/scripts-and-more/emacs/yasnippet/")
+(yas-reload-all)
+;;;;; ------ yasnippet-mode ---------------------------------------------
 ;;;;; ------ company-mode ---------------------------------------------
-;; unused modes;;company-semantic;company-ispell;company-etags;company-gtags;company-css
 (require 'company)
 (add-hook 'after-init-hook 'global-company-mode)
 (setq company-minimum-prefix-length 1)
 (setq company-idle-delay 0.1)
-;;;;; ------ helm-company ---------------------------------------------
+(require 'helm-company)
 (eval-after-load 'company
   '(progn
      (define-key company-mode-map (kbd "C-:") 'helm-company)
@@ -379,16 +387,6 @@
 (add-hook 'markdown-mode-hook (lambda () (modify-syntax-entry ?\" "\"" markdown-mode-syntax-table)))
 ;;;;; ------ markdown-mode ---------------------------------------------
 
-;;;;; ------ yasnippet-mode ---------------------------------------------
-(require 'yasnippet)
-(require 'helm-c-yasnippet)
-(setq helm-yas-space-match-any-greedy t)
-(global-set-key (kbd "C-c y") 'helm-yas-complete)
-(yas-global-mode t)
-(add-to-list 'yas-snippet-dirs "/home/oliver/.tools/scripts-and-more/emacs/yasnippet/")
-;;(yas-indent-line 'fixed)
-;;(yas-load-directory "")
-;;;;; ------ yasnippet-mode ---------------------------------------------
 
 ;;;;; ------ Octave-mode ---------------------------------------------
 (require 'octave)
@@ -413,8 +411,6 @@
         'comint-previous-input)
     (define-key inferior-octave-mode-map [down]
         'comint-next-input))) 
-
-
 ;;;;; ------ Octave-mode-end ---------------------------------------------
 
 ;;;;; ------ my-x-mode-hooks ---------------------------------------------
