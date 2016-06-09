@@ -196,10 +196,11 @@
                           company-capf
                           )))
 ;;; substitute lambdas with functions
-(add-hook 'cmake-mode-hook
-          (lambda ()
-            (setq-local company-backends '((company-files company-cmake company-dabbrev-code)))
-          ))
+(defun my-cmake-mode-hooks()
+ "MY-CMAKE-MODE-HOOKS."
+ (setq-local company-backends '((company-files company-cmake company-dabbrev-code)))
+  )
+(add-hook 'cmake-mode-hook #'my-cmake-mode-hooks)
 (add-hook 'org-mode-hook
           (lambda ()
             (setq-local company-backends '((company-files company-dabbrev)))))
