@@ -215,6 +215,7 @@
 (add-hook 'shell-mode-hook
           (lambda ()
             (setq-local company-backends '((company-shell company-files company-dabbrev)))))
+
 ;;;fci
 (add-hook 'text-mode-hook (lambda () (turn-on-auto-fill)
                             (fci-mode)
