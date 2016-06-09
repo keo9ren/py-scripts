@@ -67,6 +67,9 @@
 ;;;;; ------ magit ---------------------------------------------
 (require 'magit)
 (require 'evil-magit)
+(add-hook 'magit-mode-hook (global-set-key (kdb "C-c d") 'magit-diff))
+(add-hook 'magit-mode-hook (global-set-key (kdb "C-c s") 'magit-stage-file))
+(add-hook 'magit-mode-hook (global-set-key (kdb "C-c c") 'magit-commit))
 ;;;;; ------ evil-magit ---------------------------------------------
 ;;;;;
 ;;;;; ------ yasnippet-mode ---------------------------------------------
@@ -250,13 +253,13 @@
 ;;;;; ------ helm-eshell ---------------------------------------------
 (require 'eshell)
 (require 'helm-eshell)
-
+;
 (define-key minibuffer-local-map (kbd "C-c C-l")  'helm-minibuffer-history) ; list actions using C-z
 (define-key shell-mode-map (kbd "C-c C-l")  'helm-comint-input-ring) ; list actions using C-z
 (add-hook 'eshell-mode-hook
           #'(lambda ()
               (define-key eshell-mode-map (kbd "C-c C-l")  'helm-eshell-history)))
-
+;
 (defun helm-my-buffers ()
   (interactive)
   (let ((helm-ff-transformer-show-only-basename nil))
@@ -306,11 +309,11 @@
 ;;;;; ------ clang-format-mode ---------------------------------------------
 ;
 ;;;;; ------ spotify-mode ---------------------------------------------
-;(load-file "/home/oliver/.tools/scripts-and-more/emacs/helm-spotify/helm-spotify.el")
-;(require 'helm-spotify)
+(load-file "/home/oliver/.tools/scripts-and-more/emacs/helm-spotify/helm-spotify.el")
+(require 'helm-spotify)
 ;
-;(show-paren-mode 1)
-;(setq show-paren-delay 0)
+(show-paren-mode 1)
+(setq show-paren-delay 0.4)
 ;;;;; ------ spotify-mode ---------------------------------------------
 
 
