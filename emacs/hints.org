@@ -1,0 +1,14 @@
+* Hint on using emacs
+
+** Helm
+
+*** see helm-configuration for help
+    very nice
+    helm-ls-git
+    helm-info-magit
+    helm-occur
+    helm-projectile-grep
+    helm-locate
+    helm-apt
+    helm-find
+    helm-browse-project
