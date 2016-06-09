@@ -414,10 +414,6 @@
 
 ;;;;; ------ Octave-mode ---------------------------------------------
 (require 'octave)
-;; a tip from Jason Mobarak, http://cs.unm.edu/~jmob/windows-octave.txt
-;; I don't know the reason
-;(setenv "DISPLAY" "127.0.0.1:0.0")
-;; autolad octave mode for *.m-files
 (autoload 'octave-mode "octave-mode" nil t)
 (setq auto-mode-alist
 (cons '("\\.m$" . octave-mode) auto-mode-alist))
@@ -447,7 +443,9 @@
 (defun my-c++-mode-hooks ()
   "MY C++."
   (interactive)
+  (cmake-ide-setup)
   (setq rtags-completions-enabled t)
+  (setq semantic-mode 1)
   (setq-local company-backends '(
   (company-clang)
   (company-rtags); slow compared to clang
@@ -463,6 +461,7 @@
   "MY C++."
   (interactive)
   (cmake-ide-setup)
+  (setq semantic-mode 1)
   (setq rtags-completions-enabled t)
   (setq-local company-backends '(
   (company-clang)
