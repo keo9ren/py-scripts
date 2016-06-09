@@ -24,7 +24,8 @@
                        helm-projectile
                        helm-dictionary
                        helm-c-yasnippet
-                       helm-ls-git-ls
+                       helm-ls-git
+                       helm-descbinds
                        smooth-scrolling
                        fill-column-indicator
                        idea-darkula-theme
@@ -204,6 +205,8 @@
 ;;;;; ------ spell ---------------------------------------------
 ;;;;;
 ;;;;; ------ helm ---------------------------------------------
+(require 'helm-descbinds)
+(helm-descbinds-mode)
 (require 'helm-config)
 (require 'helm-misc)
 (require 'helm-projectile)
