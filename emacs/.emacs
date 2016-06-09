@@ -22,7 +22,6 @@
                        cmake-ide
                        helm
                        helm-projectile
-                       helm-ls-git
                        helm-dictionary
                        helm-c-yasnippet
                        smooth-scrolling
@@ -67,9 +66,6 @@
 ;;;;; ------ magit ---------------------------------------------
 (require 'magit)
 (require 'evil-magit)
-(add-hook 'magit-mode-hook (global-set-key (kdb "C-c d") 'magit-diff))
-(add-hook 'magit-mode-hook (global-set-key (kdb "C-c s") 'magit-stage-file))
-(add-hook 'magit-mode-hook (global-set-key (kdb "C-c c") 'magit-commit))
 ;;;;; ------ evil-magit ---------------------------------------------
 ;;;;;
 ;;;;; ------ yasnippet-mode ---------------------------------------------
@@ -271,12 +267,6 @@
                          helm-c-source-locate)
                          "*helm-my-buffer*")))
 ;;;;; ------ helm-eshell ---------------------------------------------
-
-;;;;; ------ helm-ls-git ---------------------------------------------
-(require 'helm-ls-git)
-(global-set-key (kbd "C-<f6>") 'helm-ls-git-ls)
-(global-set-key (kbd "C-x C-d") 'helm-browse-project)
-;;;;; ------ helm-ls-git ---------------------------------------------
 
 
 ;;;;; ------ helm-dictionary ---------------------------------------------
