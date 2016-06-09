@@ -19,6 +19,8 @@
                        cmake-project
                        auctex
                        company-auctex
+                       helm-bibtex;to be tested
+                       helm-bibtexkey;to be tested
                        cmake-ide
                        helm
                        helm-projectile
@@ -26,6 +28,15 @@
                        helm-c-yasnippet
                        helm-ls-git
                        helm-descbinds
+                       helm-ack;to be tested
+                       helm-c-moccur;to be tested
+                       helm-chrome;to be tested
+                       helm-codesearch;to be tested
+                       helm-commandlinefu;to be tested
+                       helm-describe-modes;to be tested
+                       helm-flx
+                       Helm-fuzzier
+                       flyspell-correct-helm;to be tested
                        smooth-scrolling
                        fill-column-indicator
                        idea-darkula-theme
@@ -205,6 +216,10 @@
 ;;;;; ------ spell ---------------------------------------------
 ;;;;;
 ;;;;; ------ helm ---------------------------------------------
+(require 'helm-fuzzier)
+(helm-fuzzier-mode 1)
+(require 'helm-flx)
+(helm-flx-mode +1)
 (require 'helm-descbinds)
 (helm-descbinds-mode)
 (require 'helm-config)
