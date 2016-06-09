@@ -448,6 +448,7 @@
   (setq semantic-mode 1)
   (setq-local company-backends '(
   (company-clang)
+  (company-keywords);doesn't work well
   (company-rtags); slow compared to clang
   (company-files)
   (company-dabbrev-code)
@@ -465,6 +466,7 @@
   (setq rtags-completions-enabled t)
   (setq-local company-backends '(
   (company-clang)
+  (company-keywords);doesn't work well
   (company-rtags); slow compared to clang
   (company-files)
   (company-dabbrev-code)
