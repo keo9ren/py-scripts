@@ -43,6 +43,8 @@
                        evil-magit
                        fic-mode
                        evil-nerd-commenter
+                       multi
+                       multi-eshell
                        ))
 ;;;
 (defun cfg:install-packages ()
@@ -302,27 +304,13 @@
 ;;use clang-format on save
 ;;(add-hook 'before-save-hook 'clang-format-before-save)
 ;;;;; ------ clang-format-mode ---------------------------------------------
-
+;
 ;;;;; ------ spotify-mode ---------------------------------------------
-;;(load-file "/home/oliver/.tools/scripts-and-more/emacs/helm-spotify/helm-spotify.el")
-
-;;helm spotify has errors if called without debug-on-error set. So i wrote this wrapper
-(defun john-spotify ()
-  "wrapper for calling spotify from keyboard shortcut and removing possibility for error"
-  (interactive)
-  (setq debug-on-error t)
-  (helm-spotify)
-  (setq debug-on-error nil))
-(global-set-key (kbd "C-x M-s") 'john-spotify)
-
-(defun spotify-start ()
-  "Start the spotify server."
-  (interactive)
-  (shell-command (format "spotify --minimized &"))
-  )
-;;(get-process "spotify")
-(show-paren-mode 1)
-(setq show-paren-delay 0)
+;(load-file "/home/oliver/.tools/scripts-and-more/emacs/helm-spotify/helm-spotify.el")
+;(require 'helm-spotify)
+;
+;(show-paren-mode 1)
+;(setq show-paren-delay 0)
 ;;;;; ------ spotify-mode ---------------------------------------------
 
 
@@ -561,6 +549,6 @@
 (setq evil-insert-state-cursor '("green" bar))
 (setq evil-emacs-state-cursor '("blue" hbar))
 ;;;;; ------ evil-mode-end ---------------------------------------------
-
+;
 (provide '.emacs)
 ;;; .emacs ends here
