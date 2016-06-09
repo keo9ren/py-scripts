@@ -59,42 +59,8 @@
 (add-to-list 'package-archives '("melpa-stable" . "http://stable.melpa.org/packages/") t)
 (add-to-list 'package-archives '("org" . "http://orgmode.org/elpa/") t)
 (package-initialize)
-;;;;; ------ install-packages ---------------------------------------------
-;;;;;
 (cfg:install-packages)
-(setq inhibit-startup-message t)
-;;;;
-(setq-default tab-width 4 indent-tabs-mode nil)
-;;; open file on last edit
-(require 'saveplace)
-(setq save-place-file "~/.emacs.d/saveplace")
-(setq-default save-place t)
-;;; disable scrollbar
-(scroll-bar-mode -1)
-;;; open maximized 
-;;;;; ------ okular ---------------------------------------------
-(custom-set-variables
- ;; custom-set-variables was added by Custom.
- ;; If you edit it by hand, you could mess it up, so be careful.
- ;; Your init file should contain only one such instance.
- ;; If there is more than one, they won't work right.
- '(TeX-view-program-selection
-   (quote
-    ((engine-omega "dvi2tty")
-     ((output-dvi has-no-display-manager)
-      "dvi2tty")
-     ((output-dvi style-pstricks)
-      "dvips and gv")
-     (output-dvi "xdvi")
-     (output-html "xdg-open")
-     (engine-omega "dvi2tty")
-     (output-pdf "Okular"))))
- '(custom-safe-themes
-   (quote
-    ("878e22a7fe00ca4faba87b4f16bc269b8d2be5409d1c513bb7eda025da7c1cf4" default)))
- '(doc-view-continuous t)
- '(initial-frame-alist (quote ((fullscreen . maximized)))))
-;;;;; ------ okular ---------------------------------------------
+;;;;; ------ install-packages ---------------------------------------------
 ;;;;;
 ;;;;; ------ magit ---------------------------------------------
 (require 'magit)
@@ -163,13 +129,6 @@
 (load-file "/home/oliver/.tools/scripts-and-more/emacs/rtags/src/flycheck-rtags.el")
 (require 'rtags)
 ;;;; ------ rtags ---------------------------------------------
-;;;;
-;;;;; ------ mode-hook ---------------------------------------------
-;;;vim like indent
-(define-key global-map (kbd "RET") 'newline-and-indent)
-;;;;; ------ mode-hook ---------------------------------------------
-
-
 ;;;;; ------ gdb ---------------------------------------------
 ; decent gdb setup
 (setq
@@ -197,8 +156,31 @@
           (lambda ()
             (setq-local company-backends '((company-auctex company-auctex-bib-candidates company-auctex-bibs company-dabbrev-code)))))
 ;;;;; ------ auctex ---------------------------------------------
-
-
+;;;;; ------ okular ---------------------------------------------
+(custom-set-variables
+ ;; custom-set-variables was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ '(TeX-view-program-selection
+   (quote
+    ((engine-omega "dvi2tty")
+     ((output-dvi has-no-display-manager)
+      "dvi2tty")
+     ((output-dvi style-pstricks)
+      "dvips and gv")
+     (output-dvi "xdvi")
+     (output-html "xdg-open")
+     (engine-omega "dvi2tty")
+     (output-pdf "Okular"))))
+ '(custom-safe-themes
+   (quote
+    ("878e22a7fe00ca4faba87b4f16bc269b8d2be5409d1c513bb7eda025da7c1cf4" default)))
+ '(doc-view-continuous t)
+ '(initial-frame-alist (quote ((fullscreen . maximized)))))
+;;;;; ------ okular ---------------------------------------------
+;;;;;
+;;;;;
 ;;;;; ------ reftex ---------------------------------------------
 ;;; Anpassungen für RefTeX
 (require 'reftex)
@@ -208,8 +190,6 @@
 (setq reftex-external-file-finders
       '(("tex" . "kpsewhich -format=.tex %f")
         ("bib" . "kpsewhich -format=.bib %f")))
-
-
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
@@ -217,7 +197,7 @@
  ;; If there is more than one, they won't work right.
  )
 ;;;;; ------ reftex ---------------------------------------------
-
+;;;;;
 ;;;;; ------ spell -----------------------------------------
 (require 'ispell)
 (setq ispell-program-name "hunspell")
@@ -226,9 +206,9 @@
   (add-hook hook (lambda () (flyspell-mode 1))))
 (dolist (hook '(emacs-lisp-mode-hook prog-mode-hook))
   (add-hook hook (lambda () (flyspell-prog-mode))))
-;
+;;;;;
 ;;;;; ------ spell ---------------------------------------------
-
+;;;;;
 ;;;;; ------ helm ---------------------------------------------
 (require 'helm-config)
 (require 'helm-misc)
@@ -489,7 +469,7 @@
   )
 (defun my-shell-mode-hooks()
  "MY-SHELL-MODE-HOOKS."
- (setq-local company-backends '((company-shell company-files company-dabbrev)))
+ (setq-local company-backends '((company-files company-shell company-dabbrev)))
  )
 (defun my-text-mode-hooks()
  "MY-TEXT-MODE-HOOKS."
@@ -520,6 +500,22 @@
 ;;;;;
 ;;;;; ------ apply-mode-hooks-end ---------------------------------------------
 ;;;;;
+;;;;;
+;;;;; ----- style and behavior -----------
+;;;;;
+(setq inhibit-startup-message t)
+;;;;;
+(setq-default tab-width 4 indent-tabs-mode nil)
+;;; open file on last edit
+(require 'saveplace)
+(setq save-place-file "~/.emacs.d/saveplace")
+(setq-default save-place t)
+;;; disable scrollbar
+(scroll-bar-mode -1)
+;;; open maximized 
+;;;vim like indent
+(define-key global-map (kbd "RET") 'newline-and-indent)
+;;;;; ----- style and behavior -----------
 ;;;;; ------ evil-mode-start ---------------------------------------------
 ; should alway be the last
 (require 'evil)
