@@ -384,17 +384,21 @@
     (define-key inferior-octave-mode-map [down]
         'comint-next-input))) 
 ;;;;; ------ Octave-mode-end ---------------------------------------------
-
+;
 ;;;;; ------ my-x-mode-hooks ---------------------------------------------
-(setq company-backends '((
-                          company-files
-                          company-dabbrev-code
-                          company-dabbrev
-                          company-oddmuse
-                          company-capf
-                          )))
+(defun my-init-mode-hooks ()
+  "MY-INIT-MODE-HOOKS."
+  (setq company-backends '((
+                            company-files
+                            company-dabbrev-code
+                            company-dabbrev
+                            company-oddmuse
+                            company-capf
+                            )))
+)
+;
 (defun my-c++-mode-hooks ()
-  "MY C++."
+  "MY-C++-MODE-HOOKS."
   (interactive)
   (cmake-ide-setup)
   (setq rtags-completions-enabled t)
@@ -413,8 +417,9 @@
   (fci-mode)
   (set-fill-column 80)
   )
+;
 (defun my-c-mode-hooks ()
-  "MY C++."
+  "MY-C-MODE-HOOKS."
   (interactive)
   (cmake-ide-setup)
   (setq semantic-mode 1)
@@ -433,6 +438,7 @@
   (fci-mode)
   (set-fill-column 80)
   )
+;
 (defun my-cmake-mode-hooks()
  "MY-CMAKE-MODE-HOOKS."
  (setq-local company-backends '((company-files company-cmake company-dabbrev-code)))
