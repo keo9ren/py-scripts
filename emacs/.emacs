@@ -5,37 +5,33 @@
 ;;;
 ;;; Code:
 ;;;;; ------ install-packages ---------------------------------------------
-(setq cfg-var:packages '(evil
-                       powerline
-                       powerline-evil
-                       airline-themes
-                       evil-leader
-                       evil-search-highlight-persist
-                       evil-terminal-cursor-changer
+(setq cfg-var:packages '(evil powerline powerline-evil
+                       airline-themes evil-leader evil-search-highlight-persist evil-terminal-cursor-changer
                        flycheck
-                       company
-                       company-c-headers
-                       cmake-mode
-                       cmake-project
-                       auctex
-                       company-auctex
+                       company company-c-headers company-shell helm-company
+                       cmake-ide cmake-mode cmake-project
+                       auctex company-auctex
                        helm-bibtex;to be tested
                        helm-bibtexkey;to be tested
-                       cmake-ide
-                       helm
-                       helm-projectile
-                       helm-dictionary
-                       helm-c-yasnippet
-                       helm-ls-git
-                       helm-descbinds
-                       helm-ack;to be tested
+                       helm helm-projectile helm-dictionary helm-c-yasnippet helm-ls-git
+                       helm-flx helm-fuzzier helm-descbinds helm-package helm-pydoc
+                       helm-chrome helm-ack helm-gitignore helm-git-grep helm-proc
+                       helm-systemd helm-unicode helm-helm-commands helm-google
+                       helm-orgcard helm-open-github helm-commandlinefu
+                       helm-describe-modes
+                       helm-git-files;can't open the files
+                       helm-org-rifle;to be tested
                        helm-c-moccur;to be tested
-                       helm-chrome;to be tested
                        helm-codesearch;to be tested
-                       helm-commandlinefu;to be tested
-                       helm-describe-modes;to be tested
-                       helm-flx
-                       Helm-fuzzier
+                       helm-dired-recent-dirs;to be tested
+                       helm-dirset;to be tested
+                       helm-fuzzy-find;to be tested
+                       helm-git;to be tested
+                       helm-make;to be tested
+                       helm-mode-manager;to be tested
+                       ;helm-pages;;to be tested
+                       helm-spaces;to be tested
+                       wgrep-helm;to be tested
                        flyspell-correct-helm;to be tested
                        smooth-scrolling
                        fill-column-indicator
@@ -43,20 +39,12 @@
                        color-theme-approximate
                        clang-format
                        zeal-at-point
-                       web-mode
-                       markdown-mode
+                       web-mode markdown-mode
                        yasnippet
                        octave
-                       company-shell
-                       helm-company
-                       jedi-core
-                       company-jedi
-                       magit
-                       evil-magit
-                       fic-mode
-                       evil-nerd-commenter
-                       multi
-                       multi-eshell
+                       jedi-core company-jedi magit evil-magit fic-mode
+                       evil-nerd-commenter; to be tested
+                       multi multi-eshell; to be tested
                        ))
 ;;;
 (defun cfg:install-packages ()
@@ -75,6 +63,7 @@
 (package-initialize)
 (cfg:install-packages)
 ;;;;; ------ install-packages ---------------------------------------------
+(require 'helm-pydoc)
 ;;;;;
 ;;;;; ------ magit ---------------------------------------------
 (require 'magit)
@@ -243,6 +232,8 @@
 (define-key helm-map (kbd "<tab>") 'helm-execute-persistent-action)
 (define-key helm-map (kbd "C-i") 'helm-execute-persistent-action) ; make TAB works in terminal
 (define-key helm-map (kbd "C-z")  'helm-select-action) ; list actions using C-z
+(global-unset-key (kbd "C-c h @"))
+(global-set-key (kbd "C-c h @") 'helm-package)
 (setq helm-quick-update)
 (setq helm-bookmark-show-location t ;
       helm-buffers-fuzzy-matching t ; helm-mini
