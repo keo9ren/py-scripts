@@ -15,3 +15,9 @@
     helm-find
     helm-browse-project
     helm-wikipedia-suggest
+
+** cmake-ide    
+(when (featurep 'flycheck-rtags)      
+  (flycheck-select-checker 'rtags)
+  (setq flycheck-highlighting-mode nil)
+  (setq flycheck-check-syntax-automatically nil)

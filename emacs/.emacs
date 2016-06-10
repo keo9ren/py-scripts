@@ -130,6 +130,9 @@
 (load-file "/home/oliver/.tools/scripts-and-more/emacs/rtags/src/rtags.el")
 (load-file "/home/oliver/.tools/scripts-and-more/emacs/rtags/src/company-rtags.el")
 (load-file "/home/oliver/.tools/scripts-and-more/emacs/rtags/src/flycheck-rtags.el")
+(load-file "/usr/local/share/emacs/site-lisp/rtags/rtags.el")
+(load-file "/usr/local/share/emacs/site-lisp/rtags/company-rtags.el")
+(load-file "/usr/local/share/emacs/site-lisp/rtags/flycheck-rtags.el")
 (require 'rtags)
 ;;;; ------ rtags ---------------------------------------------
 ;;;;; ------ gdb ---------------------------------------------
@@ -394,10 +397,10 @@
   (setq semantic-mode 1)
   (setq-local company-backends '(
   (company-keywords
-  company-c-headers
   company-rtags
   company-clang
   company-semantic
+  company-c-headers
   company-files
   company-dabbrev-code
   company-dabbrev
@@ -416,10 +419,10 @@
   (setq rtags-completions-enabled t)
   (setq-local company-backends '(
   (company-keywords
-  company-c-headers
-  company-semantic
-  company-clang
   company-rtags
+  company-clang
+  company-semantic
+  company-c-headers
   company-files
   company-dabbrev-code
   company-dabbrev
