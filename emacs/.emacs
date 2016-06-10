@@ -394,7 +394,8 @@
   (setq semantic-mode 1)
   (setq-local company-backends '(
   (company-keywords
-  company-rtags; slow compared to clang
+  company-c-headers
+  company-rtags
   company-clang
   company-semantic
   company-files
@@ -415,6 +416,7 @@
   (setq rtags-completions-enabled t)
   (setq-local company-backends '(
   (company-keywords
+  company-c-headers
   company-semantic
   company-clang
   company-rtags
