@@ -35,7 +35,7 @@
                        helm-commandlinefu;to be tested
                        helm-describe-modes;to be tested
                        helm-flx
-                       Helm-fuzzier
+                       helm-fuzzier
                        flyspell-correct-helm;to be tested
                        smooth-scrolling
                        fill-column-indicator
