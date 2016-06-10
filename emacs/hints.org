@@ -1,5 +1,7 @@
 * Hint on using emacs
 
+  TODO: write wrappers around favourite commands with own prefix to access them
+  more easily
 ** Helm
 
 *** see helm-configuration for help
@@ -12,3 +14,4 @@
     helm-apt
     helm-find
     helm-browse-project
+    helm-wikipedia-suggest
