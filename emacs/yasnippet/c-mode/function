@@ -1,24 +1,27 @@
 # -*- mode: snippet -*-
 # name: function
 # key: func
-# expand-env: ((yas-indent-line 'fixed))
 # --
 
-
+/*
+* @brief $4
+*
+* @author M. Sc. Oliver Kehret
+*
+*/
 ${1:int} ${2:function_name}(${3:paramters});
 
-${1:$(
-if (string-match "void" yas-text)
-(concat yas-text " ")
-(concat yas-text " "))}
-${2:$(
-if (string-match "void" yas-text)
-(concat yas-text " ")
-(concat yas-text " "))}
-($3);
+/*
+* @brief ${4:add a describtion}
+*
+* @author M. Sc. Oliver Kehret
+*
+*/
+${1:$(if (string-match "void" yas-text)(concat yas-text " ")(concat yas-text " "))}${2:$(if (string-match "void" yas-text)(concat yas-text " ")(concat yas-text " "))}($3);
 
 ${1:$(
 if (string-match "void" yas-text)
 " " "return 0;")}
 
 } /* $2 */
+$0
