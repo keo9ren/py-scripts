@@ -73,11 +73,12 @@
 ;;;;; ------ yasnippet-mode ---------------------------------------------
 (require 'yasnippet)
 (require 'helm-c-yasnippet)
+(setq yas-indent-line (quote none))
 (setq helm-yas-space-match-any-greedy t)
 (global-set-key (kbd "C-c y") 'helm-yas-complete)
 (add-hook 'prog-mode-hook #'yas-minor-mode)
 (add-to-list 'yas-snippet-dirs "/home/oliver/.tools/scripts-and-more/emacs/yasnippet/")
-(yas-reload-all)
+(add-hook 'after-init-hook 'yas-reload-all)
 ;;;;; ------ yasnippet-mode ---------------------------------------------
 ;;;;; ------ company-mode ---------------------------------------------
 (require 'company)
@@ -130,9 +131,9 @@
 (load-file "/home/oliver/.tools/scripts-and-more/emacs/rtags/src/rtags.el")
 (load-file "/home/oliver/.tools/scripts-and-more/emacs/rtags/src/company-rtags.el")
 (load-file "/home/oliver/.tools/scripts-and-more/emacs/rtags/src/flycheck-rtags.el")
-(load-file "/usr/local/share/emacs/site-lisp/rtags/rtags.el")
-(load-file "/usr/local/share/emacs/site-lisp/rtags/company-rtags.el")
-(load-file "/usr/local/share/emacs/site-lisp/rtags/flycheck-rtags.el")
+;(load-file "/usr/local/share/emacs/site-lisp/rtags/rtags.el")
+;(load-file "/usr/local/share/emacs/site-lisp/rtags/company-rtags.el")
+;(load-file "/usr/local/share/emacs/site-lisp/rtags/flycheck-rtags.el")
 (require 'rtags)
 ;;;; ------ rtags ---------------------------------------------
 ;;;;; ------ gdb ---------------------------------------------
