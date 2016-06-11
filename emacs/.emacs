@@ -145,13 +145,7 @@
  gdb-show-main t
  )
 ;;;;; ------ gdb ---------------------------------------------
-
-
-;;;;; ------ auctex ---------------------------------------------
-;;; Anpassungen für AUCTeX
-;;(load "auctex.el" nil t t)
-;maybe outdated as well integrated
-;(load "preview-latex.el" nil t t)
+;;;;;
 (require 'tex-site)
 (require 'company-auctex)
 ;;;;; ------ auctex ---------------------------------------------
@@ -279,16 +273,12 @@
                          helm-c-source-locate)
                          "*helm-my-buffer*")))
 ;;;;; ------ helm-eshell ---------------------------------------------
-
-
+;;;;;
 ;;;;; ------ helm-dictionary ---------------------------------------------
 (require 'helm-dictionary)
 ;; sudo apt-get install trans-de-en
 ;;;;; ------ helm-dictionary ---------------------------------------------
-
-;; display line numbers
-(require 'linum)
-(setq linum-mode t)
+;;;;;
 ;;;;; ------ vim-scrolling ---------------------------------------------
 ;vim like scrolling
 (setq scroll-margin 5
@@ -300,29 +290,29 @@
 (require 'airline-themes)
 (load-theme 'airline-sol)
 ;;;;; ------ clang-format-mode ---------------------------------------------
-
+;;;;;
 ;;;;; ------ clang-format-mode ---------------------------------------------
 (require 'clang-format)
-;;Hook function
-;;(defun clang-format-before-save ()"Add this to .emacs to clang-format on save(add-hook 'before-save-hook 'clang-format-before-save)."
-;;       (interactive)(when (eq major-mode 'c-mode) (clang-format-buffer)))
-;;use clang-format on save
-;;(add-hook 'before-save-hook 'clang-format-before-save)
+(defcustom clang-format-on-save
+  t
+  "clang-format-on-save."
+  :group 'myinit
+  :type 'booleanp
+  :safe #'booleanp)
+(defun clang-format-before-save ()"Add this to .emacs to clang-format on save(add-hook 'before-save-hook 'clang-format-before-save)."
+       (interactive)(when (eq major-mode 'c-mode) (clang-format-buffer)))
+(when (eq t clang-format-on-save) (add-hook 'before-save-hook  'clang-format-before-save) )
+;;;;;
 ;;;;; ------ clang-format-mode ---------------------------------------------
 ;
 ;;;;; ------ spotify-mode ---------------------------------------------
 (load-file "/home/oliver/.tools/scripts-and-more/emacs/helm-spotify/helm-spotify.el")
 (require 'helm-spotify)
-;
+;;;;;
 (show-paren-mode 1)
 (setq show-paren-delay 0.4)
 ;;;;; ------ spotify-mode ---------------------------------------------
-
-
-;; have to fct here to quit on one ESC
-
-;;start maximised to be determinated
-
+;;;;;
 ;;;;; ------ zeal-mode ---------------------------------------------
 ;;browse offline documentation
 (require 'zeal-at-point)

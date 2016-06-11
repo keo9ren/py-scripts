@@ -17,7 +17,7 @@ ${1:int} ${2:function_name}(${3:paramters});
 * @author M. Sc. Oliver Kehret
 *
 */
-${1:$(if (string-match "void" yas-text)(concat yas-text " ")(concat yas-text " "))}${2:$(if (string-match "void" yas-text)(concat yas-text " ")(concat yas-text " "))}($3);
+${1:$(if (string-match "void" yas-text)(concat yas-text " ")(concat yas-text " "))}${2:$(if (string-match "void" yas-text)(concat yas-text " ")(concat yas-text " "))}($3){
 
 ${1:$(
 if (string-match "void" yas-text)
