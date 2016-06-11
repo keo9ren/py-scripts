@@ -118,10 +118,6 @@
 (global-set-key [tab] 'tab-indent-or-complete)
 ;;;;; ------ company-mode yas-mode ---------------------------------------------
 ;;;;; ------ company-mode ---------------------------------------------
-;;;;; ------ theme ---------------------------------------------
-(load-theme 'idea-darkula t)
-(color-theme-approximate-on)
-;;;;; ------ theme ---------------------------------------------
 ;;;;;
 ;;;;; ------ flycheck ---------------------------------------------
 (require 'flycheck)
@@ -168,7 +164,7 @@
      (output-pdf "Okular"))))
  '(custom-safe-themes
    (quote
-    ("878e22a7fe00ca4faba87b4f16bc269b8d2be5409d1c513bb7eda025da7c1cf4" default)))
+    ("e87a2bd5abc8448f8676365692e908b709b93f2d3869c42a4371223aab7d9cf8" "878e22a7fe00ca4faba87b4f16bc269b8d2be5409d1c513bb7eda025da7c1cf4" default)))
  '(doc-view-continuous t)
  '(initial-frame-alist (quote ((fullscreen . maximized)))))
 ;;;;; ------ okular ---------------------------------------------
@@ -288,7 +284,15 @@
 ;;;;; ------ clang-format-mode ---------------------------------------------
 (require 'powerline)
 (require 'airline-themes)
+;;;;; ------ theme ---------------------------------------------
+(load-theme 'idea-darkula t)
+(color-theme-approximate-on)
+;;;;; ------ theme ---------------------------------------------
 (load-theme 'airline-sol)
+;(load-theme 'airline-light)
+(setq airline-shortened-directory-length 5)
+(setq airline-display-directory nil)
+;(load-theme 'airline-base16-shell-dark)
 ;;;;; ------ clang-format-mode ---------------------------------------------
 ;;;;;
 ;;;;; ------ clang-format-mode ---------------------------------------------
@@ -502,6 +506,11 @@
 ;;;;;
 ;;;;;
 ;;;;; ----- style and behavior -----------
+;;;;;
+(set-language-environment "UTF-8")
+(set-terminal-coding-system 'utf-8)
+(set-keyboard-coding-system 'utf-8)
+(prefer-coding-system 'utf-8)
 ;;;;;
 (setq inhibit-startup-message t)
 ;;;;;
