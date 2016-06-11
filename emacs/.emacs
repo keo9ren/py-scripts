@@ -6,7 +6,7 @@
 ;;; Code:
 ;;;;; ------ install-packages ---------------------------------------------
 (setq cfg-var:packages '(evil powerline powerline-evil
-                       airline-themes evil-leader evil-search-highlight-persist evil-terminal-cursor-changer
+                       evil-leader evil-search-highlight-persist evil-terminal-cursor-changer
                        flycheck
                        company company-c-headers company-shell helm-company
                        cmake-ide cmake-mode cmake-project
@@ -164,7 +164,7 @@
      (output-pdf "Okular"))))
  '(custom-safe-themes
    (quote
-    ("e87a2bd5abc8448f8676365692e908b709b93f2d3869c42a4371223aab7d9cf8" "878e22a7fe00ca4faba87b4f16bc269b8d2be5409d1c513bb7eda025da7c1cf4" default)))
+    ("8e7ca85479dab486e15e0119f2948ba7ffcaa0ef161b3facb8103fb06f93b428" "e87a2bd5abc8448f8676365692e908b709b93f2d3869c42a4371223aab7d9cf8" "878e22a7fe00ca4faba87b4f16bc269b8d2be5409d1c513bb7eda025da7c1cf4" default)))
  '(doc-view-continuous t)
  '(initial-frame-alist (quote ((fullscreen . maximized)))))
 ;;;;; ------ okular ---------------------------------------------
@@ -283,6 +283,8 @@
 ;;;;; ------ vim-scrolling ---------------------------------------------
 ;;;;; ------ clang-format-mode ---------------------------------------------
 (require 'powerline)
+(load-file "/home/oliver/.tools/scripts-and-more/emacs/airline-themes/airline-themes.el")
+(load-file "/home/oliver/.tools/scripts-and-more/emacs/airline-themes/airline-sol-theme.el")
 (require 'airline-themes)
 ;;;;; ------ theme ---------------------------------------------
 (load-theme 'idea-darkula t)
