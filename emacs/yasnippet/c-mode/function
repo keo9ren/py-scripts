@@ -1,15 +1,19 @@
 # -*- mode: snippet -*-
 # name: function
 # key: func
+# expand-env: ((yas-indent-line 'fixed))
 # --
 
 
-${1:void} ${2:function_name} (${3:paramters});
+${1:int} ${2:function_name}(${3:paramters});
 
-$1
-$2 ($3){
+${1:$(
+if (string-match "void" yas-text)
+(concat "A" "B")
+(concat "C" "D"))}
 
-$0
-return 0;
+${1:$(
+if (string-match "void" yas-text)
+" " "return 0;")}
 
 } /* $2 */
