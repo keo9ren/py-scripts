@@ -37,6 +37,31 @@
                        evil-nerd-commenter; to be tested
                        multi multi-eshell; to be tested
                        fzf; to be tested
+                       org-redmine; to be tested
+                       org-repo-todo; to be tested
+                       org-pdfview; to be tested
+                       org-projectile; to be tested
+                       org-vcard; to be tested
+                       org-tracktable; to be tested
+                       org-bullets;
+                       org-present;
+                       org-gcal;
+                       org-bullets;
+                       org-autolist;
+                       yafolding;
+                       yahoo-weather;
+                       x86-lookup;
+                       x-dict;
+                       xcscope;
+                       helm-cscope;
+                       writegood-mode;
+                       which-key;
+                       wanderlust;
+                       vkill;
+                       visual-regexp;
+                       visual-regexp-steroids;
+                       viewer;
+                       use-package;
                        ))
 ;;;
 (defun cfg:install-packages ()
