@@ -18,11 +18,10 @@
                        helm-chrome helm-ack helm-gitignore helm-git-grep helm-proc
                        helm-systemd helm-unicode helm-helm-commands helm-google
                        helm-orgcard helm-open-github helm-commandlinefu
-                       helm-describe-modes
-                       helm-git-files;can't open the files
+                       helm-describe-modes helm-git-files
                        helm-org-rifle;to be tested
-                       helm-c-moccur;to be tested
-                       helm-codesearch;to be tested
+                       ;helm-c-moccur;to be tested
+                       helm-codesearch;install codesearch to test
                        helm-dired-recent-dirs;to be tested
                        helm-dirset;to be tested
                        helm-fuzzy-find;to be tested
@@ -45,6 +44,7 @@
                        jedi-core company-jedi magit evil-magit fic-mode
                        evil-nerd-commenter; to be tested
                        multi multi-eshell; to be tested
+                       fzf; to be tested
                        ))
 ;;;
 (defun cfg:install-packages ()
@@ -68,9 +68,16 @@
 ;;;;; ------ magit ---------------------------------------------
 (require 'magit)
 (require 'evil-magit)
+(global-unset-key (kbd "C-c m d"))
+(global-set-key (kbd "C-c m d") 'magit-diff-popup)
+(global-unset-key (kbd "C-c m s"))
+(global-set-key (kbd "C-c m s") 'magit-status)
+(global-unset-key (kbd "C-c m s f"))
+(global-set-key (kbd "C-c m s f") 'magit-stage-file)
 ;;;;; ------ evil-magit ---------------------------------------------
 ;;;;;
 ;;;;; ------ yasnippet-mode ---------------------------------------------
+(require 'helm-fuzzy-find)
 (require 'yasnippet)
 (require 'helm-c-yasnippet)
 (setq yas-indent-line (quote none))
@@ -215,6 +222,7 @@
 (semantic-mode 1)
 (helm-mode 1)
 (global-set-key (kbd "C-c h") 'helm-command-prefix)
+(global-unset-key (kbd "C-c b"))
 (global-set-key (kbd "C-c b") 'helm-mini)
 (global-set-key (kbd "M-x") 'helm-M-x)
 (global-set-key (kbd "C-x C-f") 'helm-find-files)
@@ -347,6 +355,7 @@
 ; <http://stackoverflow.com/questions/9527593/>
 (add-hook 'markdown-mode-hook (lambda () (modify-syntax-entry ?\" "\"" markdown-mode-syntax-table)))
 ;;;;; ------ markdown-mode ---------------------------------------------
+
 
 
 ;;;;; ------ Octave-mode ---------------------------------------------
