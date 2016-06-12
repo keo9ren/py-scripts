@@ -72,8 +72,10 @@
 (global-set-key (kbd "C-c m d") 'magit-diff-popup)
 (global-unset-key (kbd "C-c m s"))
 (global-set-key (kbd "C-c m s") 'magit-status)
-(global-unset-key (kbd "C-c m s f"))
-(global-set-key (kbd "C-c m s f") 'magit-stage-file)
+(global-unset-key (kbd "C-c m f"))
+(global-set-key (kbd "C-c m f") 'magit-stage-file)
+(global-unset-key (kbd "C-c m p"))
+(global-set-key (kbd "C-c m p") 'magit-push)
 ;;;;; ------ evil-magit ---------------------------------------------
 ;;;;;
 ;;;;; ------ yasnippet-mode ---------------------------------------------
