@@ -27,21 +27,13 @@
                        helm-fuzzy-find;to be tested
                        helm-git;to be tested
                        helm-make;to be tested
-                       helm-mode-manager;to be tested
                        ;helm-pages;;to be tested
-                       helm-spaces;to be tested
                        wgrep-helm;to be tested
-                       flyspell-correct-helm;to be tested
-                       smooth-scrolling
-                       fill-column-indicator
-                       idea-darkula-theme
-                       color-theme-approximate
-                       clang-format
-                       zeal-at-point
-                       web-mode markdown-mode
-                       yasnippet
-                       octave
-                       jedi-core company-jedi magit evil-magit fic-mode
+                       wgrep; to be tested
+                       helm-flyspell smooth-scrolling helm-mode-manager
+                       fill-column-indicator idea-darkula-theme color-theme-approximate
+                       clang-format zeal-at-point web-mode markdown-mode yasnippet
+                       octave jedi-core company-jedi magit evil-magit fic-mode
                        evil-nerd-commenter; to be tested
                        multi multi-eshell; to be tested
                        fzf; to be tested
@@ -54,7 +46,7 @@
             (package-refresh-contents)
             (message "%s" " done.")
             (dolist (p cfg-var:packages)
-                (package-install p)))))
+                (package-install p))))) ;hella
 ;;
 (add-to-list 'package-archives '("gnu" . "http://elpa.gnu.org/packages/") t)
 (add-to-list 'package-archives '("melpa" . "http://melpa.org/packages/") t)
@@ -64,6 +56,8 @@
 (cfg:install-packages)
 ;;;;; ------ install-packages ---------------------------------------------
 (require 'helm-pydoc)
+(require 'helm-flyspell)
+(define-key flyspell-mode-map (kbd "C-,") 'helm-flyspell-correct)
 ;;;;;
 ;;;;; ----- magit ---------------------------------------------
 (require 'magit)
