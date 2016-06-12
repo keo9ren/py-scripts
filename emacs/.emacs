@@ -62,6 +62,21 @@
                        visual-regexp-steroids;
                        viewer;
                        use-package;
+                       auctex-lua;
+                       latex-preview-pane;
+                       latex-pretty-symbols;
+                       latex-unicode-math-mode;
+                       latex-math-preview;
+                       latex-extra;
+                       gscholar-bibtex;
+                       bibtex-utils;
+                       bibretrieve;
+                       bibslurp;
+                       ebib;
+                       empos;
+                       ivy-bibtex;
+                       company-math;
+                       focus;
                        ))
 ;;;
 (defun cfg:install-packages ()
