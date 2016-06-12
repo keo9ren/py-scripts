@@ -65,7 +65,7 @@
 ;;;;; ------ install-packages ---------------------------------------------
 (require 'helm-pydoc)
 ;;;;;
-;;;;; ------ magit ---------------------------------------------
+;;;;; ----- magit ---------------------------------------------
 (require 'magit)
 (require 'evil-magit)
 (global-unset-key (kbd "C-c m d"))
@@ -140,6 +140,23 @@
 ;(load-file "/usr/local/share/emacs/site-lisp/rtags/company-rtags.el")
 ;(load-file "/usr/local/share/emacs/site-lisp/rtags/flycheck-rtags.el")
 (require 'rtags)
+(defun my-rtags-keybindings()
+ "My-rtags-keybindings."
+ ;(local-unset-key (kbd ""))
+ ;(local-set-key (kbd "C-c r ") 'rtags-print-symbol-info)
+ (local-unset-key (kbd "C-c r s"))
+ (local-set-key (kbd "C-c r s") 'rtags-display-summary)
+ (local-unset-key (kbd "C-c r i"))
+ (local-set-key (kbd "C-c r i") 'rtags-get-include-file-for-symbol)
+ (local-unset-key (kbd "C-c r f"))
+ (local-set-key (kbd "C-c r f") 'rtags-find-symbol)
+ (local-unset-key (kbd "C-c r n"))
+ (local-set-key (kbd "C-c r n") 'rtags-rename-symbol)
+ (local-unset-key (kbd "C-c r r"))
+ (local-set-key (kbd "C-c r r") 'rtags-find-references)
+ (local-unset-key (kbd "C-c r v"))
+ (local-set-key (kbd "C-c r v") 'rtags-find-virtuals-at-point)
+ )
 ;;;; ------ rtags ---------------------------------------------
 ;;;;; ------ gdb ---------------------------------------------
 ; decent gdb setup
@@ -228,7 +245,7 @@
 (global-set-key (kbd "C-c b") 'helm-mini)
 (global-set-key (kbd "M-x") 'helm-M-x)
 (global-set-key (kbd "C-x C-f") 'helm-find-files)
-(global-set-key (kbd "C-c h o") 'helm-occur)
+(global-set-key (kbd "C-c o") 'helm-occur)
 (global-set-key (kbd "M-y") 'helm-show-kill-ring); bad kbd seems useful
 (global-set-key (kbd "C-h SPC") 'helm-all-mark-rings)
 (global-unset-key (kbd "C-x c"))
@@ -504,6 +521,8 @@
 ;;;; ------ apply-mode-hooks ---------------------------------------------
 (add-hook 'c++-mode-hook #'my-c++-mode-hooks)
 (add-hook 'c-mode-hook #'my-c-mode-hooks)
+(add-hook 'c-mode-hook #'my-rtags-keybindings)
+(add-hook 'c++-mode-hook #'my-rtags-keybindings)
 (add-hook 'cmake-mode-hook #'my-cmake-mode-hooks)
 (add-hook 'org-mode-hook #'my-org-mode-hooks)
 (add-hook 'octave-mode-hook #'my-octave-mode-hooks)
