@@ -116,6 +116,8 @@
                        edbi-sqlite;
                        edbi-minor-mode;
                        elfeed;
+                       elisp-lint;
+                       elisp-sandbox;
                        ))
 ;;;
 (defun cfg:install-packages ()
