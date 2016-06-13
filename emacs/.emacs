@@ -347,6 +347,13 @@
 (load-file "/home/oliver/.tools/scripts-and-more/emacs/airline-themes/airline-themes.el")
 (load-file "/home/oliver/.tools/scripts-and-more/emacs/airline-themes/airline-sol-theme.el")
 (require 'airline-themes)
+(setq airline-utf-glyph-separator-left      #xe0b0
+      airline-utf-glyph-separator-right     #xe0b2
+      airline-utf-glyph-subseparator-left   #xe0b1
+      airline-utf-glyph-subseparator-right  #xe0b3
+      airline-utf-glyph-branch              #xe0a0
+      airline-utf-glyph-readonly            #xe0a2
+      airline-utf-glyph-linenumber          #xe0a1)
 ;;;;; ------ theme ---------------------------------------------
 (load-theme 'idea-darkula t)
 (color-theme-approximate-on)
