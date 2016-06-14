@@ -9,7 +9,7 @@
                        evil-leader evil-search-highlight-persist evil-terminal-cursor-changer
                        flycheck
                        company company-c-headers company-shell helm-company
-                       cmake-ide cmake-mode cmake-project
+                       cmake-ide cmake-mode cmake-project cmake-font-lock
                        auctex company-auctex
                        helm-bibtex;to be tested
                        helm-bibtexkey;to be tested
@@ -20,8 +20,10 @@
                        helm-orgcard helm-open-github helm-commandlinefu
                        helm-describe-modes helm-git-files
                        dictcc google-translate password-generator
-                       nlinum
+                       nlinum indent-guide
                        xcscope helm-cscope
+                       ace-jump-buffer
+                       evil-anzu anzu
                        x-dict;
                        helm-org-rifle;to be tested
                        ;helm-c-moccur;to be tested
@@ -78,14 +80,18 @@
                        empos;
                        ivy-bibtex;
                        company-math;
+                       company-dict;
+                       company-flx;
+                       company-quickhelp;
+                       company-statistics;
                        focus;
                        yapfify;
                        ack;
                        ack-menu;
                        full-ack;
+                       grep+;
                        adjust-parens;
                        ag;
-                       anzu;
                        aok;
                        arview;
                        ascii;
@@ -99,13 +105,8 @@
                        calfw-gcal;
                        camcorder;
                        capture;
-                       cmake-font-lock;
                        coffee-mode;
                        col-highlight;
-                       company-dict;
-                       company-flx;
-                       company-quickhelp;
-                       company-statistics;
                        csv-mode;
                        csv-nav;
                        define-word;
@@ -125,7 +126,6 @@
                        emacs-setup;
                        emacs-eclim;
                        eshell-z;
-                       evil-anzu;
                        evil-args;
                        evil-avy;ace-jump-mode
                        evil-easymotion;
@@ -142,7 +142,6 @@
                        flx-isearch;
                        flycheck-checkbashisms;
                        flycheck-clangcheck;
-                       flycheck-color-mode-line;
                        flycheck-google-cpplint;
                        flycheck-tip;
                        fsm;
@@ -153,13 +152,11 @@
                        gist;
                        gnuplot;
                        gnuplot-mode;
-                       grep+;
                        hide-comnt;
                        hl-todo;
                        ibuffer-git;
                        ibuffer-projectile;
                        igrep;
-                       indent-guide;
                        initsplit;
                        inline-crypt;
                        insert-shebang;
@@ -253,7 +250,6 @@
                        travis;
                        ace-flyspell;
                        ace-isearch;
-                       ace-jump-buffer;
                        ace-jump-helm-line;
                        ace-jump-mode;
                        ace-link;
@@ -281,6 +277,18 @@
 (require 'helm-flyspell)
 (define-key flyspell-mode-map (kbd "C-,") 'helm-flyspell-correct)
 ;;;;;
+;;;;; ----- ace-jump ---------------------------------------------
+(require 'anzu)
+(require 'evil-anzu)
+(global-anzu-mode +1)
+(anzu-mode +1)
+;;;;; ----- ace-jump ---------------------------------------------
+;;;;; ----- ace-jump ---------------------------------------------
+(require 'ace-jump-buffer)
+(define-key global-map (kbd "C-c SPC") 'ace-jump-mode)
+(global-unset-key (kbd "C-x n"))
+(global-set-key (kbd "C-x n") 'ace-jump-buffer)
+;;;;; ----- ace-jump ---------------------------------------------
 ;;;;; ----- magit ---------------------------------------------
 (require 'magit)
 (require 'evil-magit)
