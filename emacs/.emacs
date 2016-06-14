@@ -277,12 +277,22 @@
 (require 'helm-flyspell)
 (define-key flyspell-mode-map (kbd "C-,") 'helm-flyspell-correct)
 ;;;;;
-;;;;; ----- ace-jump ---------------------------------------------
+;;;;; ----- indent-guide ---------------------------------------------
+(require 'indent-guide)
+(indent-guide-global-mode)
+(set-face-background 'indent-guide-face "dimgray")
+(setq indent-guide-delay 0.1)
+(setq indent-guide-recursive t)
+(setq indent-guide-char "|")
+;;;;; ----- indent-guide ---------------------------------------------
+;;;;;
+;;;;; ----- anzu ---------------------------------------------
 (require 'anzu)
 (require 'evil-anzu)
 (global-anzu-mode +1)
 (anzu-mode +1)
-;;;;; ----- ace-jump ---------------------------------------------
+;;;;; ----- anzu ---------------------------------------------
+;;;;;
 ;;;;; ----- ace-jump ---------------------------------------------
 (require 'ace-jump-buffer)
 (define-key global-map (kbd "C-c SPC") 'ace-jump-mode)
