@@ -19,6 +19,10 @@
                        helm-systemd helm-unicode helm-helm-commands helm-google
                        helm-orgcard helm-open-github helm-commandlinefu
                        helm-describe-modes helm-git-files
+                       dictcc google-translate password-generator
+                       nlinum
+                       xcscope helm-cscope
+                       x-dict;
                        helm-org-rifle;to be tested
                        ;helm-c-moccur;to be tested
                        helm-codesearch;install codesearch to test
@@ -34,6 +38,7 @@
                        fill-column-indicator idea-darkula-theme color-theme-approximate
                        clang-format zeal-at-point web-mode markdown-mode yasnippet
                        octave jedi-core company-jedi magit evil-magit fic-mode
+                       popup-kill-ring; to be configured
                        evil-nerd-commenter; to be tested
                        multi multi-eshell; to be tested
                        fzf; to be tested
@@ -51,9 +56,6 @@
                        yafolding;
                        yahoo-weather;
                        x86-lookup;
-                       x-dict;
-                       xcscope;
-                       helm-cscope;
                        writegood-mode;
                        which-key;
                        wanderlust;
@@ -80,6 +82,7 @@
                        yapfify;
                        ack;
                        ack-menu;
+                       full-ack;
                        adjust-parens;
                        ag;
                        anzu;
@@ -107,7 +110,6 @@
                        csv-nav;
                        define-word;
                        demangle-mode;
-                       dictcc;
                        diffview;
                        dired-dups;
                        dired-efap;
@@ -144,7 +146,6 @@
                        flycheck-google-cpplint;
                        flycheck-tip;
                        fsm;
-                       full-ack;
                        fuzzy;
                        fuzzy-match;
                        geben-helm-projectile;
@@ -152,7 +153,6 @@
                        gist;
                        gnuplot;
                        gnuplot-mode;
-                       google-translate;
                        grep+;
                        hide-comnt;
                        hl-todo;
@@ -209,7 +209,6 @@
                        navi-mode;
                        neotree;
                        ninja-mode;
-                       nlinum;
                        noccur;
                        nose;
                        notes-mode;
@@ -233,13 +232,11 @@
                        parse-csv;
                        pass;
                        passthword;
-                       password-generator;
                        password-store;
                        password-vault;
                        path-headerline-mode;
                        pcre2el;
                        pinentry;
-                       popup-kill-ring;
                        popup-switcher;
                        pretty-mode;
                        private-diary;
