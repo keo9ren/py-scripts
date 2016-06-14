@@ -24,6 +24,7 @@
                        xcscope helm-cscope
                        ace-jump-buffer
                        evil-anzu anzu
+                       focus;at least good for elisp
                        x-dict;
                        helm-org-rifle;to be tested
                        ;helm-c-moccur;to be tested
@@ -84,7 +85,6 @@
                        company-flx;
                        company-quickhelp;
                        company-statistics;
-                       focus;
                        yapfify;
                        ack;
                        ack-menu;
@@ -184,7 +184,6 @@
                        macro-math;
                        macros+;
                        magit-annex;
-                       magit-filenotify;
                        magit-find-file;
                        magit-gerrit;
                        magit-gh-pulls;
@@ -309,6 +308,7 @@
 (global-set-key (kbd "C-c m f") 'magit-stage-file)
 (global-unset-key (kbd "C-c m p"))
 (global-set-key (kbd "C-c m p") 'magit-push)
+(add-hook 'after-save-hook 'magit-after-save-refresh-status)
 ;;;;; ------ evil-magit ---------------------------------------------
 ;;;;;
 ;;;;; ------ yasnippet-mode ---------------------------------------------
