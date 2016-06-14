@@ -248,7 +248,6 @@
                        systemd;
                        telepathy;
                        travis;
-                       ace-flyspell;
                        ace-isearch;
                        ace-jump-helm-line;
                        ace-jump-mode;
@@ -264,7 +263,7 @@
             (package-refresh-contents)
             (message "%s" " done.")
             (dolist (p cfg-var:packages)
-                (package-install p))))) ;hella
+                (package-install p)))));hella
 ;;
 (add-to-list 'package-archives '("gnu" . "http://elpa.gnu.org/packages/") t)
 (add-to-list 'package-archives '("melpa" . "http://melpa.org/packages/") t)
