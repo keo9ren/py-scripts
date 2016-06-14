@@ -296,6 +296,16 @@
 (define-key global-map (kbd "C-c SPC") 'ace-jump-mode)
 (global-unset-key (kbd "C-x n"))
 (global-set-key (kbd "C-x n") 'ace-jump-buffer)
+(require 'ace-jump-helm-line)
+(eval-after-load "helm"
+  '(define-key helm-map (kbd "C-'") 'ace-jump-helm-line))
+(ace-jump-helm-line-idle-exec-add 'helm-mini)
+(setq ace-jump-helm-line-style 'pre)
+(setq ace-jump-helm-line-background t)
+;(setq ace-jump-helm-line-idle-delay 0.1)
+(ace-jump-helm-line-autoshow-mode +1)
+;; use `linum-mode' to show
+(setq ace-jump-helm-line-autoshow-mode-use-linum t)
 ;;;;; ----- ace-jump ---------------------------------------------
 ;;;;; ----- magit ---------------------------------------------
 (require 'magit)
