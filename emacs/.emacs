@@ -300,9 +300,10 @@
 (eval-after-load "helm"
   '(define-key helm-map (kbd "C-'") 'ace-jump-helm-line))
 (ace-jump-helm-line-idle-exec-add 'helm-mini)
+(ace-jump-helm-line-idle-exec-add 'helm-find-files)
 (setq ace-jump-helm-line-style 'pre)
 (setq ace-jump-helm-line-background t)
-;(setq ace-jump-helm-line-idle-delay 0.1)
+(setq ace-jump-helm-line-idle-delay 1)
 (ace-jump-helm-line-autoshow-mode +1)
 ;; use `linum-mode' to show
 (setq ace-jump-helm-line-autoshow-mode-use-linum t)
