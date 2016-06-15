@@ -88,7 +88,7 @@
                        company-dict;
                        company-flx;
                        company-quickhelp;
-                       company-statistics;
+                       company-statistics
                        yapfify;
                        ack;
                        ack-menu;
@@ -335,6 +335,7 @@
 (setq company-idle-delay 0.1)
 (require 'company-statistics)
 (company-statistics-mode)
+(company-quickhelp-mode 1)
 (require 'helm-company)
 (eval-after-load 'company
   '(progn
