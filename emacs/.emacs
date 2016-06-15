@@ -333,6 +333,8 @@
 (add-hook 'after-init-hook 'global-company-mode)
 (setq company-minimum-prefix-length 1)
 (setq company-idle-delay 0.1)
+(require 'company-statistics)
+(company-statistics-mode)
 (require 'helm-company)
 (eval-after-load 'company
   '(progn
@@ -753,7 +755,8 @@
    (setq-local company-backends '((company-auctex
                                    company-auctex-bib-candidates
                                    company-auctex-bibs
-                                   company-dabbrev-code)))
+                                   company-dabbrev-code
+                                   )))
    (flyspell-mode 1)
 )
 (defun my-lisp-mode-hook ()
