@@ -523,14 +523,8 @@
 (require 'eshell)
 (require 'helm-eshell)
 ;
-(define-key minibuffer-local-map (kbd "C-c C-l")  'helm-minibuffer-history) ; list actions using C-z
-(define-key shell-mode-map (kbd "C-c C-l")  'helm-comint-input-ring) ; list actions using C-z
-(add-hook 'eshell-mode-hook
-          #'(lambda ()
-              (define-key eshell-mode-map (kbd "C-c C-l")  'helm-eshell-history)))
-;
 (defun helm-my-buffers ()
-  (interactive)
+ (interactive)
   (let ((helm-ff-transformer-show-only-basename nil))
     (helm-other-buffer '(helm-c-source-buffers-list
                          helm-c-source-elscreen
@@ -735,6 +729,14 @@
  (setq-local company-backends '((company-files company-shell company-dabbrev)))
  )
 ;
+(defun my-eshell-mode-hooks ()
+  "My-eshell-mode-hooks."
+  (interactive)
+  (define-key eshell-mode-map (kbd "C-c C-h")  'helm-eshell-history)
+  (define-key minibuffer-local-map (kbd "C-c C-m")  'helm-minibuffer-history) ; list actions using C-z
+  (define-key shell-mode-map (kbd "C-c C-r")  'helm-comint-input-ring) ; list actions using C-z
+)
+;
 (defun my-text-mode-hooks()
  "MY-TEXT-MODE-HOOKS."
  (setq-local company-backends '((company-ispell company-files company-dabbrev)))
@@ -772,6 +774,7 @@
 (add-hook 'python-mode-hook #'my-python-mode-hooks)
 (add-hook 'nxml-mode-hook #'my-nxml-mode-hooks)
 (add-hook 'shell-mode-hook #'my-shell-mode-hooks)
+(add-hook 'eshell-mode-hook #'my-eshell-mode-hooks)
 (add-hook 'text-mode-hook #'my-text-mode-hooks)
 (add-hook 'markdown-mode-hook #'my-markdown-mode-hooks)
 (add-hook 'LaTex-mode-hook #'my-latex-mode-hook)
