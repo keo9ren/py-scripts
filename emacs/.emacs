@@ -619,40 +619,20 @@
                 (add-hook 'after-save-hook
                           'check-parens
                           nil t))))
-
+;
 ; warning, may yield wrong results in edge-cases like single double-quotes in code block.
 ; Use only if your files usually are balanced w/r/t double-quotes
 ; <http://stackoverflow.com/questions/9527593/>
 (add-hook 'markdown-mode-hook (lambda () (modify-syntax-entry ?\" "\"" markdown-mode-syntax-table)))
 ;;;;; ------ markdown-mode ---------------------------------------------
-
-
-
+;;;;;
 ;;;;; ------ Octave-mode ---------------------------------------------
 (require 'octave)
 (autoload 'octave-mode "octave-mode" nil t)
 (setq auto-mode-alist
 (cons '("\\.m$" . octave-mode) auto-mode-alist))
-;; to turn on the abbrevs, auto-fill and font-lock features automatically  
-(add-hook 'octave-mode-hook
-    (lambda ()
-    (abbrev-mode 1)
-    (auto-fill-mode 1)
-    (if (eq window-system 'x)
-    (font-lock-mode 1))))
-;; And finally, inferior-octave-mode-hook is run after starting the process 
-;; and putting its buffer into Inferior Octave mode. Hence, if you like 
-;; the up and down arrow keys to behave in the interaction buffer as in 
-;; the shell, and you want this buffer to use nice colors:
-(add-hook 'inferior-octave-mode-hook
-    (lambda ()
-    (turn-on-font-lock)
-    (define-key inferior-octave-mode-map [up]
-        'comint-previous-input)
-    (define-key inferior-octave-mode-map [down]
-        'comint-next-input))) 
 ;;;;; ------ Octave-mode-end ---------------------------------------------
-;
+;;;;;
 ;;;;; ------ my-x-mode-hooks ---------------------------------------------
 (defun my-init-mode-hooks ()
   "MY-INIT-MODE-HOOKS."
@@ -719,11 +699,23 @@
  (setq-local company-backends '((company-files company-dabbrev)))
   )
 ;
+(defun my-inferior-octave-mode-hooks()
+ "MY-Inferior-OCTAVE-MODE-HOOKS."
+ (turn-on-font-lock)
+ (define-key inferior-octave-mode-map [up]
+        'comint-previous-input)
+ (define-key inferior-octave-mode-map [down]
+  'comint-next-input)
+  )
 (defun my-octave-mode-hooks()
  "MY-OCTAVE-MODE-HOOKS."
  (setq-local company-backends '((company-files company-dabbrev-code)))
  (fci-mode)
  (set-fill-column 80)
+ (auto-fill-mode 1)
+ (abbrev-mode 1)
+ (if (eq window-system 'x)
+    (font-lock-mode 1))
   )
 ;
 (defun my-python-mode-hooks()
