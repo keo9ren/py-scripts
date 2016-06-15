@@ -7,7 +7,7 @@
 ;;;;; ------ install-packages ---------------------------------------------
 (setq cfg-var:packages '(evil powerline powerline-evil
                        evil-leader evil-search-highlight-persist evil-terminal-cursor-changer
-                       flycheck
+                       flycheck flycheck-checkbashisms
                        company company-c-headers company-shell helm-company
                        cmake-ide cmake-mode cmake-project cmake-font-lock
                        auctex company-auctex
@@ -43,7 +43,8 @@
                        helm-flyspell smooth-scrolling helm-mode-manager
                        fill-column-indicator idea-darkula-theme color-theme-approximate
                        clang-format zeal-at-point web-mode markdown-mode yasnippet
-                       octave jedi-core company-jedi magit evil-magit fic-mode
+                       octave jedi-core company-jedi fic-mode
+                       magit evil-magit magit-annex magit-gh-pulls magit-gerrit; to be configured
                        popup-kill-ring; to be configured
                        evil-nerd-commenter; to be tested
                        multi multi-eshell; to be tested
@@ -142,7 +143,6 @@
                        flx;
                        flx-ido;
                        flx-isearch;
-                       flycheck-checkbashisms;
                        flycheck-clangcheck;
                        flycheck-google-cpplint;
                        flycheck-tip;
@@ -163,8 +163,6 @@
                        inline-crypt;
                        insert-shebang;
                        irfc;
-                       jedi;
-                       jedi-direx;
                        jenkins;
                        json-mode;
                        json-reformat;
@@ -183,12 +181,6 @@
                        lxc;
                        macro-math;
                        macros+;
-                       magit-annex;
-                       magit-find-file;
-                       magit-gerrit;
-                       magit-gh-pulls;
-                       magit-gitflow;
-                       malinka;
                        markdown-mode+;
                        markdown-preview-eww;
                        markdown-toc;
@@ -321,6 +313,8 @@
 (global-unset-key (kbd "C-c m p"))
 (global-set-key (kbd "C-c m p") 'magit-push)
 (add-hook 'after-save-hook 'magit-after-save-refresh-status)
+(require 'magit-gh-pulls)
+(add-hook 'magit-mode-hook 'turn-on-magit-gh-pulls)
 ;;;;; ------ evil-magit ---------------------------------------------
 ;;;;;
 ;;;;; ------ yasnippet-mode ---------------------------------------------
