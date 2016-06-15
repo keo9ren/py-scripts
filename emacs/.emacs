@@ -9,6 +9,7 @@
                        evil-leader evil-search-highlight-persist evil-terminal-cursor-changer
                        flycheck flycheck-checkbashisms
                        company company-c-headers company-shell helm-company
+                       company-math company-quickhelp company-statistics
                        cmake-ide cmake-mode cmake-project cmake-font-lock
                        auctex company-auctex
                        helm-bibtex;to be tested
@@ -84,11 +85,8 @@
                        ebib;
                        empos;
                        ivy-bibtex;
-                       company-math;
-                       company-dict;
-                       company-flx;
-                       company-quickhelp;
-                       company-statistics
+                       company-dict; check better
+                       company-flx; check better
                        yapfify;
                        ack;
                        ack-menu;
@@ -341,6 +339,7 @@
   '(progn
      (define-key company-mode-map (kbd "C-:") 'helm-company)
      (define-key company-active-map (kbd "C-:") 'helm-company)))
+(require 'company-math)
 ;;;;; ------ helm-company ---------------------------------------------
 ;;;;;
 ;;;;; ------ company-mode yas-mode ---------------------------------------------
@@ -756,6 +755,9 @@
    (setq-local company-backends '((company-auctex
                                    company-auctex-bib-candidates
                                    company-auctex-bibs
+                                   company-math-symbols-latex
+                                   company-math-symbols-unicode
+                                   company-latex-commands
                                    company-dabbrev-code
                                    )))
    (flyspell-mode 1)
