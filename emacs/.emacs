@@ -603,17 +603,6 @@
 
 ;;;;; ------ markdown-mode ---------------------------------------------
 (require 'markdown-mode)
-(add-hook 'markdown-mode-hook
-            (lambda ()
-              (when buffer-file-name
-                (add-hook 'after-save-hook
-                          'check-parens
-                          nil t))))
-;
-; warning, may yield wrong results in edge-cases like single double-quotes in code block.
-; Use only if your files usually are balanced w/r/t double-quotes
-; <http://stackoverflow.com/questions/9527593/>
-(add-hook 'markdown-mode-hook (lambda () (modify-syntax-entry ?\" "\"" markdown-mode-syntax-table)))
 ;;;;; ------ markdown-mode ---------------------------------------------
 ;;;;;
 ;;;;; ------ Octave-mode ---------------------------------------------
@@ -755,6 +744,12 @@
  (fci-mode)
  (set-fill-column 80)
  (flyspell-prog-mode)
+   (when buffer-file-name
+     (add-hook 'after-save-hook 'check-parens nil t))
+; warning, may yield wrong results in edge-cases like single double-quotes in code block.
+; Use only if your files usually are balanced w/r/t double-quotes
+; <http://stackoverflow.com/questions/9527593/>
+ (modify-syntax-entry ?\" "\"" markdown-mode-syntax-table)
  )
 ;
 (defun my-latex-mode-hook ()
