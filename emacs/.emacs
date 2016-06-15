@@ -28,7 +28,7 @@
                        ace-window; integrate with helm C-w w
                        list-processes+
                        evil-anzu anzu
-                       focus;at least good for emacs-lisp
+                       adjust-parens focus;at least good for emacs-lisp
                        x-dict;
                        helm-org-rifle;to be tested
                        ;helm-c-moccur;to be tested
@@ -45,6 +45,7 @@
                        fill-column-indicator idea-darkula-theme color-theme-approximate
                        clang-format zeal-at-point web-mode markdown-mode yasnippet
                        octave jedi-core company-jedi fic-mode
+                       py-import-check; requires apt import-checker
                        magit evil-magit magit-annex magit-gh-pulls magit-gerrit; to be configured
                        popup-kill-ring; to be configured
                        evil-nerd-commenter; to be tested
@@ -92,7 +93,6 @@
                        ack-menu;
                        full-ack;
                        grep+;
-                       adjust-parens;
                        ag;
                        aok;
                        arview;
@@ -121,7 +121,6 @@
                        edbi-sqlite;
                        edbi-minor-mode;
                        elfeed;
-                       elisp-lint;
                        elisp-sandbox;
                        elmine;
                        elpy;
@@ -196,9 +195,9 @@
                        neotree;
                        ninja-mode;
                        noccur;
+                       occur-x;
                        nose;
                        notes-mode;
-                       occur-x;
                        omn-mode;
                        on-parens;
                        on-screen;
@@ -228,7 +227,6 @@
                        private-diary;
                        pungi;
                        px;
-                       py-import-check;
                        py-isort;
                        sphinx-doc;
                        sphinx-frontend;
