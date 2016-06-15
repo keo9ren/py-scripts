@@ -262,7 +262,7 @@
             (package-refresh-contents)
             (message "%s" " done.")
             (dolist (p cfg-var:packages)
-                (package-install p)))));hella
+                (package-install p)))))
 ;;
 (add-to-list 'package-archives '("gnu" . "http://elpa.gnu.org/packages/") t)
 (add-to-list 'package-archives '("melpa" . "http://melpa.org/packages/") t)
@@ -293,6 +293,7 @@
 ;;;;;
 ;;;;; ----- ace-jump ---------------------------------------------
 (require 'ace-jump-buffer)
+(global-unset-key (kbd "C-j"))
 (define-key global-map (kbd "C-j") 'ace-jump-mode)
 (global-unset-key (kbd "C-k"))
 (global-set-key (kbd "C-k") 'ace-jump-buffer)
@@ -811,10 +812,10 @@
 (define-key evil-normal-state-map (kbd "j") 'evil-next-visual-line)
 (define-key evil-normal-state-map (kbd "k") 'evil-previous-visual-line)
 ;;screen up/down
-(define-key evil-normal-state-map (kbd "C-p") (lambda ()
-                                                (interactive)
-                                                (evil-scroll-up nil)))
 (define-key evil-normal-state-map (kbd "C-b") (lambda ()
+                                               (interactive)
+                                                (evil-scroll-up nil)))
+(define-key evil-normal-state-map (kbd "C-n") (lambda ()
                                                 (interactive)
                                                 (evil-scroll-down nil)))
 (setq evil-move-cursor-back nil)
