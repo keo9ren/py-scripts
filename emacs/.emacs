@@ -22,9 +22,12 @@
                        dictcc google-translate password-generator
                        nlinum indent-guide
                        xcscope helm-cscope
-                       ace-jump-buffer
+                       ace-jump-buffer ace-jump-mode ace-jump-helm-line ace-link
+                       ace-popup-menu; effect unclear
+                       ace-window; integrate with helm C-w w
+                       list-processes+
                        evil-anzu anzu
-                       focus;at least good for elisp
+                       focus;at least good for emacs-lisp
                        x-dict;
                        helm-org-rifle;to be tested
                        ;helm-c-moccur;to be tested
@@ -125,7 +128,6 @@
                        elpy;
                        emacs-setup;
                        emacs-eclim;
-                       eshell-z;
                        evil-args;
                        evil-avy;ace-jump-mode
                        evil-easymotion;
@@ -175,8 +177,6 @@
                        know-your-http-well;
                        kwin;
                        link-hint;
-                       list-packages-ext;
-                       list-processes+;
                        live-py-mode;
                        llvm-mode;
                        logview;
@@ -247,12 +247,6 @@
                        systemd;
                        telepathy;
                        travis;
-                       ace-isearch;
-                       ace-jump-helm-line;
-                       ace-jump-mode;
-                       ace-link;
-                       ace-popup-menu;
-                       ace-window;
                        ))
 ;;;
 (defun cfg:install-packages ()
@@ -308,6 +302,12 @@
 (ace-jump-helm-line-autoshow-mode +1)
 ;; use `linum-mode' to show
 (setq ace-jump-helm-line-autoshow-mode-use-linum t)
+(require 'ace-link)
+(ace-link-setup-default)
+(require 'ace-popup-menu)
+;;; effect unclear
+(ace-popup-menu-mode 1)
+(setq ace-popup-menu-show-pane-header t)
 ;;;;; ----- ace-jump ---------------------------------------------
 ;;;;; ----- magit ---------------------------------------------
 (require 'magit)
@@ -376,6 +376,8 @@
 ;;;;; ------ flycheck ---------------------------------------------
 (require 'flycheck)
 (add-hook 'after-init-hook #'global-flycheck-mode)
+(require 'flycheck-checkbashisms)
+(eval-after-load 'flycheck '(add-hook 'flycheck-mode-hook #'flycheck-checkbashisms-setup))
 ;;;;;
 ;;;;; ------ rtags ---------------------------------------------
 (load-file "/home/oliver/.tools/scripts-and-more/emacs/rtags/src/rtags.el")
