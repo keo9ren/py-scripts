@@ -298,7 +298,7 @@
 (global-set-key (kbd "C-x n") 'ace-jump-buffer)
 (require 'ace-jump-helm-line)
 (eval-after-load "helm"
-  '(define-key helm-map (kbd "C-'") 'ace-jump-helm-line))
+  '(define-key helm-map (kbd "C-j") 'ace-jump-helm-line))
 (ace-jump-helm-line-idle-exec-add 'helm-mini)
 (ace-jump-helm-line-idle-exec-add 'helm-find-files)
 (setq ace-jump-helm-line-style 'pre)
