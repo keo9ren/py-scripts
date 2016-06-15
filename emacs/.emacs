@@ -293,9 +293,9 @@
 ;;;;;
 ;;;;; ----- ace-jump ---------------------------------------------
 (require 'ace-jump-buffer)
-(define-key global-map (kbd "C-c SPC") 'ace-jump-mode)
-(global-unset-key (kbd "C-x n"))
-(global-set-key (kbd "C-x n") 'ace-jump-buffer)
+(define-key global-map (kbd "C-j") 'ace-jump-mode)
+(global-unset-key (kbd "C-k"))
+(global-set-key (kbd "C-k") 'ace-jump-buffer)
 (require 'ace-jump-helm-line)
 (eval-after-load "helm"
   '(define-key helm-map (kbd "C-j") 'ace-jump-helm-line))
@@ -816,10 +816,10 @@
 (define-key evil-normal-state-map (kbd "j") 'evil-next-visual-line)
 (define-key evil-normal-state-map (kbd "k") 'evil-previous-visual-line)
 ;;screen up/down
-(define-key evil-normal-state-map (kbd "C-j") (lambda ()
+(define-key evil-normal-state-map (kbd "C-p") (lambda ()
                                                 (interactive)
                                                 (evil-scroll-up nil)))
-(define-key evil-normal-state-map (kbd "C-k") (lambda ()
+(define-key evil-normal-state-map (kbd "C-b") (lambda ()
                                                 (interactive)
                                                 (evil-scroll-down nil)))
 (setq evil-move-cursor-back nil)
@@ -838,6 +838,7 @@
 (setq evil-insert-state-cursor '("green" bar))
 (setq evil-emacs-state-cursor '("blue" hbar))
 ;;;;; ------ evil-mode-end ---------------------------------------------
+;()
 ;
 (provide '.emacs)
 ;;; .emacs ends here
