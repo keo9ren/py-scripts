@@ -462,11 +462,6 @@
 (require 'ispell)
 (setq ispell-program-name "hunspell")
 (setq ispell-local-dictionary "en_US")
-(dolist (hook '(text-mode-hook tex-mode-hook LaTex-mode-hook))
-  (add-hook hook (lambda () (flyspell-mode 1))))
-(dolist (hook '(emacs-lisp-mode-hook prog-mode-hook))
-  (add-hook hook (lambda () (flyspell-prog-mode))))
-;;;;;
 ;;;;; ------ spell ---------------------------------------------
 ;;;;;
 ;;;;; ------ helm ---------------------------------------------
@@ -660,7 +655,8 @@
   ))
   (fci-mode)
   (set-fill-column 80)
-  )
+  (flyspell-prog-mode)
+)
 ;
 (defun my-c-mode-hooks ()
   "MY-C-MODE-HOOKS."
@@ -682,17 +678,20 @@
   ))
   (fci-mode)
   (set-fill-column 80)
-  )
+  (flyspell-prog-mode)
+)
 ;
 (defun my-cmake-mode-hooks()
  "MY-CMAKE-MODE-HOOKS."
  (setq-local company-backends '((company-files company-cmake company-dabbrev-code)))
-  )
+ (flyspell-prog-mode)
+)
 ;
 (defun my-org-mode-hooks()
  "MY-ORG-MODE-HOOKS."
  (setq-local company-backends '((company-files company-dabbrev)))
-  )
+ (flyspell-mode 1)
+)
 ;
 (defun my-inferior-octave-mode-hooks()
  "MY-Inferior-OCTAVE-MODE-HOOKS."
@@ -711,19 +710,22 @@
  (abbrev-mode 1)
  (if (eq window-system 'x)
     (font-lock-mode 1))
-  )
+ )
+ (flyspell-prog-mode)
 ;
 (defun my-python-mode-hooks()
  "MY-PYTHON-MODE-HOOKS."
  (setq-local company-backends '((company-files company-jedi company-dabbrev-code)))
  (fci-mode)
  (set-fill-column 100)
-  )
+ (flyspell-prog-mode)
+)
 ;
 (defun my-nxml-mode-hooks()
  "MY-NXML-MODE-HOOKS."
  (setq-local company-backends '((company-files company-nxml company-dabbrev-code)))
-  )
+ (flyspell-prog-mode)
+)
 ;
 (defun my-shell-mode-hooks()
  "MY-SHELL-MODE-HOOKS."
@@ -732,7 +734,6 @@
 ;
 (defun my-eshell-mode-hooks ()
   "My-eshell-mode-hooks."
-  (interactive)
   (define-key eshell-mode-map (kbd "C-c C-h")  'helm-eshell-history)
   (define-key minibuffer-local-map (kbd "C-c C-m")  'helm-minibuffer-history) ; list actions using C-z
   (define-key shell-mode-map (kbd "C-c C-r")  'helm-comint-input-ring) ; list actions using C-z
@@ -744,6 +745,7 @@
  (turn-on-auto-fill)
  (fci-mode)
  (set-fill-column 80)
+ (flyspell-mode 1)
  )
 ;
 (defun my-markdown-mode-hooks()
@@ -752,6 +754,7 @@
  (turn-on-auto-fill)
  (fci-mode)
  (set-fill-column 80)
+ (flyspell-prog-mode)
  )
 ;
 (defun my-latex-mode-hook ()
@@ -760,6 +763,15 @@
                                    company-auctex-bib-candidates
                                    company-auctex-bibs
                                    company-dabbrev-code)))
+   (flyspell-mode 1)
+)
+(defun my-lisp-mode-hook ()
+  "MY-elisp-MODE-HOOK."
+  (flyspell-prog-mode)
+)
+(defun my-emacs-lisp-mode-hook ()
+  "MY-emacs-elisp-MODE-HOOK."
+  (flyspell-prog-mode)
 )
 ;;;;
 ;;;; ------ apply-mode-hooks ---------------------------------------------
@@ -780,6 +792,8 @@
 (add-hook 'markdown-mode-hook #'my-markdown-mode-hooks)
 (add-hook 'LaTex-mode-hook #'my-latex-mode-hook)
 (add-hook 'latex-mode-hook #'my-latex-mode-hook)
+(add-hook 'lisp-mode-hook #'my-lisp-mode-hook)
+(add-hook 'emacs-lisp-mode-hook #'my-emacs-lisp-mode-hook)
 ;;;;;
 ;;;;; ------ apply-mode-hooks-end ---------------------------------------------
 ;;;;;
