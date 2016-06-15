@@ -750,7 +750,7 @@
 ; Use only if your files usually are balanced w/r/t double-quotes
 ; <http://stackoverflow.com/questions/9527593/>
  (modify-syntax-entry ?\" "\"" markdown-mode-syntax-table)
- )
+)
 ;
 (defun my-latex-mode-hook ()
   "MY-LATEX-MODE-HOOK."
