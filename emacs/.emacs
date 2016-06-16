@@ -276,9 +276,11 @@
 ;;;;; ----- ace-jump ---------------------------------------------
 (require 'ace-jump-buffer)
 (global-unset-key (kbd "C-j"))
-(define-key global-map (kbd "C-j") 'ace-jump-mode)
+(define-key evil-normal-state-map (kbd "C-j") 'ace-jump-mode)
 (global-unset-key (kbd "C-k"))
 (global-set-key (kbd "C-k") 'ace-jump-buffer)
+(setq ace-jump-mode-move-keys
+      '(?j ?h ?k ?l ?f ?g ?d ?s ?u ?r ?n ?v ?i ?e))
 (require 'ace-jump-helm-line)
 (eval-after-load "helm"
   '(define-key helm-map (kbd "C-j") 'ace-jump-helm-line))
