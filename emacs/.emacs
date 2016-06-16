@@ -1,4 +1,5 @@
 ;;; package --- Summary 
+
 ;;; commentary:
 (require 'cl)
 (require 'package)
@@ -275,15 +276,15 @@
 ;;;;;
 ;;;;; ----- ace-jump ---------------------------------------------
 (require 'ace-jump-buffer)
-(global-unset-key (kbd "C-j"))
-(define-key evil-normal-state-map (kbd "C-j") 'ace-jump-mode)
+(global-unset-key (kbd "f"))
+(define-key evil-normal-state-map (kbd "f") 'ace-jump-mode)
 (global-unset-key (kbd "C-k"))
-(global-set-key (kbd "C-k") 'ace-jump-buffer)
+(define-key evil-normal-state-map (kbd "C-k") 'ace-jump-buffer)
 (setq ace-jump-mode-move-keys
-      '(?j ?h ?k ?l ?f ?g ?d ?s ?u ?r ?n ?v ?i ?e))
+      '(?j ?h ?k ?l ?f ?g ?d ?s ?u ?r ?n ?v ?i ?e ?o ?w))
 (require 'ace-jump-helm-line)
 (eval-after-load "helm"
-  '(define-key helm-map (kbd "C-j") 'ace-jump-helm-line))
+  '(define-key helm-map (kbd "f") 'ace-jump-helm-line))
 (ace-jump-helm-line-idle-exec-add 'helm-mini)
 (ace-jump-helm-line-idle-exec-add 'helm-find-files)
 (setq ace-jump-helm-line-style 'pre)
@@ -483,7 +484,8 @@
 (global-set-key (kbd "C-c b") 'helm-mini)
 (global-set-key (kbd "M-x") 'helm-M-x)
 (global-set-key (kbd "C-x C-f") 'helm-find-files)
-(global-set-key (kbd "C-c o") 'helm-occur)
+(global-unset-key (kbd "SPC"))
+(define-key evil-normal-state-map (kbd "SPC") 'helm-occur)
 (global-set-key (kbd "M-y") 'helm-show-kill-ring); bad kbd seems useful
 (global-set-key (kbd "C-h SPC") 'helm-all-mark-rings)
 (global-unset-key (kbd "C-x c"))
