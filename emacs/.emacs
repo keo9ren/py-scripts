@@ -17,7 +17,7 @@
                        helm-bibtexkey;to be tested
                        helm helm-projectile helm-dictionary helm-c-yasnippet helm-ls-git
                        helm-flx helm-fuzzier helm-descbinds helm-package helm-pydoc
-                       helm-chrome helm-ack helm-gitignore helm-git-grep helm-proc
+                       helm-chrome helm-gitignore helm-git-grep helm-proc
                        helm-systemd helm-unicode helm-helm-commands helm-google
                        helm-orgcard helm-open-github helm-commandlinefu
                        helm-describe-modes helm-git-files
