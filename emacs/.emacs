@@ -6,7 +6,9 @@
 ;;;
 ;;; Code:
 ;;;;; ------ install-packages ---------------------------------------------
-(setq cfg-var:packages '(evil powerline powerline-evil
+(setq cfg-var:packages '(
+                       multi; required for helm-spotify
+                       evil powerline powerline-evil
                        evil-leader evil-search-highlight-persist evil-terminal-cursor-changer
                        flycheck flycheck-checkbashisms
                        company company-c-headers company-shell helm-company
@@ -24,9 +26,7 @@
                        nlinum indent-guide
                        xcscope helm-cscope
                        avy link-hint
-                       ace-jump-buffer ace-jump-mode ace-jump-helm-line
-                       ace-popup-menu; effect unclear
-                       ace-window; integrate with helm C-w w
+                       ace-jump-buffer ace-jump-helm-line
                        evil-anzu anzu
                        adjust-parens focus;at least good for emacs-lisp
                        helm-flyspell smooth-scrolling helm-mode-manager
@@ -56,7 +56,7 @@
                        ;helm-git;to be tested
                        ;helm-make;to be tested
                        ;evil-nerd-commenter; to be tested
-                       ;multi multi-eshell; to be tested
+                       ;multi-eshell; to be tested
                        ;fzf; to be tested
                        ;helm-pages;wgrep-helm;wgrep;
                        ;org-redmine; to be tested org-repo-todo; to be tested org-pdfview; to be tested org-projectile; to be tested org-vcard; to be tested org-tracktable; to be tested org-bullets; org-present; org-gcal; org-bullets; org-autolist;
@@ -141,10 +141,6 @@
 (ace-jump-helm-line-autoshow-mode +1)
 ;; use `linum-mode' to show
 (setq ace-jump-helm-line-autoshow-mode-use-linum t)
-(require 'ace-popup-menu)
-;;; effect unclear
-(ace-popup-menu-mode 1)
-(setq ace-popup-menu-show-pane-header t)
 ;;;;; ----- ace-jump ---------------------------------------------
 ;;;;;
 ;;;;; ----- magit ---------------------------------------------
@@ -164,7 +160,6 @@
 ;;;;; ------ evil-magit ---------------------------------------------
 ;;;;;
 ;;;;; ------ yasnippet-mode ---------------------------------------------
-(require 'helm-fuzzy-find)
 (require 'yasnippet)
 (require 'helm-c-yasnippet)
 (setq yas-indent-line (quote none))
