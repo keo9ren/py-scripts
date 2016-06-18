@@ -90,9 +90,6 @@
                        company-dict; check better
                        company-flx; check better
                        yapfify;
-                       ack;
-                       ack-menu;
-                       full-ack;
                        grep+;
                        ag;
                        aok;
