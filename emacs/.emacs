@@ -14,13 +14,12 @@
                        cmake-ide cmake-mode cmake-project cmake-font-lock
                        auctex company-auctex
                        helm helm-projectile
-                       helm-c-yasnippet
-                       ;helm-ls-git
                        helm-flx helm-fuzzier helm-descbinds helm-package helm-pydoc
                        helm-chrome helm-gitignore helm-git-grep helm-proc
                        helm-systemd helm-unicode helm-helm-commands helm-google
                        helm-orgcard helm-open-github helm-commandlinefu
                        helm-describe-modes helm-git-files
+                       helm-c-yasnippet;kdb
                        dictcc google-translate password-generator
                        nlinum indent-guide
                        xcscope helm-cscope
@@ -41,6 +40,7 @@
                        popup-kill-ring; to be configured
                        company-dict; check better
                        company-flx; check better
+                       ;helm-ls-git
                        ;helm-bibtex;to be tested
                        ;helm-bibtexkey;to be tested
                        ;list-processes+
