@@ -1,7 +1,8 @@
 #!/usr/bin/env python 
 
-import apt
 import subprocess
+
+import apt
 
 current_user = 'oliver'
 home_path = '/home' + '/' + current_user + '/'
@@ -23,6 +24,7 @@ subprocess.call(['cp','/home/oliver/.tools/scripts-and-more/emacs/rdm.socket','/
 subprocess.call(['sudo','systemctl','--user','enable','rdm.socket'])
 subprocess.call(['sudo','systemctl','--user','start','rdm.socket'])
 #__ packages to install
+debian_misc_packages = ['silversearcher-ag']
 debian_python_packages = ['python3-pip','python-pip','python-jedi', 'python3-jedi', 'python-virtual-env'
                           ,'python-sphinx','python3-sphinx'];
 pip_python_packages = ['importchecker','isort']
@@ -46,4 +48,3 @@ def install(pkg_name):
             cache.commit()
         except Exception, arg:
             print >> sys.stderr, "Sorry, package installation failed [{err}]"
-

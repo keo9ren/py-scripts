@@ -40,11 +40,11 @@
                        popup-kill-ring; to be configured
                        company-dict; check better
                        company-flx; check better
+                       helm-ag;
                        ;helm-ls-git
                        ;helm-bibtex;to be tested
                        ;helm-bibtexkey;to be tested
                        ;list-processes+
-                       ;helm-ag;
                        ;helm-ag-r;
                        ;x-dict;
                        ;helm-org-rifle;to be tested
