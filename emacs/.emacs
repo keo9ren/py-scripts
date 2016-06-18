@@ -13,8 +13,6 @@
                        company-math company-quickhelp company-statistics
                        cmake-ide cmake-mode cmake-project cmake-font-lock
                        auctex company-auctex
-                       helm-bibtex;to be tested
-                       helm-bibtexkey;to be tested
                        helm helm-projectile helm-dictionary helm-c-yasnippet helm-ls-git
                        helm-flx helm-fuzzier helm-descbinds helm-package helm-pydoc
                        helm-chrome helm-gitignore helm-git-grep helm-proc
@@ -28,207 +26,47 @@
                        ace-jump-buffer ace-jump-mode ace-jump-helm-line
                        ace-popup-menu; effect unclear
                        ace-window; integrate with helm C-w w
-                       list-processes+
                        evil-anzu anzu
                        adjust-parens focus;at least good for emacs-lisp
-                       x-dict;
-                       helm-org-rifle;to be tested
-                       ;helm-c-moccur;to be tested
-                       helm-codesearch;install codesearch to test
-                       helm-dired-recent-dirs;to be tested
-                       helm-dirset;to be tested
-                       helm-fuzzy-find;to be tested
-                       helm-git;to be tested
-                       helm-make;to be tested
-                       helm-ag;
-                       helm-ag-r;
-                       ;helm-pages;;to be tested
-                       wgrep-helm;to be tested
-                       wgrep; to be tested
                        helm-flyspell smooth-scrolling helm-mode-manager
                        fill-column-indicator idea-darkula-theme color-theme-approximate
                        clang-format zeal-at-point web-mode markdown-mode yasnippet
                        octave
                        jedi-core company-jedi fic-mode sphinx-doc py-import-check
                        sphinx-frontend py-isort
-                       magit evil-magit magit-annex magit-gh-pulls magit-gerrit; to be configured
+                       magit evil-magit magit-annex magit-gh-pulls
+                       magit-gerrit;gerrit not configured
                        popup-kill-ring; to be configured
-                       evil-nerd-commenter; to be tested
-                       multi multi-eshell; to be tested
-                       fzf; to be tested
-                       org-redmine; to be tested
-                       org-repo-todo; to be tested
-                       org-pdfview; to be tested
-                       org-projectile; to be tested
-                       org-vcard; to be tested
-                       org-tracktable; to be tested
-                       org-bullets;
-                       org-present;
-                       org-gcal;
-                       org-bullets;
-                       org-autolist;
-                       yafolding;
-                       yahoo-weather;
-                       x86-lookup;
-                       writegood-mode;
-                       which-key;
-                       wanderlust;
-                       vkill;
-                       visual-regexp;
-                       visual-regexp-steroids;
-                       viewer;
-                       use-package;
-                       auctex-lua;
-                       latex-preview-pane;
-                       latex-pretty-symbols;
-                       latex-unicode-math-mode;
-                       latex-math-preview;
-                       latex-extra;
-                       gscholar-bibtex;
-                       bibtex-utils;
-                       bibretrieve;
-                       bibslurp;
-                       ebib;
-                       empos;
-                       ivy-bibtex;
                        company-dict; check better
                        company-flx; check better
-                       yapfify;
-                       grep+;
-                       ag;
-                       aok;
-                       arview;
-                       ascii;
-                       asilea;
-                       asn1-mode;
-                       assess;
-                       autodisass-llvm-bitcode;
-                       bog;
-                       butler;
-                       calfw;
-                       calfw-gcal;
-                       camcorder;
-                       capture;
-                       coffee-mode;
-                       col-highlight;
-                       csv-mode;
-                       csv-nav;
-                       define-word;
-                       demangle-mode;
-                       diffview;
-                       dired-dups;
-                       dired-efap;
-                       dropbox;
-                       edbi;
-                       edbi-sqlite;
-                       edbi-minor-mode;
-                       elfeed;
-                       elisp-sandbox;
-                       elmine;
-                       elpy;
-                       emacs-setup;
-                       emacs-eclim;
-                       evil-args;
-                       evil-easymotion;
-                       evil-cleverparens;
-                       evil-commentary;
-                       evil-exchange;
-                       evil-org;
-                       evil-vimish-fold;
-                       excorporate;
-                       fasd;
-                       figlet;
-                       flx;
-                       flx-ido;
-                       flx-isearch;
-                       flycheck-clangcheck;
-                       flycheck-google-cpplint;
-                       flycheck-tip;
-                       fsm;
-                       fuzzy;
-                       fuzzy-match;
-                       geben-helm-projectile;
-                       german-holidays;
-                       gist;
-                       gnuplot;
-                       gnuplot-mode;
-                       hide-comnt;
-                       hl-todo;
-                       ibuffer-git;
-                       ibuffer-projectile;
-                       igrep;
-                       initsplit;
-                       inline-crypt;
-                       insert-shebang;
-                       irfc;
-                       jenkins;
-                       json-mode;
-                       json-reformat;
-                       json-snatcher;
-                       json-rpc;
-                       jumplist;
-                       kaesar-mode;
-                       kaesar-file;
-                       kanban;
-                       know-your-http-well;
-                       kwin;
-                       live-py-mode;
-                       llvm-mode;
-                       logview;
-                       lxc;
-                       macro-math;
-                       macros+;
-                       markdown-mode+;
-                       markdown-preview-eww;
-                       markdown-toc;
-                       markdownfmt;
-                       markup;
-                       md-readme;
-                       mew;
-                       milkode;
-                       mouse+;
-                       multicolumn;
-                       nasm-mode;
-                       nav;
-                       nav-flash;
-                       navi-mode;
-                       neotree;
-                       ninja-mode;
-                       noccur;
-                       occur-x;
-                       nose;
-                       notes-mode;
-                       omn-mode;
-                       on-parens;
-                       on-screen;
-                       one-time-pad-encrypt;
-                       openwith;
-                       org-agenda-property;
-                       org-alert;
-                       org-attach-screenshot;
-                       org-caldav;
-                       org-dashboard;
-                       org-doing;
-                       org-download;
-                       org-dropbox;
-                       org-themis;
-                       org-tree-slide;
-                       palette;
-                       parse-csv;
+                       ;helm-bibtex;to be tested
+                       ;helm-bibtexkey;to be tested
+                       ;list-processes+
+                       ;helm-ag;
+                       ;helm-ag-r;
+                       ;x-dict;
+                       ;helm-org-rifle;to be tested
+                       ;helm-c-moccur;to be tested
+                       ;helm-codesearch;install codesearch to test
+                       ;helm-dired-recent-dirs;to be tested
+                       ;helm-dirset;to be tested
+                       ;helm-fuzzy-find;to be tested
+                       ;helm-git;to be tested
+                       ;helm-make;to be tested
+                       ;evil-nerd-commenter; to be tested
+                       ;multi multi-eshell; to be tested
+                       ;fzf; to be tested
+                       ;helm-pages;wgrep-helm;wgrep;
+                       ;org-redmine; to be tested org-repo-todo; to be tested org-pdfview; to be tested org-projectile; to be tested org-vcard; to be tested org-tracktable; to be tested org-bullets; org-present; org-gcal; org-bullets; org-autolist;
+                       ;yafolding; yahoo-weather; x86-lookup; writegood-mode; which-key; wanderlust; vkill; visual-regexp; visual-regexp-steroids; viewer; use-package; auctex-lua; latex-preview-pane; latex-pretty-symbols; latex-unicode-math-mode; latex-math-preview; latex-extra; gscholar-bibtex; bibtex-utils; bibretrieve; bibslurp; ebib; empos; ivy-bibtex;
+                       ;yapfify; grep+; ag; aok; arview; ascii; asilea; asn1-mode; assess; autodisass-llvm-bitcode; bog; butler; calfw; calfw-gcal; camcorder; capture; coffee-mode; col-highlight; csv-mode; csv-nav; define-word; demangle-mode; diffview; dired-dups; dired-efap; dropbox; edbi; edbi-sqlite; edbi-minor-mode; elfeed; elisp-sandbox; elmine; elpy; emacs-setup; emacs-eclim; evil-args; evil-easymotion; evil-cleverparens; evil-commentary; evil-exchange; evil-org; evil-vimish-fold; excorporate; fasd; figlet; flx; flx-ido; flx-isearch; flycheck-clangcheck; flycheck-google-cpplint; flycheck-tip; fsm; fuzzy; fuzzy-match; geben-helm-projectile; german-holidays; gist; gnuplot; gnuplot-mode; hide-comnt; hl-todo; ibuffer-git; ibuffer-projectile; igrep; initsplit; inline-crypt; insert-shebang; irfc; jenkins; json-mode; json-reformat; json-snatcher; json-rpc; jumplist; kaesar-mode; kaesar-file; kanban; know-your-http-well; kwin; live-py-mode; llvm-mode; logview; lxc; macro-math; macros+; markdown-mode+; markdown-preview-eww; markdown-toc; markdownfmt; markup; md-readme; mew; milkode; mouse+; multicolumn; nasm-mode; nav; nav-flash; navi-mode; neotree;
+                       ;ninja-mode; noccur; occur-x; nose; notes-mode; omn-mode; on-parens; on-screen;
+                       ;one-time-pad-encrypt; openwith; org-agenda-property; org-alert; org-attach-screenshot; org-caldav;org-dashboard;org-doing;
+                       ;org-download;org-dropbox;org-themis;org-tree-slide;palette;parse-csv;
                        ;pass;passthword;password-store;password-vault;
-                       path-headerline-mode;
-                       pcre2el;
-                       pinentry;
-                       popup-switcher;
-                       pretty-mode;
-                       private-diary;
-                       pungi;
-                       px;
-                       ssh;
-                       syslog-mode;
-                       systemd;
-                       telepathy;
-                       travis;
+                       ;path-headerline-mode;
+                       ;pcre2el;pinentry;popup-switcher;pretty-mode;private-diary;
+                       ;pungi;px;ssh;syslog-mode;systemd;telepathy;travis;
                        ))
 ;;;
 (defun cfg:install-packages ()
