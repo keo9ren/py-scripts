@@ -23,7 +23,8 @@ subprocess.call(['cp','/home/oliver/.tools/scripts-and-more/emacs/rdm.socket','/
 subprocess.call(['sudo','systemctl','--user','enable','rdm.socket'])
 subprocess.call(['sudo','systemctl','--user','start','rdm.socket'])
 #__ packages to install
-debian_python_packages = ['python3-pip','python-pip','python-jedi', 'python3-jedi', 'python-virtual-env','python-sphinx'];
+debian_python_packages = ['python3-pip','python-pip','python-jedi', 'python3-jedi', 'python-virtual-env'
+                          ,'python-sphinx','python3-sphinx'];
 pip_python_packages = ['importchecker']
 #lua5.3
 #trigger install routine
