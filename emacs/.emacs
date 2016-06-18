@@ -10,6 +10,7 @@
                        multi; required for helm-spotify
                        evil powerline powerline-evil
                        evil-leader evil-search-highlight-persist evil-terminal-cursor-changer
+                       evil-nerd-commenter
                        flycheck flycheck-checkbashisms
                        company company-c-headers company-shell helm-company
                        company-math company-quickhelp company-statistics
@@ -41,23 +42,9 @@
                        company-dict; check better
                        company-flx; check better
                        helm-ag;
-                       ;helm-ls-git
-                       ;helm-bibtex;to be tested
-                       ;helm-bibtexkey;to be tested
-                       ;list-processes+
-                       ;helm-ag-r;
-                       ;x-dict;
-                       ;helm-org-rifle;to be tested
-                       ;helm-c-moccur;to be tested
+                       ;helm-ls-git ;helm-bibtex; ;helm-bibtexkey; ;list-processes+ ;helm-ag-r; ;x-dict; ;helm-org-rifle; ;helm-c-moccur;
                        ;helm-codesearch;install codesearch to test
-                       ;helm-dired-recent-dirs;to be tested
-                       ;helm-dirset;to be tested
-                       ;helm-fuzzy-find;to be tested
-                       ;helm-git;to be tested
-                       ;helm-make;to be tested
-                       ;evil-nerd-commenter; to be tested
-                       ;multi-eshell; to be tested
-                       ;fzf; to be tested
+                       ;helm-dired-recent-dirs; ;helm-dirset; ;helm-fuzzy-find; ;helm-git; ;helm-make; ;multi-eshell; ;fzf;
                        ;helm-pages;wgrep-helm;wgrep;
                        ;org-redmine; to be tested org-repo-todo; to be tested org-pdfview; to be tested org-projectile; to be tested org-vcard; to be tested org-tracktable; to be tested org-bullets; org-present; org-gcal; org-bullets; org-autolist;
                        ;yafolding; yahoo-weather; x86-lookup; writegood-mode; which-key; wanderlust; vkill; visual-regexp; visual-regexp-steroids; viewer; use-package; auctex-lua; latex-preview-pane; latex-pretty-symbols; latex-unicode-math-mode; latex-math-preview; latex-extra; gscholar-bibtex; bibtex-utils; bibretrieve; bibslurp; ebib; empos; ivy-bibtex;
