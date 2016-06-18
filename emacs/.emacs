@@ -216,10 +216,7 @@
                        org-tree-slide;
                        palette;
                        parse-csv;
-                       pass;
-                       passthword;
-                       password-store;
-                       password-vault;
+                       ;pass;passthword;password-store;password-vault;
                        path-headerline-mode;
                        pcre2el;
                        pinentry;
