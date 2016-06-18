@@ -13,7 +13,9 @@
                        company-math company-quickhelp company-statistics
                        cmake-ide cmake-mode cmake-project cmake-font-lock
                        auctex company-auctex
-                       helm helm-projectile helm-dictionary helm-c-yasnippet helm-ls-git
+                       helm helm-projectile
+                       helm-c-yasnippet
+                       ;helm-ls-git
                        helm-flx helm-fuzzier helm-descbinds helm-package helm-pydoc
                        helm-chrome helm-gitignore helm-git-grep helm-proc
                        helm-systemd helm-unicode helm-helm-commands helm-google
@@ -415,10 +417,6 @@
                          "*helm-my-buffer*")))
 ;;;;; ------ helm-eshell ---------------------------------------------
 ;;;;;
-;;;;; ------ helm-dictionary ---------------------------------------------
-(require 'helm-dictionary)
-;; sudo apt-get install trans-de-en
-;;;;; ------ helm-dictionary ---------------------------------------------
 ;;;;;
 ;;;;; ------ vim-scrolling ---------------------------------------------
 ;vim like scrolling
