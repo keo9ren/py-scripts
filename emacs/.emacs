@@ -812,6 +812,7 @@
   company-oddmuse
   company-capf
   )))
+  (focus-mode t)
   (turn-on-auto-fill)
   (fci-mode)
   (set-fill-column 80)
