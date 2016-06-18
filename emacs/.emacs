@@ -49,7 +49,7 @@
                        clang-format zeal-at-point web-mode markdown-mode yasnippet
                        octave
                        jedi-core company-jedi fic-mode sphinx-doc py-import-check
-                       sphinx-frontend
+                       sphinx-frontend py-isort
                        magit evil-magit magit-annex magit-gh-pulls magit-gerrit; to be configured
                        popup-kill-ring; to be configured
                        evil-nerd-commenter; to be tested
@@ -228,7 +228,6 @@
                        private-diary;
                        pungi;
                        px;
-                       py-isort;
                        ssh;
                        syslog-mode;
                        systemd;
@@ -750,6 +749,8 @@
  (setq-local company-backends '((company-files company-jedi company-dabbrev-code)))
  (require 'sphinx-doc)
  (sphinx-doc-mode t)
+ (require 'py-isort)
+ (add-hook 'before-save-hook 'py-isort-before-save)
  (fci-mode)
  (set-fill-column 100)
  (flyspell-prog-mode)
