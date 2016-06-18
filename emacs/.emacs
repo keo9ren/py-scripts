@@ -128,7 +128,12 @@
                        emacs-setup;
                        emacs-eclim;
                        evil-args;
-                       evil-avy;ace-jump-mode
+                       evil-avy;
+                       avy;
+                       avy-menu;
+                       avy-migemo;
+                       avy-zap;
+                       link-hint;
                        evil-easymotion;
                        evil-cleverparens;
                        evil-commentary;
@@ -172,7 +177,6 @@
                        kanban;
                        know-your-http-well;
                        kwin;
-                       link-hint;
                        live-py-mode;
                        llvm-mode;
                        logview;
