@@ -351,12 +351,12 @@
         (if (looking-at "\\.") t
           (backward-char 1)
           (if (looking-at "->") t nil)))))
-
+;;;;------------------------------------------------------
 (defun do-yas-expand ()
   "My do-yas-expand."
     (let ((yas-fallback-behavior 'return-nil))
       (yas-expand)))
-
+;;;;------------------------------------------------------
 (defun tab-indent-or-complete ()
   "My tab-indent-or-complete.  We need to check if we are in magit-mode and than toggle magit-section-toggle."
     (interactive)
@@ -399,7 +399,6 @@
 (global-set-key [(control return)] 'company-complete-common)
 (define-key company-active-map [tab] 'expand-snippet-or-complete-selection)
 (define-key company-active-map (kbd "TAB") 'expand-snippet-or-complete-selection)
-(define-key company-active-map (kbd "\t") 'expand-snippet-or-complete-selection)
 (define-key yas-minor-mode-map [tab] nil)
 (define-key yas-minor-mode-map (kbd "TAB") nil)
 (define-key yas-keymap [tab] 'tab-complete-or-next-field)
