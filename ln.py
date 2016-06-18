@@ -17,13 +17,16 @@ subprocess.call(['rm','/home/oliver/.emacs.d/init.el'])
 subprocess.call(['rm','/home/oliver/.emacs.d/init.el~'])
 emacs_path = home_path + '.emacs.d/'
 subprocess.call(['ln','-sf', script_path + 'emacs/.emacs', emacs_path + 'init.el'])
-#lua5.3
 #open sockets
 subprocess.call(['cp','/home/oliver/.tools/scripts-and-more/emacs/rdm.service','/home/oliver/.config/systemd/user/rdm.service'])
 subprocess.call(['cp','/home/oliver/.tools/scripts-and-more/emacs/rdm.socket','/home/oliver/.config/systemd/user/rdm.socket'])
 subprocess.call(['sudo','systemctl','--user','enable','rdm.socket'])
 subprocess.call(['sudo','systemctl','--user','start','rdm.socket'])
-debian_python_packages = ['python-jedi', 'python3-jedi', 'python-virtual-env','python-sphinx'];
+#__ packages to install
+debian_python_packages = ['python3-pip','python-pip','python-jedi', 'python3-jedi', 'python-virtual-env','python-sphinx'];
+pip_python_packages = ['importchecker']
+#lua5.3
+#trigger install routine
 
 
 def install(pkg_name):
