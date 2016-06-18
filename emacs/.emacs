@@ -254,6 +254,12 @@
 (package-initialize)
 (cfg:install-packages)
 ;;;;; ------ install-packages ---------------------------------------------
+;;;;;
+;;;;; ------ sphinx-frontend ---------------------------------------------
+(require 'sphinx-frontend)
+;;;;; needs some configuration
+;;;;; ------ sphinx-frontend ---------------------------------------------
+;;;;;
 (require 'helm-pydoc)
 (require 'helm-flyspell)
 (define-key flyspell-mode-map (kbd "C-,") 'helm-flyspell-correct)
@@ -743,6 +749,8 @@
 (defun my-python-mode-hooks()
  "MY-PYTHON-MODE-HOOKS."
  (setq-local company-backends '((company-files company-jedi company-dabbrev-code)))
+ (require 'sphinx-doc)
+ (sphinx-doc-mode t)
  (fci-mode)
  (set-fill-column 100)
  (flyspell-prog-mode)
