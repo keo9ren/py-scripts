@@ -128,12 +128,7 @@
                        emacs-setup;
                        emacs-eclim;
                        evil-args;
-                       evil-avy;
-                       avy;
-                       avy-menu;
-                       avy-migemo;
-                       avy-zap;
-                       link-hint;
+                       evil-avy avy link-hint;
                        evil-easymotion;
                        evil-cleverparens;
                        evil-commentary;
@@ -279,9 +274,18 @@
 (anzu-mode +1)
 ;;;;; ----- anzu ---------------------------------------------
 ;;;;;
+;;;;; ----- avy ---------------------------------------------
+(define-key evil-normal-state-map (kbd "f") 'avy-goto-char)
+(define-key evil-normal-state-map (kbd "C-f") 'avy-goto-char-2)
+;(define-key evil-normal-state-map (kbd "M-g f") 'avy-goto-line)binding??
+(setq avy-keys '(?j ?h ?k ?l ?f ?g ?d ?s ?u ?r ?n ?v ?i ?e ?o ?w))
+(require 'link-hint)
+(define-key evil-normal-state-map (kbd "C-l") 'link-hint-open-link)
+(global-set-key (kbd "C-l") 'link-hint-open-link)
+;;;;; ----- avy ---------------------------------------------
+;;;;;
 ;;;;; ----- ace-jump ---------------------------------------------
 (require 'ace-jump-buffer)
-(define-key evil-normal-state-map (kbd "f") 'ace-jump-mode)
 (global-unset-key (kbd "C-k"))
 (define-key evil-normal-state-map (kbd "C-k") 'ace-jump-buffer)
 (setq ace-jump-mode-move-keys
