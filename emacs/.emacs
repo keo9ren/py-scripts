@@ -48,7 +48,7 @@
                        fill-column-indicator idea-darkula-theme color-theme-approximate
                        clang-format zeal-at-point web-mode markdown-mode yasnippet
                        octave
-                       jedi-core company-jedi fic-mode sphinx-doc py-import-check; requires apt import-checker
+                       jedi-core company-jedi fic-mode sphinx-doc py-import-check
                        sphinx-frontend
                        magit evil-magit magit-annex magit-gh-pulls magit-gerrit; to be configured
                        popup-kill-ring; to be configured
