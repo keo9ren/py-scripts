@@ -356,7 +356,7 @@
       (yas/expand)))
 
 (defun tab-indent-or-complete ()
-  "My tab-indent-or-complete."
+  "My tab-indent-or-complete.  We need to check if we are in magit-mode and than toggle magit-section-toggle."
     (interactive)
     (if (minibufferp)
         (minibuffer-complete)
@@ -373,15 +373,17 @@
       (null (do-yas-expand)))
       (if company-candidates
       (company-complete-selection)
-    (if (check-expansion)
-      (progn
-        (company-manual-begin)
-        (if (null company-candidates)
-        (progn
-          (company-abort)
-          (yas-next-field))))
-      (yas-next-field)))))
-
+        (when (check-expansion)
+         (company-manual-begin)
+           (when (null company-candidates)
+             (company-abort) (yas-next-field)
+           )
+         (yas-next-field)
+        )
+      )
+  )
+)
+;---------------------------------------------------------
 (defun expand-snippet-or-complete-selection ()
   "My expand-snippet-or-complete-selection."
   (interactive)
