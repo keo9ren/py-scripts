@@ -39,6 +39,8 @@
                        helm-fuzzy-find;to be tested
                        helm-git;to be tested
                        helm-make;to be tested
+                       helm-ag;
+                       helm-ag-r;
                        ;helm-pages;;to be tested
                        wgrep-helm;to be tested
                        wgrep; to be tested
