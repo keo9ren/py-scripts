@@ -343,7 +343,7 @@
 ;;;;; ------ helm-company ---------------------------------------------
 ;;;;;
 ;;;;; ------ company-mode yas-mode ---------------------------------------------
-  (defun check-expansion ()
+(defun check-expansion ()
     (save-excursion
       (if (looking-at "\\_>") t
         (backward-char 1)
@@ -351,21 +351,57 @@
           (backward-char 1)
           (if (looking-at "->") t nil)))))
 
-  (defun do-yas-expand ()
+(defun do-yas-expand ()
     (let ((yas/fallback-behavior 'return-nil))
       (yas/expand)))
 
-  (defun tab-indent-or-complete ()
+(defun tab-indent-or-complete ()
+  "My tab-indent-or-complete."
     (interactive)
     (if (minibufferp)
         (minibuffer-complete)
-      (if (or (not yas/minor-mode)
+      (if (or (not yas-minor-mode)
               (null (do-yas-expand)))
           (if (check-expansion)
               (company-complete-common)
             (indent-for-tab-command)))))
+;;;;------------------------------------------------------
+(defun tab-complete-or-next-field ()
+  "My tab-complete-or-next-field."
+  (interactive)
+  (if (or (not yas-minor-mode)
+      (null (do-yas-expand)))
+      (if company-candidates
+      (company-complete-selection)
+    (if (check-expansion)
+      (progn
+        (company-manual-begin)
+        (if (null company-candidates)
+        (progn
+          (company-abort)
+          (yas-next-field))))
+      (yas-next-field)))))
 
+(defun expand-snippet-or-complete-selection ()
+  "My expand-snippet-or-complete-selection."
+  (interactive)
+  (if (or (not yas-minor-mode)
+      (null (do-yas-expand))
+      (company-abort))
+      (company-complete-selection)))
+;;;;------------------------------------------------------
 (global-set-key [tab] 'tab-indent-or-complete)
+(global-set-key (kbd "TAB") 'tab-indent-or-complete)
+(global-set-key [(control return)] 'company-complete-common)
+(define-key company-active-map [tab] 'expand-snippet-or-complete-selection)
+(define-key company-active-map (kbd "TAB") 'expand-snippet-or-complete-selection)
+(define-key company-active-map (kbd "\t") 'expand-snippet-or-complete-selection)
+(define-key yas-minor-mode-map [tab] nil)
+(define-key yas-minor-mode-map (kbd "TAB") nil)
+(define-key yas-keymap [tab] 'tab-complete-or-next-field)
+(define-key yas-keymap (kbd "TAB") 'tab-complete-or-next-field)
+(define-key yas-keymap [(control tab)] 'yas-next-field)
+(define-key yas-keymap (kbd "C-g") 'abort-company-or-yas)
 ;;;;; ------ company-mode yas-mode ---------------------------------------------
 ;;;;; ------ company-mode ---------------------------------------------
 ;;;;;
@@ -768,6 +804,15 @@
 )
 (defun my-emacs-lisp-mode-hook ()
   "MY-emacs-elisp-MODE-HOOK."
+  (setq-local company-backends '((
+  company-dabbrev-code
+  company-files
+  company-oddmuse
+  company-capf
+  )))
+  (turn-on-auto-fill)
+  (fci-mode)
+  (set-fill-column 80)
   (flyspell-prog-mode)
 )
 ;;;;
