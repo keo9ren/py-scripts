@@ -47,8 +47,9 @@
                        helm-flyspell smooth-scrolling helm-mode-manager
                        fill-column-indicator idea-darkula-theme color-theme-approximate
                        clang-format zeal-at-point web-mode markdown-mode yasnippet
-                       octave jedi-core company-jedi fic-mode
-                       py-import-check; requires apt import-checker
+                       octave
+                       jedi-core company-jedi fic-mode sphinx-doc py-import-check; requires apt import-checker
+                       sphinx-frontend
                        magit evil-magit magit-annex magit-gh-pulls magit-gerrit; to be configured
                        popup-kill-ring; to be configured
                        evil-nerd-commenter; to be tested
@@ -228,8 +229,6 @@
                        pungi;
                        px;
                        py-isort;
-                       sphinx-doc;
-                       sphinx-frontend;
                        ssh;
                        syslog-mode;
                        systemd;
