@@ -24,7 +24,8 @@
                        dictcc google-translate password-generator
                        nlinum indent-guide
                        xcscope helm-cscope
-                       ace-jump-buffer ace-jump-mode ace-jump-helm-line ace-link
+                       avy link-hint
+                       ace-jump-buffer ace-jump-mode ace-jump-helm-line
                        ace-popup-menu; effect unclear
                        ace-window; integrate with helm C-w w
                        list-processes+
@@ -128,7 +129,6 @@
                        emacs-setup;
                        emacs-eclim;
                        evil-args;
-                       evil-avy avy link-hint;
                        evil-easymotion;
                        evil-cleverparens;
                        evil-commentary;
@@ -301,8 +301,6 @@
 (ace-jump-helm-line-autoshow-mode +1)
 ;; use `linum-mode' to show
 (setq ace-jump-helm-line-autoshow-mode-use-linum t)
-(require 'ace-link)
-(ace-link-setup-default)
 (require 'ace-popup-menu)
 ;;; effect unclear
 (ace-popup-menu-mode 1)
