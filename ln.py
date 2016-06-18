@@ -23,7 +23,7 @@ subprocess.call(['cp','/home/oliver/.tools/scripts-and-more/emacs/rdm.service','
 subprocess.call(['cp','/home/oliver/.tools/scripts-and-more/emacs/rdm.socket','/home/oliver/.config/systemd/user/rdm.socket'])
 subprocess.call(['sudo','systemctl','--user','enable','rdm.socket'])
 subprocess.call(['sudo','systemctl','--user','start','rdm.socket'])
-# for jedi install python-jedi python3-jedi python-virtual-env
+debian_python_packages = ['python-jedi', 'python3-jedi', 'python-virtual-env','python-sphinx'];
 
 
 def install(pkg_name):
