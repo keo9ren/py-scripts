@@ -239,6 +239,7 @@
                        ))
 ;;;
 (defun cfg:install-packages ()
+  "My cfg:install-packages."
     (let ((pkgs (remove-if #'package-installed-p cfg-var:packages)))
        (when pkgs
             (message "%s" "Emacs refresh packages database...")
@@ -262,7 +263,7 @@
 (require 'indent-guide)
 (indent-guide-global-mode)
 (set-face-background 'indent-guide-face "dimgray")
-(setq indent-guide-delay 0.1)
+(setq indent-guide-delay 4)
 (setq indent-guide-recursive t)
 (setq indent-guide-char "|")
 ;;;;; ----- indent-guide ---------------------------------------------
@@ -299,6 +300,7 @@
 (ace-popup-menu-mode 1)
 (setq ace-popup-menu-show-pane-header t)
 ;;;;; ----- ace-jump ---------------------------------------------
+;;;;;
 ;;;;; ----- magit ---------------------------------------------
 (require 'magit)
 (require 'evil-magit)
@@ -555,8 +557,9 @@
 ;;;;; ------ helm-eshell ---------------------------------------------
 (require 'eshell)
 (require 'helm-eshell)
-;
+;;;;;
 (defun helm-my-buffers ()
+  "My helm-my-buffers."
  (interactive)
   (let ((helm-ff-transformer-show-only-basename nil))
     (helm-other-buffer '(helm-c-source-buffers-list
@@ -606,7 +609,7 @@
 (require 'clang-format)
 (defcustom clang-format-on-save
   t
-  "clang-format-on-save."
+  "My clang-format-on-save."
   :group 'myinit
   :type 'booleanp
   :safe #'booleanp)
@@ -615,7 +618,7 @@
 (when (eq t clang-format-on-save) (add-hook 'before-save-hook  'clang-format-before-save) )
 ;;;;;
 ;;;;; ------ clang-format-mode ---------------------------------------------
-;
+;;;;;
 ;;;;; ------ spotify-mode ---------------------------------------------
 (load-file "/home/oliver/.tools/scripts-and-more/emacs/helm-spotify/helm-spotify.el")
 (require 'helm-spotify)
@@ -629,15 +632,14 @@
 (require 'zeal-at-point)
 (global-set-key "\C-cd" 'zeal-at-point)
 ;;;;; ------ zeal-mode ---------------------------------------------
-
+;;;;;
 ;;;;; ------ org-mode ---------------------------------------------
 (require 'org)
 (define-key global-map "\C-cl" 'org-store-link)
 (define-key global-map "\C-ca" 'org-agenda)
 (setq org-log-done t)
 ;;;;; ------ org-mode ---------------------------------------------
-
-
+;;;;;
 ;;;;; ------ markdown-mode ---------------------------------------------
 (require 'markdown-mode)
 ;;;;; ------ markdown-mode ---------------------------------------------
