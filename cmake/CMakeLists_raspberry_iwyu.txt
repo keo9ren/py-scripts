@@ -1,0 +1,52 @@
+SET(CMAKE_BUILD_TYPE "DEBUG")
+SET(CMAKE_TOOLCHAIN_FILE "${CMAKE_SOURCE_DIR}/cmake/arm-linux-gnueabihf.cmake")
+SET(CMAKE_MODULE_PATH ${CMAKE_MODULE_PATH} "${CMAKE_SOURCE_DIR}/cmake/modules/")
+PROJECT(emu-daemon)
+
+CMAKE_MINIMUM_REQUIRED(VERSION 2.8)
+ENABLE_LANGUAGE(ASM C CXX)
+ 
+SET(CMAKE_C_FLAGS "${CMAKE_C_FLAGS} --std=c11 -Wall -Wextra -Dsset_FW_Rev_Main=0 -Dsset_FW_Rev_Sub=0 -Dsset_Rev_Feature=1")
+SET(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} --std=c++11  -Wall -Wextra -Dsset_FW_Rev_Main=0 -Dsset_FW_Rev_Sub=0 -Dsset_Rev_Feature=1")
+SET(CMAKE_ASM_FLAGS "${CMAKE_ASM_FLAGS} -x")
+
+find_package(Threads REQUIRED)
+find_package(DL REQUIRED)
+
+INCLUDE_DIRECTORIES(AFTER ${Threads_INCLUDES})
+INCLUDE_DIRECTORIES(AFTER ${DL_INCLUDES})
+
+INCLUDE_DIRECTORIES(
+  src/modules/Block
+  src/modules/Block/Elements
+  src/modules/General/
+  src/modules/HardwareInterface/IIC_10bit_HAL
+  src/modules/HardwareInterface/bcm2835
+  src/modules/HardwareInterface/IIC_SSET/
+  src/modules/Master
+  src/modules/Master/CCU
+  src/modules/Master/PCtnl
+  src/modules/SQL/sqlite3
+  src/modules/SQL/SSET
+)
+message(STATUS "CMAKE_C_FLAGS: ${CMAKE_C_FLAGS}")
+message(STATUS "CMAKE_C_FLAGS_DEBUG: ${CMAKE_C_FLAGS_DEBUG}")
+
+find_program(iwyu_path NAMES include_what-you-use iwyu)
+if(NOT iwyu_path)
+message(FATAL_ERROR "no iwyu")
+endif()
+
+
+file(GLOB_RECURSE PROJECT_SOURCES_CXX src/*.cpp)
+file(GLOB_RECURSE PROJECT_SOURCES_C src/*.c)
+
+
+ADD_EXECUTABLE(${CMAKE_PROJECT_NAME} ${PROJECT_SOURCES_C} ${PROJECT_SOURCES_CXX})
+#set(iwyu_path_and_options
+#    ${iwyu_path}
+#    -Xiwyu
+#    --mapping_file=${my_mapping})
+set_property(TARGET ${CMAKE_PROJECT_NAME} PROPERTY CXX_INCLUDE_WHAT_YOU_USE ${iwyu_path})
+target_link_libraries (${CMAKE_PROJECT_NAME} ${CMAKE_THREAD_LIBS_INIT} ${DL_LIBRARIES})
+
