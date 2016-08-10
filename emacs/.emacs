@@ -41,7 +41,11 @@
                        popup-kill-ring; to be configured
                        company-dict; check better
                        company-flx; check better
-                       helm-ag
+                       helm-ag;
+                       ;leuven-theme;
+                       ;molokai-theme;
+                       moe-theme;
+                       modern-cpp-font-lock;
                        ;helm-ls-git ;helm-bibtex; ;helm-bibtexkey; ;list-processes+ ;helm-ag-r; ;x-dict; ;helm-org-rifle; ;helm-c-moccur;
                        ;helm-codesearch;install codesearch to test
                        ;helm-dired-recent-dirs; ;helm-dirset; ;helm-fuzzy-find; ;helm-git; ;helm-make; ;multi-eshell; ;fzf;
@@ -307,7 +311,8 @@
  '(initial-frame-alist (quote ((fullscreen . maximized))))
  '(safe-local-variable-values
    (quote
-    ((cmake-ide-flags-c++ "-I/usr/include/c++/6" "-I/usr/include/x86_64-linux-gnu/c++/6" "-I/usr/include/c++/6/backward" "-I/usr/lib/gcc/x86_64-linux-gnu/6/include" "-I/usr/local/include" "-I/usr/lib/gcc/x86_64-linux-gnu/6/include-fixed" "-I/usr/include/x86_64-linux-gnu" "-I/usr/include")
+    ((cmake-ide-build-dir . "build")
+     (cmake-ide-flags-c++ "-I/usr/include/c++/6" "-I/usr/include/x86_64-linux-gnu/c++/6" "-I/usr/include/c++/6/backward" "-I/usr/lib/gcc/x86_64-linux-gnu/6/include" "-I/usr/local/include" "-I/usr/lib/gcc/x86_64-linux-gnu/6/include-fixed" "-I/usr/include/x86_64-linux-gnu" "-I/usr/include")
      (cmake-ide-flags-c "-I/usr/lib/gcc-cross/arm-linux-gnueabihf/6/include" "-I/usr/lib/gcc-cross/arm-linux-gnueabihf/6/include-fixed" "-I/usr/lib/gcc-cross/arm-linux-gnueabihf/6/../../../../arm-linux-gnueabihf/include" "-I/usr/include")
      (cmake-ide-dir . "build")
      (cmake-ide-flags-c++ quote
@@ -371,7 +376,7 @@
 (define-key helm-map (kbd "C-z")  'helm-select-action) ; list actions using C-z
 (global-unset-key (kbd "C-c h @"))
 (global-set-key (kbd "C-c h @") 'helm-package)
-(setq helm-quick-update)
+;(setq helm-quick-update)
 (setq helm-bookmark-show-location t ;
       helm-buffers-fuzzy-matching t ; helm-mini
       helm-recentf-fuzzy-match t    ; helm-mini
@@ -428,7 +433,11 @@
       airline-utf-glyph-readonly            #xe0a2
       airline-utf-glyph-linenumber          #xe0a1)
 ;;;;; ------ theme ---------------------------------------------
-(load-theme 'idea-darkula t)
+;(load-theme 'idea-darkula t)
+(require 'moe-theme)
+;(load-theme 'moe-theme t)
+(moe-theme-set-color 'cyan)
+(moe-dark)
 (color-theme-approximate-on)
 ;;;;; ------ theme ---------------------------------------------
 (load-theme 'airline-sol)
@@ -496,6 +505,8 @@
                             )))
 )
 ;
+(require 'modern-cpp-font-lock)
+(modern-c++-font-lock-global-mode t)
 (defun my-c++-mode-hooks ()
   "MY-C++-MODE-HOOKS."
   (interactive)
