@@ -5,4 +5,4 @@ Requires=rdm.socketp
 
 [Service]
 Type=simple
-ExecStart=/home/oliver/.tools/scripts-and-more/emacs/rtags/bin/ -v --inactivity-timeout 300
+ExecStart=/home/keo9ren/.tools/scripts-and-more/emacs/rtags/bin/ -v --inactivity-timeout 300

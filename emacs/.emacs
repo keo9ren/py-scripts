@@ -110,28 +110,28 @@
 (define-key evil-normal-state-map (kbd "C-f") 'avy-goto-char-2)
 ;(define-key evil-normal-state-map (kbd "M-g f") 'avy-goto-line)binding??
 (setq avy-keys '(?j ?h ?k ?l ?f ?g ?d ?s ?u ?r ?n ?v ?i ?e ?o ?w))
-(require 'link-hint)
-(define-key evil-normal-state-map (kbd "C-l") 'link-hint-open-link)
-(global-set-key (kbd "C-l") 'link-hint-open-link)
+;(require 'link-hint)
+;(define-key evil-normal-state-map (kbd "C-l") 'link-hint-open-link)
+;(global-set-key (kbd "C-l") 'link-hint-open-link)
 ;;;;; ----- avy ---------------------------------------------
 ;;;;;
 ;;;;; ----- ace-jump ---------------------------------------------
-(require 'ace-jump-buffer)
-(global-unset-key (kbd "C-k"))
-(define-key evil-normal-state-map (kbd "C-k") 'ace-jump-buffer)
-(setq ace-jump-mode-move-keys
-      '(?j ?h ?k ?l ?f ?g ?d ?s ?u ?r ?n ?v ?i ?e ?o ?w))
-(require 'ace-jump-helm-line)
-(eval-after-load "helm"
-  '(define-key helm-map (kbd "C-j") 'ace-jump-helm-line))
-(ace-jump-helm-line-idle-exec-add 'helm-mini)
-(ace-jump-helm-line-idle-exec-add 'helm-find-files)
-(setq ace-jump-helm-line-style 'pre)
-(setq ace-jump-helm-line-background t)
-(setq ace-jump-helm-line-idle-delay 1)
-(ace-jump-helm-line-autoshow-mode +1)
+;(require 'ace-jump-buffer)
+;(global-unset-key (kbd "C-k"))
+;(define-key evil-normal-state-map (kbd "C-k") 'ace-jump-buffer)
+;(setq ace-jump-mode-move-keys
+;      '(?j ?h ?k ?l ?f ?g ?d ?s ?u ?r ?n ?v ?i ?e ?o ?w))
+;(require 'ace-jump-helm-line)
+;(eval-after-load "helm"
+;  '(define-key helm-map (kbd "C-j") 'ace-jump-helm-line))
+;(ace-jump-helm-line-idle-exec-add 'helm-mini)
+;(ace-jump-helm-line-idle-exec-add 'helm-find-files)
+;(setq ace-jump-helm-line-style 'pre)
+;(setq ace-jump-helm-line-background t)
+;(setq ace-jump-helm-line-idle-delay 1)
+;(ace-jump-helm-line-autoshow-mode +1)
 ;; use `linum-mode' to show
-(setq ace-jump-helm-line-autoshow-mode-use-linum t)
+;(setq ace-jump-helm-line-autoshow-mode-use-linum t)
 ;;;;; ----- ace-jump ---------------------------------------------
 ;;;;;
 ;;;;; ----- magit ---------------------------------------------
@@ -157,7 +157,7 @@
 (setq helm-yas-space-match-any-greedy t)
 (global-set-key (kbd "C-c y") 'helm-yas-complete)
 (add-hook 'prog-mode-hook #'yas-minor-mode)
-(add-to-list 'yas-snippet-dirs "/home/oliver/.tools/scripts-and-more/emacs/yasnippet/")
+(add-to-list 'yas-snippet-dirs "/home/keo9ren/.tools/scripts-and-more/emacs/yasnippet/")
 (add-hook 'after-init-hook 'yas-reload-all)
 ;;;;; ------ yasnippet-mode ---------------------------------------------
 ;;;;; ------ company-mode ---------------------------------------------
@@ -249,12 +249,12 @@
 (eval-after-load 'flycheck '(add-hook 'flycheck-mode-hook #'flycheck-checkbashisms-setup))
 ;;;;;
 ;;;;; ------ rtags ---------------------------------------------
-(load-file "/home/oliver/.tools/scripts-and-more/emacs/rtags/src/rtags.el")
-(load-file "/home/oliver/.tools/scripts-and-more/emacs/rtags/src/company-rtags.el")
-(load-file "/home/oliver/.tools/scripts-and-more/emacs/rtags/src/flycheck-rtags.el")
-;(load-file "/usr/local/share/emacs/site-lisp/rtags/rtags.el")
-;(load-file "/usr/local/share/emacs/site-lisp/rtags/company-rtags.el")
-;(load-file "/usr/local/share/emacs/site-lisp/rtags/flycheck-rtags.el")
+;(load-file "/home/oliver/.tools/scripts-and-more/emacs/rtags/build/src/rtags.el")
+;(load-file "/home/oliver/.tools/scripts-and-more/emacs/rtags/build/src/company-rtags.el")
+;(load-file "/home/oliver/.tools/scripts-and-more/emacs/rtags/build/src/flycheck-rtags.el")
+(load-file "/usr/local/share/emacs/site-lisp/rtags/rtags.el")
+(load-file "/usr/local/share/emacs/site-lisp/rtags/company-rtags.el")
+(load-file "/usr/local/share/emacs/site-lisp/rtags/flycheck-rtags.el")
 (require 'rtags)
 (defun my-rtags-keybindings()
  "My-rtags-keybindings."
@@ -422,8 +422,8 @@
 ;;;;; ------ vim-scrolling ---------------------------------------------
 ;;;;; ------ clang-format-mode ---------------------------------------------
 (require 'powerline)
-(load-file "/home/oliver/.tools/scripts-and-more/emacs/airline-themes/airline-themes.el")
-(load-file "/home/oliver/.tools/scripts-and-more/emacs/airline-themes/airline-sol-theme.el")
+(load-file "/home/keo9ren/.tools/scripts-and-more/emacs/airline-themes/airline-themes.el")
+(load-file "/home/keo9ren/.tools/scripts-and-more/emacs/airline-themes/airline-sol-theme.el")
 (require 'airline-themes)
 (setq airline-utf-glyph-separator-left      #xe0b0
       airline-utf-glyph-separator-right     #xe0b2
@@ -462,7 +462,7 @@
 ;;;;; ------ clang-format-mode ---------------------------------------------
 ;;;;;
 ;;;;; ------ spotify-mode ---------------------------------------------
-(load-file "/home/oliver/.tools/scripts-and-more/emacs/helm-spotify/helm-spotify.el")
+(load-file "/home/keo9ren/.tools/scripts-and-more/emacs/helm-spotify/helm-spotify.el")
 (require 'helm-spotify)
 ;;;;;
 (show-paren-mode 1)
