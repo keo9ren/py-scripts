@@ -1,0 +1,19 @@
+# -*- mode: snippet -*-
+# name: nonmemberfunc14
+# key: nmf
+# group: c++14
+# https://isocpp.org/wiki/faq/cpp14-language
+# often c++14 allows to automatically deduct the return type
+# if all return statements are of the same type
+# --
+
+/*
+* @brief ${4:describtion}
+*
+* @author M. Sc. Oliver Kehret
+*
+*/
+
+auto ${1:name}(${2:params}) ${3:-> decltype()}{
+$0
+} // $1
