@@ -1,11 +1,12 @@
 ;;; package --- Summary
 ;;; commentary:
-;;;
+;;;(semantic-mode 1) put elsewhere
 ;;; Code:
 (add-to-list 'load-path "~/.emacs.d/elisp/")
 (load-library "install")
 (load-library "magitsetup")
 (load-library "rtagssetup")
+(load-library "helmsetup")
 ;;;;;
 ;;;;; ------ sphinx-frontend ---------------------------------------------
 (require 'sphinx-frontend)
@@ -233,57 +234,6 @@
 (setq ispell-local-dictionary "en_US")
 ;;;;; ------ spell ---------------------------------------------
 ;;;;;
-;;;;; ------ helm ---------------------------------------------
-(require 'helm-fuzzier)
-(helm-fuzzier-mode 1)
-(require 'helm-flx)
-(helm-flx-mode +1)
-(require 'helm-descbinds)
-(helm-descbinds-mode)
-(require 'helm-config)
-(require 'helm-misc)
-(require 'helm-projectile)
-(require 'helm-locate)
-;; The default "C-x c" is quite close to "C-x C-c", which quits Emacs.
-;; Changed to "C-c h". Note: We must set "C-c h" globally, because we
-;; cannot change `helm-command-prefix-key' once `helm-config' is loaded.
-(semantic-mode 1)
-(helm-mode 1)
-(global-set-key (kbd "C-c h") 'helm-command-prefix)
-(global-unset-key (kbd "C-c b"))
-(global-set-key (kbd "C-c b") 'helm-mini)
-(global-set-key (kbd "M-x") 'helm-M-x)
-(global-set-key (kbd "C-x C-f") 'helm-find-files)
-(define-key evil-normal-state-map (kbd "SPC") 'helm-do-ag-this-file)
-(global-set-key (kbd "M-y") 'helm-show-kill-ring); bad kbd seems useful
-(global-set-key (kbd "C-h SPC") 'helm-all-mark-rings)
-(global-unset-key (kbd "C-x c"))
-(global-set-key (kbd "C-c h x") 'helm-register)
-(define-key helm-map (kbd "<tab>") 'helm-execute-persistent-action)
-(define-key helm-map (kbd "C-i") 'helm-execute-persistent-action) ; make TAB works in terminal
-(define-key helm-map (kbd "C-z")  'helm-select-action) ; list actions using C-z
-(global-unset-key (kbd "C-c h @"))
-(global-set-key (kbd "C-c h @") 'helm-package)
-;(setq helm-quick-update)
-(setq helm-bookmark-show-location t ;
-      helm-buffers-fuzzy-matching t ; helm-mini
-      helm-recentf-fuzzy-match t    ; helm-mini
-      helm-split-window-in-side-p t ; open helm buffer inside current window
-      helm-move-to-line-cycle-in-source t ; move to end or beginning of source when reaching top/bottom
-      helm-ff-search-library-in-sexp        t ; search for library in `require' and `declare-function'
-      helm-scroll-amount                    8 ; scroll 8 lines other window using M-<next>/M-<prior>
-      helm-ff-file-name-history-use-recentf t;
-      helm-M-x-fuzzy-match t; 
-      helm-semantic-fuzzy-match t;
-      helm-apropos-fuzzy-match t;
-      helm-lisp-fuzzy-completion t;
-      )
-(when (executable-find "ack-grep")
-  (setq helm-grep-default-command "ack-grep -Hn --no-group --no-color %e %p %f"
-        helm-grep-default-recurse-command "ack-grep -H --no-group --no-color %e %p %f"))
-;
-;;;;; ------ helm ---------------------------------------------
-
 ;;;;; ------ helm-eshell ---------------------------------------------
 (require 'eshell)
 (require 'helm-eshell)

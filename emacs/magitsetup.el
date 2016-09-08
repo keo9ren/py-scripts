@@ -2,8 +2,6 @@
 ;;; commentary:
 ;;; Code:
 (require 'use-package)
-;(require 'magit)
-;(require 'evil-magit)
 (use-package magit
              :commands magit
              :bind (("C-c m d" . magit-diff-popup)
