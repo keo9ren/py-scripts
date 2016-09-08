@@ -28,7 +28,15 @@
 (defvar *flycheckenabled* t)
 (when *flycheckenabled*
   (load-library "flychecksetup"))
-
+(defvar *customvarenable* t)
+(when *customvarenable*
+  (load-library "customvarsetup"))
+(defvar *mymodehooksenable* t)
+(when *mymodehooksenable*
+  (load-library "mymodehooks"))
+(defvar *styleenable*)
+(when *styleenable* t
+      (load-library "style"))
 ;;;;; ------ gdb ---------------------------------------------
 ; decent gdb setup
 (setq
@@ -37,19 +45,7 @@
  ;; Non-nil means display source file containing the main routine at startup
  gdb-show-main t
  )
-(load-library "customvarsetup")
 (use-package tex-site)
-(use-package reftex
-  :config (progn
-            (add-hook 'LaTeX-mode-hook 'turn-on-reftex) 
-            (add-hook 'latex-mode-hook 'turn-on-reftex) 
-            (setq reftex-plug-into-AUCTeX t)
-            (setq reftex-external-file-finders
-                  '(("tex" . "kpsewhich -format=.tex %f")
-                    ("bib" . "kpsewhich -format=.bib %f")))
-            (custom-set-faces)
-            )
-)
 (use-package ispell
   :config (progn
             (setq ispell-program-name "hunspell")
@@ -71,11 +67,9 @@
 (setq auto-mode-alist
 (cons '("\\.m$" . octave-mode) auto-mode-alist))
 ))
-(load-library "mymodehooks")
 (use-package modern-cpp-font-lock
 :config (modern-c++-font-lock-global-mode t)
 )
-(load-library "style")
 ; should alway be the last
 (load-library "evilsetup")
 (provide '.emacs)
