@@ -161,14 +161,16 @@
 ;;;;; ------ org-mode ---------------------------------------------
 ;;;;;
 ;;;;; ------ markdown-mode ---------------------------------------------
-(require 'markdown-mode)
+(use-package markdown-mode)
 ;;;;; ------ markdown-mode ---------------------------------------------
 ;;;;;
 ;;;;; ------ Octave-mode ---------------------------------------------
-(require 'octave)
+(use-package octave
+:config (progn
 (autoload 'octave-mode "octave-mode" nil t)
 (setq auto-mode-alist
 (cons '("\\.m$" . octave-mode) auto-mode-alist))
+))
 ;;;;; ------ Octave-mode-end ---------------------------------------------
 (load-library "mymodehooks")
 (require 'modern-cpp-font-lock)
