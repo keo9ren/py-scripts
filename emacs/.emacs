@@ -5,6 +5,7 @@
 (add-to-list 'load-path "~/.emacs.d/elisp/")
 (load-library "install")
 (load-library "magitsetup")
+(load-library "rtagssetup")
 ;;;;;
 ;;;;; ------ sphinx-frontend ---------------------------------------------
 (require 'sphinx-frontend)
@@ -156,33 +157,6 @@
 (add-hook 'after-init-hook #'global-flycheck-mode)
 (require 'flycheck-checkbashisms)
 (eval-after-load 'flycheck '(add-hook 'flycheck-mode-hook #'flycheck-checkbashisms-setup))
-;;;;;
-;;;;; ------ rtags ---------------------------------------------
-(load-file "~/.tools/scripts-and-more/emacs/rtags/build/src/rtags.el")
-(load-file "~/.tools/scripts-and-more/emacs/rtags/build/src/company-rtags.el")
-(load-file "~/.tools/scripts-and-more/emacs/rtags/build/src/flycheck-rtags.el")
-;(load-file "/usr/local/share/emacs/site-lisp/rtags/rtags.el")
-;(load-file "/usr/local/share/emacs/site-lisp/rtags/company-rtags.el")
-;(load-file "/usr/local/share/emacs/site-lisp/rtags/flycheck-rtags.el")
-(require 'rtags)
-(defun my-rtags-keybindings()
- "My-rtags-keybindings."
- ;(local-unset-key (kbd ""))
- ;(local-set-key (kbd "C-c r ") 'rtags-print-symbol-info)
- (local-unset-key (kbd "C-c r s"))
- (local-set-key (kbd "C-c r s") 'rtags-display-summary)
- (local-unset-key (kbd "C-c r i"))
- (local-set-key (kbd "C-c r i") 'rtags-get-include-file-for-symbol)
- (local-unset-key (kbd "C-c r f"))
- (local-set-key (kbd "C-c r f") 'rtags-find-symbol)
- (local-unset-key (kbd "C-c r n"))
- (local-set-key (kbd "C-c r n") 'rtags-rename-symbol)
- (local-unset-key (kbd "C-c r r"))
- (local-set-key (kbd "C-c r r") 'rtags-find-references)
- (local-unset-key (kbd "C-c r v"))
- (local-set-key (kbd "C-c r v") 'rtags-find-virtuals-at-point)
- )
-;;;; ------ rtags ---------------------------------------------
 ;;;;; ------ gdb ---------------------------------------------
 ; decent gdb setup
 (setq
@@ -551,8 +525,6 @@
 ;;;; ------ apply-mode-hooks ---------------------------------------------
 (add-hook 'c++-mode-hook #'my-c++-mode-hooks)
 (add-hook 'c-mode-hook #'my-c-mode-hooks)
-(add-hook 'c-mode-hook #'my-rtags-keybindings)
-(add-hook 'c++-mode-hook #'my-rtags-keybindings)
 (add-hook 'cmake-mode-hook #'my-cmake-mode-hooks)
 (add-hook 'org-mode-hook #'my-org-mode-hooks)
 (add-hook 'octave-mode-hook #'my-octave-mode-hooks)
