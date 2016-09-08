@@ -17,6 +17,9 @@
     (use-package helm-misc)
     (use-package helm-projectile)
     (use-package helm-locate)
+    (use-package helm-flyspell
+      :config (define-key flyspell-mode-map (kbd "C-,") 'helm-flyspell-correct)
+    )
     (setq helm-candidate-number-limit 100)
     (setq helm-input-idle-delay 0.01
           helm-yas-display-key-on-candidate t

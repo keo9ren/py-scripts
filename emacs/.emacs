@@ -14,9 +14,6 @@
 ;;;;; ------ sphinx-frontend ---------------------------------------------
 ;;;;;
 (require 'helm-pydoc)
-(require 'helm-flyspell)
-(define-key flyspell-mode-map (kbd "C-,") 'helm-flyspell-correct)
-;;;;;
 ;;;;; ----- indent-guide ---------------------------------------------
 (require 'indent-guide)
 (indent-guide-global-mode)
@@ -24,7 +21,7 @@
 (setq indent-guide-delay 4)
 (setq indent-guide-recursive t)
 (setq indent-guide-char "|")
-;;;;; ----- indent-guide ---------------------------------------------
+;;;;; ----- indent-guide halo ---------------------------------------------
 ;;;;;
 ;;;;; ----- anzu ---------------------------------------------
 (require 'anzu)
