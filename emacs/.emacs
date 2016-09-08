@@ -7,6 +7,7 @@
 (load-library "magitsetup")
 (load-library "rtagssetup")
 (load-library "helmsetup")
+(load-library "yassetup")
 (defvar *spotifyenabled* nil)
 (when *spotifyenabled*
   (load-library "spotifysetup"))
@@ -63,16 +64,6 @@
 ;; use `linum-mode' to show
 ;(setq ace-jump-helm-line-autoshow-mode-use-linum t)
 ;;;;; ----- ace-jump ---------------------------------------------
-;;;;; ------ yasnippet-mode ---------------------------------------------
-(require 'yasnippet)
-(require 'helm-c-yasnippet)
-(setq yas-indent-line (quote none))
-(setq helm-yas-space-match-any-greedy t)
-(global-set-key (kbd "C-c y") 'helm-yas-complete)
-(add-hook 'prog-mode-hook #'yas-minor-mode)
-(add-to-list 'yas-snippet-dirs "/home/oliver/.tools/scripts-and-more/emacs/yasnippet/")
-(add-hook 'after-init-hook 'yas-reload-all)
-;;;;; ------ yasnippet-mode ---------------------------------------------
 ;;;;; ------ company-mode ---------------------------------------------
 (require 'company)
 (add-hook 'after-init-hook 'global-company-mode)
