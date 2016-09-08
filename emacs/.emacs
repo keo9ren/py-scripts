@@ -79,6 +79,7 @@
 (package-initialize)
 (cfg:install-packages)
 ;;;;; ------ install-packages ---------------------------------------------
+(add-to-list 'load-path "~/.emacs.d/elisp/")
 ;;;;;
 ;;;;; ------ sphinx-frontend ---------------------------------------------
 (require 'sphinx-frontend)
@@ -249,12 +250,12 @@
 (eval-after-load 'flycheck '(add-hook 'flycheck-mode-hook #'flycheck-checkbashisms-setup))
 ;;;;;
 ;;;;; ------ rtags ---------------------------------------------
-;(load-file "/home/oliver/.tools/scripts-and-more/emacs/rtags/build/src/rtags.el")
-;(load-file "/home/oliver/.tools/scripts-and-more/emacs/rtags/build/src/company-rtags.el")
-;(load-file "/home/oliver/.tools/scripts-and-more/emacs/rtags/build/src/flycheck-rtags.el")
-(load-file "/usr/local/share/emacs/site-lisp/rtags/rtags.el")
-(load-file "/usr/local/share/emacs/site-lisp/rtags/company-rtags.el")
-(load-file "/usr/local/share/emacs/site-lisp/rtags/flycheck-rtags.el")
+(load-file "~/.tools/scripts-and-more/emacs/rtags/build/src/rtags.el")
+(load-file "~/.tools/scripts-and-more/emacs/rtags/build/src/company-rtags.el")
+(load-file "~/.tools/scripts-and-more/emacs/rtags/build/src/flycheck-rtags.el")
+;(load-file "/usr/local/share/emacs/site-lisp/rtags/rtags.el")
+;(load-file "/usr/local/share/emacs/site-lisp/rtags/company-rtags.el")
+;(load-file "/usr/local/share/emacs/site-lisp/rtags/flycheck-rtags.el")
 (require 'rtags)
 (defun my-rtags-keybindings()
  "My-rtags-keybindings."
