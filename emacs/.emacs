@@ -1,12 +1,17 @@
 ;;; package --- Summary
 ;;; commentary:
-;;;(semantic-mode 1) put elsewhere
+;;;
 ;;; Code:
 (add-to-list 'load-path "~/.emacs.d/elisp/")
 (load-library "install")
 (load-library "magitsetup")
 (load-library "rtagssetup")
 (load-library "helmsetup")
+(defvar *spotifyenabled* nil)
+(when *spotifyenabled*
+  (load-library "spotifysetup"))
+
+(semantic-mode 1)
 ;;;;;
 ;;;;; ------ sphinx-frontend ---------------------------------------------
 (require 'sphinx-frontend)
@@ -255,13 +260,6 @@
 (when (eq t clang-format-on-save) (add-hook 'before-save-hook  'clang-format-before-save) )
 ;;;;; ------ clang-format-mode ---------------------------------------------
 ;;;;;
-;;;;; ------ spotify-mode ---------------------------------------------
-(load-file "/home/oliver/.tools/scripts-and-more/emacs/helm-spotify/helm-spotify.el")
-(require 'helm-spotify)
-;;;;;
-(show-paren-mode 1)
-(setq show-paren-delay 0.4)
-;;;;; ------ spotify-mode ---------------------------------------------
 ;;;;;
 ;;;;; ------ zeal-mode ---------------------------------------------
 ;;browse offline documentation
