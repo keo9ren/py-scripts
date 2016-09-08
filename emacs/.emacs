@@ -7,6 +7,7 @@
 (load-library "magitsetup")
 (load-library "rtagssetup")
 (load-library "helmsetup")
+(load-library "companysetup")
 (load-library "yassetup")
 (load-library "clangformatsetup")
 (defvar *spotifyenabled* nil)
@@ -65,17 +66,6 @@
 ;; use `linum-mode' to show
 ;(setq ace-jump-helm-line-autoshow-mode-use-linum t)
 ;;;;; ----- ace-jump ---------------------------------------------
-;;;;; ------ company-mode ---------------------------------------------
-(require 'company)
-(add-hook 'after-init-hook 'global-company-mode)
-(setq company-minimum-prefix-length 1)
-(setq company-idle-delay 0.1)
-(require 'company-statistics)
-(company-statistics-mode)
-(company-quickhelp-mode 1)
-(require 'company-math)
-;;;;; ------ company-mode ---------------------------------------------
-;;;;;
 ;;;;; ------ flycheck ---------------------------------------------
 (require 'flycheck)
 (add-hook 'after-init-hook #'global-flycheck-mode)
