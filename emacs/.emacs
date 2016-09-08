@@ -82,7 +82,6 @@
 ;;;;; ------ gdb ---------------------------------------------
 ;;;;;
 (require 'tex-site)
-(require 'company-auctex)
 ;;;;; ------ auctex ---------------------------------------------
 ;;;;; ------ okular ---------------------------------------------
 (custom-set-variables
@@ -173,16 +172,6 @@
 ;;;;; ------ Octave-mode-end ---------------------------------------------
 ;;;;;
 ;;;;; ------ my-x-mode-hooks ---------------------------------------------
-(defun my-init-mode-hooks ()
-  "MY-INIT-MODE-HOOKS."
-  (setq company-backends '((
-                            company-files
-                            company-dabbrev-code
-                            company-dabbrev
-                            company-oddmuse
-                            company-capf
-                            )))
-)
 ;
 (require 'modern-cpp-font-lock)
 (modern-c++-font-lock-global-mode t)

@@ -14,6 +14,20 @@
             (company-quickhelp-mode 1)
             ))
           (use-package company-math)
+          (use-package company-auctex)
+          )
+  :config (progn
+            (defun my-init-mode-hooks ()
+              "MY-INIT-MODE-HOOKS."
+              (setq company-backends '((
+                            company-files
+                            company-dabbrev-code
+                            company-dabbrev
+                            company-oddmuse
+                            company-capf
+                            )))
+              )
+            (add-hook 'after-init-hook #'my-init-mode-hooks)
           )
 )
 
