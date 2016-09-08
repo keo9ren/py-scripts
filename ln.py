@@ -28,7 +28,7 @@ def install_emacs():
     for file in initfiles:
         file += 'setup.el'
         file_copy(src_path + file, dest_path + file)
-    file_copy(src_path + 'mymodehooks.el', dest_path + 'mymodehooks..el')
+    file_copy(src_path + 'mymodehooks.el', dest_path + 'mymodehooks.el')
     file_copy(src_path + 'style.el', dest_path + 'style.el')
     
 

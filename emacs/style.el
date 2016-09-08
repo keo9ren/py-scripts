@@ -2,8 +2,8 @@
 ;;; commentary:
 ;;; Code:
 (require 'powerline)
-(load-file "/home/oliver/.tools/scripts-and-more/emacs/airline-themes/airline-themes.el")
-(load-file "/home/oliver/.tools/scripts-and-more/emacs/airline-themes/airline-sol-theme.el")
+(load-file "~/.tools/scripts-and-more/emacs/airline-themes/airline-themes.el")
+(load-file "~/.tools/scripts-and-more/emacs/airline-themes/airline-sol-theme.el")
 (require 'airline-themes)
 (setq airline-utf-glyph-separator-left      #xe0b0
       airline-utf-glyph-separator-right     #xe0b2

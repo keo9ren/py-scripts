@@ -2,7 +2,7 @@
 ;;; commentary:
 ;;; Code:
 
-(load-file "/home/oliver/.tools/scripts-and-more/emacs/helm-spotify/helm-spotify.el")
+(load-file "~/.tools/scripts-and-more/emacs/helm-spotify/helm-spotify.el")
 (require 'use-package)
 (use-package helm-spotify
 )
