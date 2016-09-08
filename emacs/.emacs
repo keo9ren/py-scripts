@@ -8,6 +8,7 @@
 (load-library "rtagssetup")
 (load-library "helmsetup")
 (load-library "yassetup")
+(load-library "clangformatsetup")
 (defvar *spotifyenabled* nil)
 (when *spotifyenabled*
   (load-library "spotifysetup"))
