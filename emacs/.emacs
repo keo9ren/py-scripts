@@ -32,33 +32,13 @@
   (global-anzu-mode +1)
   (anzu-mode +1)
 )
-;;;;; ----- avy ---------------------------------------------
-(define-key evil-normal-state-map (kbd "f") 'avy-goto-char)
-(define-key evil-normal-state-map (kbd "C-f") 'avy-goto-char-2)
-;(define-key evil-normal-state-map (kbd "M-g f") 'avy-goto-line)binding??
-(setq avy-keys '(?j ?h ?k ?l ?f ?g ?d ?s ?u ?r ?n ?v ?i ?e ?o ?w))
-;(require 'link-hint)
-;(define-key evil-normal-state-map (kbd "C-l") 'link-hint-open-link)
-;(global-set-key (kbd "C-l") 'link-hint-open-link)
-;;;;; ----- avy ---------------------------------------------
-;;;;;
-;;;;; ----- ace-jump ---------------------------------------------
-;(require 'ace-jump-buffer)
-;(global-unset-key (kbd "C-k"))
-;(define-key evil-normal-state-map (kbd "C-k") 'ace-jump-buffer)
-;(setq ace-jump-mode-move-keys
-;      '(?j ?h ?k ?l ?f ?g ?d ?s ?u ?r ?n ?v ?i ?e ?o ?w))
-;(require 'ace-jump-helm-line)
-;(eval-after-load "helm"
-;  '(define-key helm-map (kbd "C-j") 'ace-jump-helm-line))
-;(ace-jump-helm-line-idle-exec-add 'helm-mini)
-;(ace-jump-helm-line-idle-exec-add 'helm-find-files)
-;(setq ace-jump-helm-line-style 'pre)
-;(setq ace-jump-helm-line-background t)
-;(setq ace-jump-helm-line-idle-delay 1)
-;(ace-jump-helm-line-autoshow-mode +1)
-;; use `linum-mode' to show
-;(setq ace-jump-helm-line-autoshow-mode-use-linum t)
+(use-package avy
+:init (setq avy-keys '(?j ?h ?k ?l ?f ?g ?d ?s ?u ?r ?n ?v ?i ?e ?o ?w))
+:config (progn
+          (define-key evil-normal-state-map (kbd "f") 'avy-goto-char)
+          (define-key evil-normal-state-map (kbd "C-f") 'avy-goto-char-2)
+        )
+)
 (use-package flycheck
   :config (progn
             (add-hook 'after-init-hook #'global-flycheck-mode)
