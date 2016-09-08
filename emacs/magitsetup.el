@@ -1,19 +1,21 @@
 ;;; package --- Summary
 ;;; commentary:
 ;;; Code:
-(require 'magit)
-(require 'evil-magit)
-(global-unset-key (kbd "C-c m d"))
-(global-set-key (kbd "C-c m d") 'magit-diff-popup)
-(global-unset-key (kbd "C-c m s"))
-(global-set-key (kbd "C-c m s") 'magit-status)
-(global-unset-key (kbd "C-c m f"))
-(global-set-key (kbd "C-c m f") 'magit-stage-file)
-(global-unset-key (kbd "C-c m p"))
-(global-set-key (kbd "C-c m p") 'magit-push)
-(add-hook 'after-save-hook 'magit-after-save-refresh-status)
-(require 'magit-gh-pulls)
-(add-hook 'magit-mode-hook 'turn-on-magit-gh-pulls)
+(require 'use-package)
+;(require 'magit)
+;(require 'evil-magit)
+(use-package magit
+             :commands magit
+             :bind (("C-c m d" . magit-diff-popup)
+                    ("C-c m s" . magit-status)
+                    ("C-c m f" . magit-stage-file)
+                    ("C-c m p" . magit-push)
+                    )
+             :config (
+             add-hook 'after-save-hook 'magit-after-save-refresh-status
+             ))
+(use-package evil-magit)
+
 (provide 'magitsetup.el)
 ;;; magitsetup.el ends here
 
