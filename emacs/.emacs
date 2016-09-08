@@ -15,29 +15,23 @@
   (load-library "spotifysetup"))
 
 (semantic-mode 1)
-;;;;;
-;;;;; ------ sphinx-frontend ---------------------------------------------
-(require 'sphinx-frontend)
-;;;;; needs some configuration
-;;;;; ------ sphinx-frontend ---------------------------------------------
-;;;;;
-(require 'helm-pydoc)
-;;;;; ----- indent-guide ---------------------------------------------
-(require 'indent-guide)
-(indent-guide-global-mode)
-(set-face-background 'indent-guide-face "dimgray")
-(setq indent-guide-delay 4)
-(setq indent-guide-recursive t)
-(setq indent-guide-char "|")
-;;;;; ----- indent-guide halo ---------------------------------------------
-;;;;;
-;;;;; ----- anzu ---------------------------------------------
-(require 'anzu)
-(require 'evil-anzu)
-(global-anzu-mode +1)
-(anzu-mode +1)
-;;;;; ----- anzu ---------------------------------------------
-;;;;;
+(use-package sphinx-frontend)
+(use-package helm-pydoc)
+(use-package indent-guide
+  :config (progn
+            (indent-guide-global-mode)
+            (set-face-background 'indent-guide-face "dimgray")
+            (setq indent-guide-delay 4)
+            (setq indent-guide-recursive t)
+            (setq indent-guide-char "|")
+            )
+)
+(use-package anzu
+  :config
+  (use-package evil-anzu)
+  (global-anzu-mode +1)
+  (anzu-mode +1)
+)
 ;;;;; ----- avy ---------------------------------------------
 (define-key evil-normal-state-map (kbd "f") 'avy-goto-char)
 (define-key evil-normal-state-map (kbd "C-f") 'avy-goto-char-2)
@@ -65,8 +59,6 @@
 ;(ace-jump-helm-line-autoshow-mode +1)
 ;; use `linum-mode' to show
 ;(setq ace-jump-helm-line-autoshow-mode-use-linum t)
-;;;;; ----- ace-jump ---------------------------------------------
-;;;;; ------ flycheck ---------------------------------------------
 (use-package flycheck
   :config (progn
             (add-hook 'after-init-hook #'global-flycheck-mode)
