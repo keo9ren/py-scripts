@@ -67,10 +67,14 @@
 ;(setq ace-jump-helm-line-autoshow-mode-use-linum t)
 ;;;;; ----- ace-jump ---------------------------------------------
 ;;;;; ------ flycheck ---------------------------------------------
-(require 'flycheck)
-(add-hook 'after-init-hook #'global-flycheck-mode)
-(require 'flycheck-checkbashisms)
-(eval-after-load 'flycheck '(add-hook 'flycheck-mode-hook #'flycheck-checkbashisms-setup))
+(use-package flycheck
+  :config (progn
+            (add-hook 'after-init-hook #'global-flycheck-mode)
+            (use-package flycheck-checkbashisms
+              :config (eval-after-load 'flycheck '(add-hook 'flycheck-mode-hook #'flycheck-checkbashisms-setup))
+             )
+            )
+)
 ;;;;; ------ gdb ---------------------------------------------
 ; decent gdb setup
 (setq
