@@ -34,42 +34,33 @@
 (defvar *mymodehooksenable* t)
 (when *mymodehooksenable*
   (load-library "mymodehooks"))
-(defvar *styleenable*)
+(defvar *styleenable* t)
 (when *styleenable* t
       (load-library "style"))
-;;;;; ------ gdb ---------------------------------------------
-; decent gdb setup
-(setq
- ;; use gdb-many-windows by default
- gdb-many-windows t
- ;; Non-nil means display source file containing the main routine at startup
- gdb-show-main t
- )
-(use-package tex-site)
-(use-package ispell
-  :config (progn
-            (setq ispell-program-name "hunspell")
-            (setq ispell-local-dictionary "en_US"))
-)
-(use-package zeal-at-point
-:commands (zeal-at-point)
-:config (global-set-key "\C-cd" 'zeal-at-point)
-)
-(use-package org
-  :bind ("\C-cl" . org-store-link)
-        ("\C-ca" . org-agenda)
-  :config (setq org-log-done t)
-)
-(use-package markdown-mode)
-(use-package octave
-:config (progn
-(autoload 'octave-mode "octave-mode" nil t)
-(setq auto-mode-alist
-(cons '("\\.m$" . octave-mode) auto-mode-alist))
-))
-(use-package modern-cpp-font-lock
-:config (modern-c++-font-lock-global-mode t)
-)
+(defvar *reftexenable* t)
+(when *reftexenable* t
+      (load-library "reftexsetup"))
+(defvar *zealenable* t)
+(when *zealenable* t
+      (load-library "zealsetup"))
+(defvar *orgenable* t)
+(when *orgenable* t
+      (load-library "orgsetup"))
+(defvar *gdbenable* t)
+(when *gdbenable* t
+      (load-library "gdbsetup"))
+(defvar *octaveenable* t)
+(when *octaveenable* t
+      (load-library "octavesetup"))
+(defvar *moderncppenable* t)
+(when *moderncppenable* t
+      (load-library "moderncppsetup"))
+(defvar *texsiteenable* t)
+(when *texsiteenable* t
+      (load-library "texsitesetup"))
+(defvar *markdownenable* t)
+(when *markdownenable* t
+      (load-library "markdownsetup"))
 ; should alway be the last
 (load-library "evilsetup")
 (provide '.emacs)
