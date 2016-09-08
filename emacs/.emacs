@@ -16,29 +16,16 @@
 (defvar *sphinxenabled* nil)
 (when *sphinxenabled*
   (load-library "sphinxsetup"))
+(defvar *indentguideenabled* t)
+(when *indentguideenabled*
+  (load-library "indentguidesetup"))
+(defvar *anzuenabled* t)
+(when *anzuenabled*
+  (load-library "anzusetup"))
+(defvar *avyenabled* t)
+(when *avyenabled*
+  (load-library "avysetup"))
 
-(use-package indent-guide
-  :config (progn
-            (indent-guide-global-mode)
-            (set-face-background 'indent-guide-face "dimgray")
-            (setq indent-guide-delay 4)
-            (setq indent-guide-recursive t)
-            (setq indent-guide-char "|")
-            )
-)
-(use-package anzu
-  :config
-  (use-package evil-anzu)
-  (global-anzu-mode +1)
-  (anzu-mode +1)
-)
-(use-package avy
-:init (setq avy-keys '(?j ?h ?k ?l ?f ?g ?d ?s ?u ?r ?n ?v ?i ?e ?o ?w))
-:config (progn
-          (define-key evil-normal-state-map (kbd "f") 'avy-goto-char)
-          (define-key evil-normal-state-map (kbd "C-f") 'avy-goto-char-2)
-        )
-)
 (use-package flycheck
   :config (progn
             (add-hook 'after-init-hook #'global-flycheck-mode)
