@@ -5,6 +5,18 @@
 (use-package helm
   :init (progn
     (require 'helm-config)
+    (use-package helm-fuzzier
+     :init (helm-fuzzier-mode 1)
+     )
+    (use-package helm-flx
+     :init (helm-flx-mode 1)
+    )
+    (use-package helm-descbinds
+      :init (helm-descbinds-mode)
+    )
+    (use-package helm-misc)
+    (use-package helm-projectile)
+    (use-package helm-locate)
     (setq helm-candidate-number-limit 100)
     (setq helm-input-idle-delay 0.01
           helm-yas-display-key-on-candidate t
@@ -44,15 +56,5 @@
         helm-grep-default-recurse-command "ack-grep -H --no-group --no-color %e %p %f"))
 )
 
-(require 'helm-fuzzier)
-(helm-fuzzier-mode 1)
-(require 'helm-flx)
-(helm-flx-mode +1)
-(require 'helm-descbinds)
-(helm-descbinds-mode)
-(require 'helm-config)
-(require 'helm-misc)
-(require 'helm-projectile)
-(require 'helm-locate)
 (provide 'helmsetup.el)
 ;;; helmsetup.el ends here
