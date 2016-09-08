@@ -7,20 +7,34 @@ import os.path
 import subprocess
 import sys
 
-import apt
+#import apt
 
-import git
+#import git
 
 
 def main(argv):
     print('Updating your install...')
-    rtags_master()
+    install_emacs()
+    #rtags_master()
     #misc_install()
 
 #---------------------------------------------------------------------------------------------------
 
+def install_emacs():
+    src_path = "/home/keo9ren/.tools/scripts-and-more/emacs/"
+    dest_path = "/home/keo9ren/.emacs.d/elisp/"
+    initfiles = ['anzu','avy','clangformat','company','customvar','evil','flycheck','helm','indentguide',
+                 'magit','rtags','sphinx','spotify','yas']
+    for file in initfiles:
+        file += 'setup.el'
+        file_copy(src_path + file, dest_path + file)
+    file_copy(src_path + 'mymodehooks.el', dest_path + 'mymodehooks..el')
+    file_copy(src_path + 'style.el', dest_path + 'style.el')
+    
 
-
+def file_copy(source,target):
+    subprocess.call(['cp',source,target])
+    
 #---------------------------------------------------------------------------------------------------
 def install(pkg_name):
 
@@ -224,6 +238,6 @@ def old():
     #__ packages to install
     #lua5.3
     #trigger install routine
-
+    #sudo pacman -S python-jedi python2-jedi
 if __name__ == "__main__":
     main(sys.argv[1:])
