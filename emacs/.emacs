@@ -1,9 +1,10 @@
-;;; package --- Summary 
+;;; package --- Summary
 ;;; commentary:
 ;;;
 ;;; Code:
 (add-to-list 'load-path "~/.emacs.d/elisp/")
 (load-library "install")
+(load-library "magitsetup")
 ;;;;;
 ;;;;; ------ sphinx-frontend ---------------------------------------------
 (require 'sphinx-frontend)
@@ -58,23 +59,6 @@
 ;; use `linum-mode' to show
 ;(setq ace-jump-helm-line-autoshow-mode-use-linum t)
 ;;;;; ----- ace-jump ---------------------------------------------
-;;;;;
-;;;;; ----- magit ---------------------------------------------
-(require 'magit)
-(require 'evil-magit)
-(global-unset-key (kbd "C-c m d"))
-(global-set-key (kbd "C-c m d") 'magit-diff-popup)
-(global-unset-key (kbd "C-c m s"))
-(global-set-key (kbd "C-c m s") 'magit-status)
-(global-unset-key (kbd "C-c m f"))
-(global-set-key (kbd "C-c m f") 'magit-stage-file)
-(global-unset-key (kbd "C-c m p"))
-(global-set-key (kbd "C-c m p") 'magit-push)
-(add-hook 'after-save-hook 'magit-after-save-refresh-status)
-(require 'magit-gh-pulls)
-(add-hook 'magit-mode-hook 'turn-on-magit-gh-pulls)
-;;;;; ------ evil-magit ---------------------------------------------
-;;;;;
 ;;;;; ------ yasnippet-mode ---------------------------------------------
 (require 'yasnippet)
 (require 'helm-c-yasnippet)
