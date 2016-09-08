@@ -25,15 +25,10 @@
 (defvar *avyenabled* t)
 (when *avyenabled*
   (load-library "avysetup"))
+(defvar *flycheckenabled* t)
+(when *flycheckenabled*
+  (load-library "flychecksetup"))
 
-(use-package flycheck
-  :config (progn
-            (add-hook 'after-init-hook #'global-flycheck-mode)
-            (use-package flycheck-checkbashisms
-              :config (eval-after-load 'flycheck '(add-hook 'flycheck-mode-hook #'flycheck-checkbashisms-setup))
-             )
-            )
-)
 ;;;;; ------ gdb ---------------------------------------------
 ; decent gdb setup
 (setq
