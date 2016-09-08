@@ -81,9 +81,7 @@
  )
 ;;;;; ------ gdb ---------------------------------------------
 ;;;;;
-(require 'tex-site)
-;;;;; ------ auctex ---------------------------------------------
-;;;;; ------ okular ---------------------------------------------
+(use-package tex-site)
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
@@ -120,58 +118,38 @@
                           ("-I/usr/include/c++/6" "-I/usr/include/x86_64-linux-gnu/c++/6" "-I/usr/include/c++/6/backward" "-I/usr/lib/gcc/x86_64-linux-gnu/6/include" "-I/usr/local/include" "-I/usr/lib/gcc/x86_64-linux-gnu/6/include-fixed" "-I/usr/include/x86_64-linux-gnu" "-I/usr/include"))
      (cmake-ide-flags-c quote
                         ("-I/usr/lib/gcc-cross/arm-linux-gnueabihf/6/include" "-I/usr/lib/gcc-cross/arm-linux-gnueabihf/6/include-fixed" "-I/usr/lib/gcc-cross/arm-linux-gnueabihf/6/../../../../arm-linux-gnueabihf/include" "-I/usr/include"))))))
-;;;;; ------ okular ---------------------------------------------
-;;;;;
-;;;;;
-;;;;; ------ reftex ---------------------------------------------
-;;; Anpassungen für RefTeX
-(require 'reftex)
-(add-hook 'LaTeX-mode-hook 'turn-on-reftex) 
-(add-hook 'latex-mode-hook 'turn-on-reftex) 
-(setq reftex-plug-into-AUCTeX t)
-(setq reftex-external-file-finders
-      '(("tex" . "kpsewhich -format=.tex %f")
-        ("bib" . "kpsewhich -format=.bib %f")))
-(custom-set-faces
- ;; custom-set-faces was added by Custom.
- ;; If you edit it by hand, you could mess it up, so be careful.
- ;; Your init file should contain only one such instance.
- ;; If there is more than one, they won't work right.
- )
-;;;;; ------ reftex ---------------------------------------------
-;;;;;
-;;;;; ------ spell -----------------------------------------
-(require 'ispell)
-(setq ispell-program-name "hunspell")
-(setq ispell-local-dictionary "en_US")
-;;;;; ------ spell ---------------------------------------------
-;;;;;
-;;;;;
-;;;;; ------ zeal-mode ---------------------------------------------
-;;browse offline documentation
-(require 'zeal-at-point)
-(global-set-key "\C-cd" 'zeal-at-point)
-;;;;; ------ zeal-mode ---------------------------------------------
-;;;;;
-;;;;; ------ org-mode ---------------------------------------------
-(require 'org)
-(define-key global-map "\C-cl" 'org-store-link)
-(define-key global-map "\C-ca" 'org-agenda)
-(setq org-log-done t)
-;;;;; ------ org-mode ---------------------------------------------
-;;;;;
-;;;;; ------ markdown-mode ---------------------------------------------
+(use-package reftex
+  :config (progn
+            (add-hook 'LaTeX-mode-hook 'turn-on-reftex) 
+            (add-hook 'latex-mode-hook 'turn-on-reftex) 
+            (setq reftex-plug-into-AUCTeX t)
+            (setq reftex-external-file-finders
+                  '(("tex" . "kpsewhich -format=.tex %f")
+                    ("bib" . "kpsewhich -format=.bib %f")))
+            (custom-set-faces)
+            )
+)
+(use-package ispell
+  :config (progn
+            (setq ispell-program-name "hunspell")
+            (setq ispell-local-dictionary "en_US"))
+)
+(use-package zeal-at-point
+:commands (zeal-at-point)
+:config (global-set-key "\C-cd" 'zeal-at-point)
+)
+(use-package org
+  :bind ("\C-cl" . org-store-link)
+        ("\C-ca" . org-agenda)
+  :config (setq org-log-done t)
+)
 (use-package markdown-mode)
-;;;;; ------ markdown-mode ---------------------------------------------
-;;;;;
-;;;;; ------ Octave-mode ---------------------------------------------
 (use-package octave
 :config (progn
 (autoload 'octave-mode "octave-mode" nil t)
 (setq auto-mode-alist
 (cons '("\\.m$" . octave-mode) auto-mode-alist))
 ))
-;;;;; ------ Octave-mode-end ---------------------------------------------
 (load-library "mymodehooks")
 (require 'modern-cpp-font-lock)
 (modern-c++-font-lock-global-mode t)
