@@ -4,6 +4,7 @@
 (require 'cl)
 (require 'package)
 (setq cfg-var:packages '(
+                       use-package
                        multi; required for helm-spotify
                        evil powerline powerline-evil
                        evil-leader evil-search-highlight-persist evil-terminal-cursor-changer
