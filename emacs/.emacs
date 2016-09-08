@@ -155,23 +155,6 @@
 (setq ispell-program-name "hunspell")
 (setq ispell-local-dictionary "en_US")
 ;;;;; ------ spell ---------------------------------------------
-;;;;;
-;;;;; ------ helm-eshell ---------------------------------------------
-(require 'eshell)
-(require 'helm-eshell)
-;;;;;
-(defun helm-my-buffers ()
-  "My helm-my-buffers."
- (interactive)
-  (let ((helm-ff-transformer-show-only-basename nil))
-    (helm-other-buffer '(helm-c-source-buffers-list
-                         helm-c-source-elscreen
-                         helm-c-source-projectile-files-list
-                         helm-c-source-ctags
-                         helm-c-source-recentf
-                         helm-c-source-locate)
-                         "*helm-my-buffer*")))
-;;;;; ------ helm-eshell ---------------------------------------------
 ;;;;; ------ clang-format-mode ---------------------------------------------
 (require 'clang-format)
 (defcustom clang-format-on-save

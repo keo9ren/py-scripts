@@ -46,7 +46,7 @@
                        modern-cpp-font-lock;
                        ;helm-ls-git ;helm-bibtex; ;helm-bibtexkey; ;list-processes+ ;helm-ag-r; ;x-dict; ;helm-org-rifle; ;helm-c-moccur;
                        ;helm-codesearch;install codesearch to test
-                       ;helm-dired-recent-dirs; ;helm-dirset; ;helm-fuzzy-find; ;helm-git; ;helm-make; ;multi-eshell; ;fzf;
+                       ;helm-dired-recent-dirs; ;helm-dirset; ;helm-fuzzy-find; ;helm-git; ;helm-make;
                        ;helm-pages;wgrep-helm;wgrep;
                        ;org-redmine; to be tested org-repo-todo; to be tested org-pdfview; to be tested org-projectile; to be tested org-vcard; to be tested org-tracktable; to be tested org-bullets; org-present; org-gcal; org-bullets; org-autolist;
                        ;yafolding; yahoo-weather; x86-lookup; writegood-mode; which-key; wanderlust; vkill; visual-regexp; visual-regexp-steroids; viewer; use-package; auctex-lua; latex-preview-pane; latex-pretty-symbols; latex-unicode-math-mode; latex-math-preview; latex-extra; gscholar-bibtex; bibtex-utils; bibretrieve; bibslurp; ebib; empos; ivy-bibtex;
