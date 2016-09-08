@@ -14,7 +14,6 @@
 (when *spotifyenabled*
   (load-library "spotifysetup"))
 
-(semantic-mode 1)
 (use-package sphinx-frontend)
 (use-package helm-pydoc)
 (use-package indent-guide

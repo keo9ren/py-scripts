@@ -26,6 +26,7 @@
                             company-oddmuse
                             company-capf
                             )))
+              (semantic-mode t)
               )
             (add-hook 'after-init-hook #'my-init-mode-hooks)
           )
