@@ -255,8 +255,9 @@
   :group 'myinit
   :type 'booleanp
   :safe #'booleanp)
-(defun clang-format-before-save ()"Add this to .emacs to clang-format on save(add-hook 'before-save-hook 'clang-format-before-save)."
-       (interactive)(when (eq major-mode 'c-mode) (clang-format-buffer)))
+(defun clang-format-before-save ()
+  "Add this to .emacs to clang-format on save(add-hook 'before-save-hook 'clang-format-before-save)."
+       (interactive)(when (eq major-mode '(c-mode c++-mode)) (clang-format-buffer)))
 (when (eq t clang-format-on-save) (add-hook 'before-save-hook  'clang-format-before-save) )
 ;;;;; ------ clang-format-mode ---------------------------------------------
 ;;;;;
