@@ -157,7 +157,7 @@
 (setq helm-yas-space-match-any-greedy t)
 (global-set-key (kbd "C-c y") 'helm-yas-complete)
 (add-hook 'prog-mode-hook #'yas-minor-mode)
-(add-to-list 'yas-snippet-dirs "/home/keo9ren/.tools/scripts-and-more/emacs/yasnippet/")
+(add-to-list 'yas-snippet-dirs "/home/oliver/.tools/scripts-and-more/emacs/yasnippet/")
 (add-hook 'after-init-hook 'yas-reload-all)
 ;;;;; ------ yasnippet-mode ---------------------------------------------
 ;;;;; ------ company-mode ---------------------------------------------
@@ -309,9 +309,14 @@
     ("8e7ca85479dab486e15e0119f2948ba7ffcaa0ef161b3facb8103fb06f93b428" "e87a2bd5abc8448f8676365692e908b709b93f2d3869c42a4371223aab7d9cf8" "878e22a7fe00ca4faba87b4f16bc269b8d2be5409d1c513bb7eda025da7c1cf4" default)))
  '(doc-view-continuous t)
  '(initial-frame-alist (quote ((fullscreen . maximized))))
+ '(package-selected-packages (quote (octave)))
  '(safe-local-variable-values
    (quote
-    ((cmake-ide-build-dir . "build")
+    ((cmake-ide-flags-c "-I/usr/lib/gcc/x86_64-linux-gnu/6/include" "-I/usr/local/include" "-I/usr/lib/gcc/x86_64-linux-gnu/6/include-fixed" "-I/usr/include/x86_64-linux-gnu" "-I/usr/include")
+     (cmake-ide-flags-c++ "-I/usr/include/c++/5" "-I/usr/include/x86_64-linux-gnu/c++/5" "-I/usr/include/c++/5/backward" "-I/usr/lib/gcc/x86_64-linux-gnu/t/include" "-I/usr/local/include" "-I/usr/lib/gcc/x86_64-linux-gnu/5/include-fixed" "-I/usr/include/x86_64-linux-gnu" "-I/usr/include")
+     (cmake-ide-flags-c "-I/usr/lib/gcc/arm-none-eabi/4.9.3/include" "-I/usr/lib/gcc/arm-none-eabi/4.9.3/include-fixed" "-I/usr/lib/gcc/arm-none-eabi/4.9.3/../../../arm-none-eabi/include")
+     (cmake-ide-flags-c++ "-I/usr/lib/gcc-cross/arm-linux-gnueabihf/6/../../../../arm-linux-gnueabihf/include/c++/6" "-I/usr/lib/gcc-cross/arm-linux-gnueabihf/6/../../../../arm-linux-gnueabihf/include/c++/6/arm-linux-gnueabihf/." "-I/usr/lib/gcc-cross/arm-linux-gnueabihf/6/../../../../arm-linux-gnueabihf/include/c++/6/backward" "-I/usr/lib/gcc-cross/arm-linux-gnueabihf/6/include" "-I/usr/lib/gcc-cross/arm-linux-gnueabihf/6/include-fixed" "-I/usr/lib/gcc-cross/arm-linux-gnueabihf/6/../../../../arm-linux-gnueabihf/include" "-I/usr/include")
+     (cmake-ide-build-dir . "build")
      (cmake-ide-flags-c++ "-I/usr/include/c++/6" "-I/usr/include/x86_64-linux-gnu/c++/6" "-I/usr/include/c++/6/backward" "-I/usr/lib/gcc/x86_64-linux-gnu/6/include" "-I/usr/local/include" "-I/usr/lib/gcc/x86_64-linux-gnu/6/include-fixed" "-I/usr/include/x86_64-linux-gnu" "-I/usr/include")
      (cmake-ide-flags-c "-I/usr/lib/gcc-cross/arm-linux-gnueabihf/6/include" "-I/usr/lib/gcc-cross/arm-linux-gnueabihf/6/include-fixed" "-I/usr/lib/gcc-cross/arm-linux-gnueabihf/6/../../../../arm-linux-gnueabihf/include" "-I/usr/include")
      (cmake-ide-dir . "build")
@@ -366,7 +371,7 @@
 (global-set-key (kbd "C-c b") 'helm-mini)
 (global-set-key (kbd "M-x") 'helm-M-x)
 (global-set-key (kbd "C-x C-f") 'helm-find-files)
-(define-key evil-normal-state-map (kbd "SPC") 'helm-occur)
+(define-key evil-normal-state-map (kbd "SPC") 'helm-do-ag-this-file)
 (global-set-key (kbd "M-y") 'helm-show-kill-ring); bad kbd seems useful
 (global-set-key (kbd "C-h SPC") 'helm-all-mark-rings)
 (global-unset-key (kbd "C-x c"))
@@ -422,8 +427,8 @@
 ;;;;; ------ vim-scrolling ---------------------------------------------
 ;;;;; ------ clang-format-mode ---------------------------------------------
 (require 'powerline)
-(load-file "/home/keo9ren/.tools/scripts-and-more/emacs/airline-themes/airline-themes.el")
-(load-file "/home/keo9ren/.tools/scripts-and-more/emacs/airline-themes/airline-sol-theme.el")
+(load-file "/home/oliver/.tools/scripts-and-more/emacs/airline-themes/airline-themes.el")
+(load-file "/home/oliver/.tools/scripts-and-more/emacs/airline-themes/airline-sol-theme.el")
 (require 'airline-themes)
 (setq airline-utf-glyph-separator-left      #xe0b0
       airline-utf-glyph-separator-right     #xe0b2
@@ -462,7 +467,7 @@
 ;;;;; ------ clang-format-mode ---------------------------------------------
 ;;;;;
 ;;;;; ------ spotify-mode ---------------------------------------------
-(load-file "/home/keo9ren/.tools/scripts-and-more/emacs/helm-spotify/helm-spotify.el")
+(load-file "/home/oliver/.tools/scripts-and-more/emacs/helm-spotify/helm-spotify.el")
 (require 'helm-spotify)
 ;;;;;
 (show-paren-mode 1)
@@ -526,7 +531,6 @@
   company-capf)
   ))
   (fci-mode)
-  (set-fill-column 80)
   (flyspell-prog-mode)
 )
 ;
@@ -549,7 +553,6 @@
   company-capf)
   ))
   (fci-mode)
-  (set-fill-column 80)
   (flyspell-prog-mode)
 )
 ;
