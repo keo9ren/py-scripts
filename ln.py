@@ -4,6 +4,7 @@
 import getopt
 import os
 import os.path
+from os.path import expanduser
 import subprocess
 import sys
 
@@ -21,8 +22,9 @@ def main(argv):
 #---------------------------------------------------------------------------------------------------
 
 def install_emacs():
-    src_path = "/home/keo9ren/.tools/scripts-and-more/emacs/"
-    dest_path = "/home/keo9ren/.emacs.d/elisp/"
+    home = expanduser("~")
+    src_path = home + "/.tools/scripts-and-more/emacs/"
+    dest_path = home + "/.emacs.d/elisp/"
     initfiles = ['anzu','avy','clangformat','company','customvar','evil','flycheck','helm','indentguide',
                  'magit','rtags','sphinx','spotify','yas','reftex','zeal','ispell','org','gdb','octave','moderncpp',
                  'texsite','markdown']
@@ -217,8 +219,7 @@ def latex_install():
 #---------------------------------------------------------------------------------------------------
 def old():
     print("old")
-    current_user = 'keo9ren'
-    home_path = '/home' + '/' + current_user + '/'
+    home_path = expanduser("~") + '/'
     script_path =  home_path + '.tools/scripts-and-more/'
 
     # bashrc
@@ -226,14 +227,14 @@ def old():
     subprocess.call(['ln','-sf', script_path + '.bashrc',home_path + '.bashrc'])
 
     # init.el
-    subprocess.call(['rm','/home/+ current_user + /.emacs'])
-    subprocess.call(['rm','/home/+ current_user + /.emacs.d/init.el'])
-    subprocess.call(['rm','/home/+ current_user + /.emacs.d/init.el~'])
+    subprocess.call(['rm',home_path + '.emacs'])
+    subprocess.call(['rm',home_path + '.emacs.d/init.el'])
+    subprocess.call(['rm',home_path + '.emacs.d/init.el~'])
     emacs_path = home_path + '.emacs.d/'
     subprocess.call(['ln','-sf', script_path + 'emacs/.emacs', emacs_path + 'init.el'])
     #open sockets
-    subprocess.call(['cp','/home/oliver/.tools/scripts-and-more/emacs/rdm.service','/home/oliver/.config/systemd/user/rdm.service'])
-    subprocess.call(['cp','/home/oliver/.tools/scripts-and-more/emacs/rdm.socket','/home/oliver/.config/systemd/user/rdm.socket'])
+    subprocess.call(['cp',home_path + '.tools/scripts-and-more/emacs/rdm.service','/home/oliver/.config/systemd/user/rdm.service'])
+    subprocess.call(['cp',home_path + '.tools/scripts-and-more/emacs/rdm.socket','/home/oliver/.config/systemd/user/rdm.socket'])
     subprocess.call(['sudo','systemctl','--user','enable','rdm.socket'])
     subprocess.call(['sudo','systemctl','--user','start','rdm.socket'])
     #__ packages to install
