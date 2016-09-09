@@ -4,12 +4,27 @@
 ;;; Code:
 (add-to-list 'load-path "~/.emacs.d/elisp/")
 (load-library "install")
-(load-library "magitsetup")
-(load-library "rtagssetup")
-(load-library "helmsetup")
-(load-library "companysetup")
-(load-library "yassetup")
-(load-library "clangformatsetup")
+(defvar *installenabled* nil)
+(when *installenabled*
+  (load-library "install"))
+(defvar *magitenabled* nil)
+(when *magitenabled*
+  (load-library "magitsetup"))
+(defvar *rtagsenabled* nil)
+(when *rtagsenabled*
+  (load-library "rtagssetup"))
+(defvar *helmenabled* nil)
+(when *helmenabled*
+  (load-library "helmsetup"))
+(defvar *companyenabled* nil)
+(when *companyenabled*
+  (load-library "companysetup"))
+(defvar *yasenabled* nil)
+(when *yasenabled*
+  (load-library "yassetup"))
+(defvar *clangformatenabled* nil)
+(when *clangformatenabled*
+  (load-library "clangformatsetup"))
 (defvar *spotifyenabled* nil)
 (when *spotifyenabled*
   (load-library "spotifysetup"))
