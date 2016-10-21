@@ -4,23 +4,42 @@
 import getopt
 import os
 import os.path
+from os.path import expanduser
 import subprocess
 import sys
 
-import apt
+#import apt
 
-import git
+#import git
 
 
 def main(argv):
     print('Updating your install...')
-    rtags_master()
+    install_emacs()
+    #rtags_master()
     #misc_install()
 
 #---------------------------------------------------------------------------------------------------
 
+def install_emacs():
+    home = expanduser("~")
+    src_path = home + "/.tools/scripts-and-more/emacs/"
+    dest_path = home + "/.emacs.d/elisp/"
+    initfiles = ['anzu','avy','clangformat','company','customvar','evil','flycheck','helm','indentguide',
+                 'magit','rtags','sphinx','spotify','yas','reftex','zeal','ispell','org','gdb','octave','moderncpp',
+                 'texsite','markdown','typescript']
+    for file in initfiles:
+        file += 'setup.el'
+        file_copy(src_path + file, dest_path + file)
+    file_copy(src_path + 'mymodehooks.el', dest_path + 'mymodehooks.el')
+    file_copy(src_path + 'style.el', dest_path + 'style.el')
+    file_copy(src_path + '.emacs', home + '/.emacs.d/init.el')
+    
 
-
+def file_copy(source,target):
+    print('Copy from {0} to {1} ...'.format(source,target))
+    subprocess.call(['cp',source,target])
+    
 #---------------------------------------------------------------------------------------------------
 def install(pkg_name):
 
@@ -56,7 +75,7 @@ def sym_link(source,target):
 #---------------------------------------------------------------------------------------------------
 
 def python_install():
-    debian_python_packages = ['python3-pip','python3-git','python-pip','python-jedi', 'python3-jedi', 'python-virtualenv'
+    debian_python_packages = ['python3-pip','python3-git','python-pip','python-jedi', 'python3-jedi', 'python2-virtualenv','python-virtualenv'
                               ,'python-sphinx','python3-sphinx','python2.7-de','python3.5-dev','sphinx-doc'];
     pip_python_packages = ['importchecker','isort']
 
@@ -202,8 +221,7 @@ def latex_install():
 #---------------------------------------------------------------------------------------------------
 def old():
     print("old")
-    current_user = 'keo9ren'
-    home_path = '/home' + '/' + current_user + '/'
+    home_path = expanduser("~") + '/'
     script_path =  home_path + '.tools/scripts-and-more/'
 
     # bashrc
@@ -211,19 +229,19 @@ def old():
     subprocess.call(['ln','-sf', script_path + '.bashrc',home_path + '.bashrc'])
 
     # init.el
-    subprocess.call(['rm','/home/+ current_user + /.emacs'])
-    subprocess.call(['rm','/home/+ current_user + /.emacs.d/init.el'])
-    subprocess.call(['rm','/home/+ current_user + /.emacs.d/init.el~'])
+    subprocess.call(['rm',home_path + '.emacs'])
+    subprocess.call(['rm',home_path + '.emacs.d/init.el'])
+    subprocess.call(['rm',home_path + '.emacs.d/init.el~'])
     emacs_path = home_path + '.emacs.d/'
     subprocess.call(['ln','-sf', script_path + 'emacs/.emacs', emacs_path + 'init.el'])
     #open sockets
-    subprocess.call(['cp','/home/oliver/.tools/scripts-and-more/emacs/rdm.service','/home/oliver/.config/systemd/user/rdm.service'])
-    subprocess.call(['cp','/home/oliver/.tools/scripts-and-more/emacs/rdm.socket','/home/oliver/.config/systemd/user/rdm.socket'])
+    subprocess.call(['cp',home_path + '.tools/scripts-and-more/emacs/rdm.service','/home/oliver/.config/systemd/user/rdm.service'])
+    subprocess.call(['cp',home_path + '.tools/scripts-and-more/emacs/rdm.socket','/home/oliver/.config/systemd/user/rdm.socket'])
     subprocess.call(['sudo','systemctl','--user','enable','rdm.socket'])
     subprocess.call(['sudo','systemctl','--user','start','rdm.socket'])
     #__ packages to install
     #lua5.3
     #trigger install routine
-
+    #sudo pacman -S python-jedi python2-jedi
 if __name__ == "__main__":
     main(sys.argv[1:])
