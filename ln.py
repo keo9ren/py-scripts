@@ -27,15 +27,17 @@ def install_emacs():
     dest_path = home + "/.emacs.d/elisp/"
     initfiles = ['anzu','avy','clangformat','company','customvar','evil','flycheck','helm','indentguide',
                  'magit','rtags','sphinx','spotify','yas','reftex','zeal','ispell','org','gdb','octave','moderncpp',
-                 'texsite','markdown']
+                 'texsite','markdown','typescript']
     for file in initfiles:
         file += 'setup.el'
         file_copy(src_path + file, dest_path + file)
     file_copy(src_path + 'mymodehooks.el', dest_path + 'mymodehooks.el')
     file_copy(src_path + 'style.el', dest_path + 'style.el')
+    file_copy(src_path + '.emacs', home + '/.emacs.d/init.el')
     
 
 def file_copy(source,target):
+    print('Copy from {0} to {1} ...'.format(source,target))
     subprocess.call(['cp',source,target])
     
 #---------------------------------------------------------------------------------------------------
@@ -73,7 +75,7 @@ def sym_link(source,target):
 #---------------------------------------------------------------------------------------------------
 
 def python_install():
-    debian_python_packages = ['python3-pip','python3-git','python-pip','python-jedi', 'python3-jedi', 'python-virtualenv'
+    debian_python_packages = ['python3-pip','python3-git','python-pip','python-jedi', 'python3-jedi', 'python2-virtualenv','python-virtualenv'
                               ,'python-sphinx','python3-sphinx','python2.7-de','python3.5-dev','sphinx-doc'];
     pip_python_packages = ['importchecker','isort']
 

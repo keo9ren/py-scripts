@@ -34,8 +34,11 @@
 (defvar *orgenable* nil)
 (defvar *gdbenable* nil)
 (defvar *octaveenable* t)
+(defvar *typescriptenable* t)
 (when *installenabled*
   (load-library "install"))
+(when *typescriptenable*
+  (load-library "typescriptsetup"))
 (when *magitenabled*
   (load-library "magitsetup"))
 (when *rtagsenabled*
@@ -66,7 +69,7 @@
   (load-library "mymodehooks"))
 (when *styleenable*
       (load-library "style"))
-(when *reftexenable* 
+(when *reftexenable*
       (load-library "reftexsetup"))
 (when *zealenable*
       (load-library "zealsetup"))

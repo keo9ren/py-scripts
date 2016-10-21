@@ -1,0 +1,38 @@
+# -*- mode: snippet -*-
+# name: c++headertemplate
+# key: hpp
+# group: c++
+# --
+/* clang-format off */
+/*
+*
+*-------------------------------------------------------------------------------
+*       Filename:  `(file-name-nondirectory (buffer-file-name))`
+*
+*    Description:  ${1:Insert Description here.}
+*
+*        Version:  0.1
+*        Created:  `(format-time-string "%Y-%m-%dT%H:%M:%S" (current-time))`
+*       Revision:  none
+*
+*         Author:  M.Sc. Oliver Kehret, oliver.kehret@hs-offenburg.de
+*   Organization:  ivESK, Offenburg University, Germany
+*      Copyright:  Copyright (c) `(format-time-string "%Y" (current-time))`, M.Sc. Oliver Kehret
+*-------------------------------------------------------------------------------
+*
+*/
+/* clang-format on */
+
+#ifndef `(upcase (file-name-base (buffer-file-name)))`
+#define `(upcase (file-name-base (buffer-file-name)))`
+
+$0
+
+
+
+
+
+
+
+
+#endif
