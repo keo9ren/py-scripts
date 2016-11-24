@@ -36,6 +36,7 @@
 (defvar *octaveenable* t)
 (defvar *typescriptenable* t)
 (defvar *evilmultieditenable* t)
+(defvar *webmodeenable* t)
 (when *installenabled*
   (load-library "install"))
 (when *typescriptenable*
@@ -110,6 +111,9 @@
 
 (when *evilmultieditenable*
   (load-library "evilmultieditsetup"))
+
+(when *webmodeenable*
+  (load-library "webmodesetup"))
 
 (provide 'init.el)
 ;;; init.el ends here
