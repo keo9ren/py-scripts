@@ -35,6 +35,7 @@
 (defvar *gdbenable* nil)
 (defvar *octaveenable* t)
 (defvar *typescriptenable* t)
+(defvar *evilmultieditenable* t)
 (when *installenabled*
   (load-library "install"))
 (when *typescriptenable*
@@ -106,3 +107,9 @@
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  )
+
+(when *evilmultieditenable*
+  (load-library "evilmultieditsetup"))
+
+(provide 'init.el)
+;;; init.el ends here
