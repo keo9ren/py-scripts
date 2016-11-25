@@ -164,26 +164,6 @@
   (set-fill-column 80)
   (flyspell-prog-mode)
 )
-(defun my-typescript-mode-hook ()
-  "MY-typescript-MODE-HOOK."
-  (tide-setup)
-  (setq-local company-backends '((
-  company-tooltip-align-annotations t
-  company-dabbrev-code
-  company-files
-  company-oddmuse
-  company-capf
-  )))
-  (focus-mode t)
-  (turn-on-auto-fill)
-  (fci-mode)
-  (set-fill-column 80)
-  (flyspell-prog-mode)
-  (setq flycheck-check-syntax-automatically '(save mode-enabled))
-  ;;(eldoc-mode +1)
-  (add-hook 'before-save-hook 'tide-format-before-save)
-  (setq tide-format-options '(:insertSpaceAfterFunctionKeywordForAnonymousFunctions t :placeOpenBraceOnNewLineForFunctions nil))
-)
 ;;;;
 ;;;; ------ apply-mode-hooks ---------------------------------------------
 ;;;;
@@ -203,7 +183,6 @@
 (add-hook 'latex-mode-hook #'my-latex-mode-hook)
 (add-hook 'lisp-mode-hook #'my-lisp-mode-hook)
 (add-hook 'emacs-lisp-mode-hook #'my-emacs-lisp-mode-hook)
-(add-hook 'typescript-mode-hook #'my-typescript-mode-hook)
 ;;;;;
 ;;;;; ------ apply-mode-hooks-end ---------------------------------------------
 

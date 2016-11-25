@@ -37,6 +37,8 @@
 (defvar *typescriptenable* t)
 (defvar *evilmultieditenable* t)
 (defvar *webmodeenable* t)
+(defvar *sudoeditenable* t)
+(defvar *systemdenable* t)
 (when *installenabled*
   (load-library "install"))
 (when *typescriptenable*
@@ -114,6 +116,10 @@
 
 (when *webmodeenable*
   (load-library "webmodesetup"))
+(when *sudoeditenable*
+  (load-library "sudoeditsetup"))
+(when *systemdenable*
+  (load-library "systemdsetup"))
 
 (provide 'init.el)
 ;;; init.el ends here
