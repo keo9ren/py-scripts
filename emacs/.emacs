@@ -42,6 +42,7 @@
 (defvar *evilsmartparensenable* t)
 (defvar *smartparensenable* t)
 (defvar *ternsetup* t)
+(defvar *companyternenabled* t)
 (when *installenabled*
   (load-library "install"))
 (when *typescriptenable*
@@ -129,6 +130,7 @@
   (load-library "evilsmartparenssetup"))
 (when *ternsetup*
   (load-library "ternsetup"))
-  
+(when *companyternenabled*
+  (load-library "companyternsetup"))  
 (provide 'init.el)
 ;;; init.el ends here
