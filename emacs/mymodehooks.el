@@ -184,6 +184,11 @@
   (add-hook 'before-save-hook 'tide-format-before-save)
   (setq tide-format-options '(:insertSpaceAfterFunctionKeywordForAnonymousFunctions t :placeOpenBraceOnNewLineForFunctions nil))
 )
+(defun my-javascript-mode-hook ()
+  "MY-javascript-MODE-HOOK."
+  
+)
+
 ;;;;
 ;;;; ------ apply-mode-hooks ---------------------------------------------
 ;;;;
@@ -204,6 +209,7 @@
 (add-hook 'lisp-mode-hook #'my-lisp-mode-hook)
 (add-hook 'emacs-lisp-mode-hook #'my-emacs-lisp-mode-hook)
 (add-hook 'typescript-mode-hook #'my-typescript-mode-hook)
+(add-hook 'js2-mode-hook #'setup-tide-mode)
 ;;;;;
 ;;;;; ------ apply-mode-hooks-end ---------------------------------------------
 
