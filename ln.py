@@ -27,7 +27,7 @@ def install_emacs():
     dest_path = home + "/.emacs.d/elisp/"
     initfiles = ['anzu','avy','clangformat','company','customvar','evil','flycheck','helm','indentguide',
                  'magit','rtags','sphinx','spotify','yas','reftex','zeal','ispell','org','gdb','octave','moderncpp',
-                 'texsite','markdown','typescript']
+                 'texsite','markdown','typescript','webmode']
     for file in initfiles:
         file += 'setup.el'
         file_copy(src_path + file, dest_path + file)

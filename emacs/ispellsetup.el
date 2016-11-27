@@ -6,7 +6,8 @@
 (use-package ispell
   :config (progn
             (setq ispell-program-name "hunspell")
-            (setq ispell-local-dictionary "en_US"))
+            ;(setq ispell-local-dictionary "hunspell-en")
+  )
 )
 
 (provide 'ispellsetup.el)

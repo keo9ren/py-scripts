@@ -35,8 +35,11 @@
 (defvar *gdbenable* nil)
 (defvar *octaveenable* t)
 (defvar *typescriptenable* t)
+(defvar *webmodeenable* t)
 (when *installenabled*
   (load-library "install"))
+(when *webmodeenable*
+  (load-library "webmodesetup"))
 (when *typescriptenable*
   (load-library "typescriptsetup"))
 (when *magitenabled*
