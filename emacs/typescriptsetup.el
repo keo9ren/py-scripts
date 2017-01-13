@@ -1,41 +1,31 @@
-;;; package --- Summary
+;;; package-- - Summary
 ;;; commentary:
 ;;; Code:
-(require 'use-package)
 
-(defun my-typescript-mode-hook ()
-  "MY-typescript-MODE-HOOK."
-  
-  ;; (setq-local company-backends '((
-  ;; company-tooltip-align-annotations t
-  ;; company-dabbrev-code
-  ;; company-files
-  ;; company-oddmuse
-  ;; company-capf
-  ;; )))
+
+(defun td ()
   (interactive)
-  (tide-setup)
-  (flycheck-mode +1)
-  (setq flycheck-check-syntax-automatically '(save mode-enabled))
-  ;(eldoc-mode +1)
+  (tide-mode 1)
+  (tide-restart-server)
   (tide-hl-identifier-mode +1)
-  (company-mode +1)
   (setq company-tooltip-align-annotations t)
   (add-hook 'before-save-hook 'tide-format-before-save)
   (setq tide-tsserver-process-environment '("TSS_LOG=-level verbose -file /tmp/tss.log"))
-  ;(fci-mode)
-  ;(set-fill-column 80)
-  ;(focus-mode t)
-  ;(flyspell-prog-mode)
-  ;(turn-on-auto-fill)
-)
+  (fci-mode)
+  (set-fill-column 80)
+  (flyspell-prog-mode)
+  (smartparens-mode t)
+  (setq flycheck-check-syntax-automatically '(save mode-enabled))
+  (setq tide-format-options '(:insertSpaceAfterFunctionKeywordForAnonymousFunctions t :placeOpenBraceOnNewLineForFunctions nil))
+  )
 
-(use-package tide
+(require 'use-package)
+
+    (use-package tide
              :ensure t
-             :init (add-hook 'typescript-mode-hook #'my-typescript-mode-hook)
-             :config (setq tide-format-options '(:insertSpaceAfterFunctionKeywordForAnonymousFunctions t :placeOpenBraceOnNewLineForFunctions nil))
+             :init (progn
+                     (with-eval-after-load 'company
+                       (add-to-list 'company-backends 'company-tide))))
 
-)
-
-(provide 'typescriptsetup.el)
+        (provide 'typescriptsetup.el)
 ;;; typescriptsetup.el ends here

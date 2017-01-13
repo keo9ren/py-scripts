@@ -164,25 +164,26 @@
   (set-fill-column 80)
   (flyspell-prog-mode)
 )
+
 ;;;;
 ;;;; ------ apply-mode-hooks ---------------------------------------------
 ;;;;
 ;;;; ------ apply-mode-hooks ---------------------------------------------
-(add-hook 'c++-mode-hook #'my-c++-mode-hooks)
-(add-hook 'c-mode-hook #'my-c-mode-hooks)
-(add-hook 'cmake-mode-hook #'my-cmake-mode-hooks)
-(add-hook 'org-mode-hook #'my-org-mode-hooks)
-(add-hook 'octave-mode-hook #'my-octave-mode-hooks)
-(add-hook 'python-mode-hook #'my-python-mode-hooks)
-(add-hook 'nxml-mode-hook #'my-nxml-mode-hooks)
-(add-hook 'shell-mode-hook #'my-shell-mode-hooks)
-(add-hook 'eshell-mode-hook #'my-eshell-mode-hooks)
-(add-hook 'text-mode-hook #'my-text-mode-hooks)
-(add-hook 'markdown-mode-hook #'my-markdown-mode-hooks)
-(add-hook 'LaTex-mode-hook #'my-latex-mode-hook)
-(add-hook 'latex-mode-hook #'my-latex-mode-hook)
-(add-hook 'lisp-mode-hook #'my-lisp-mode-hook)
-(add-hook 'emacs-lisp-mode-hook #'my-emacs-lisp-mode-hook)
+;; (add-hook 'c++-mode-hook #'my-c++-mode-hooks)
+;; (add-hook 'c-mode-hook #'my-c-mode-hooks)
+;; (add-hook 'cmake-mode-hook #'my-cmake-mode-hooks)
+;; (add-hook 'org-mode-hook #'my-org-mode-hooks)
+;; (add-hook 'octave-mode-hook #'my-octave-mode-hooks)
+;; (add-hook 'python-mode-hook #'my-python-mode-hooks)
+;; (add-hook 'nxml-mode-hook #'my-nxml-mode-hooks)
+;; (add-hook 'shell-mode-hook #'my-shell-mode-hooks)
+;; (add-hook 'eshell-mode-hook #'my-eshell-mode-hooks)
+;; (add-hook 'text-mode-hook #'my-text-mode-hooks)
+;; (add-hook 'markdown-mode-hook #'my-markdown-mode-hooks)
+;; (add-hook 'LaTex-mode-hook #'my-latex-mode-hook)
+;; (add-hook 'latex-mode-hook #'my-latex-mode-hook)
+;; (add-hook 'lisp-mode-hook #'my-lisp-mode-hook)
+;; (add-hook 'emacs-lisp-mode-hook #'my-emacs-lisp-mode-hook)
 ;;;;;
 ;;;;; ------ apply-mode-hooks-end ---------------------------------------------
 

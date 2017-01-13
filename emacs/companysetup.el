@@ -17,18 +17,20 @@
           (use-package company-auctex)
           )
   :config (progn
-            (defun my-init-mode-hooks ()
-              "MY-INIT-MODE-HOOKS."
-              (setq company-backends '((
-                            company-files
-                            company-dabbrev-code
-                            company-dabbrev
-                            company-oddmuse
-                            company-capf
-                            )))
-              (semantic-mode t)
-              )
-            (add-hook 'after-init-hook #'my-init-mode-hooks)
+            ;; (defun my-init-mode-hooks ()
+            ;;   "MY-INIT-MODE-HOOKS."
+            ;;   (setq company-backends '((
+            ;;                 company-files
+            ;;                 company-tern
+            ;;                 company-dabbrev-code
+            ;;                 company-dabbrev
+            ;;                 company-oddmuse
+            ;;                 company-capf
+            ;;                 )))
+            ;;   (semantic-mode t)
+            ;;   )
+            ;; (add-hook 'after-init-hook #'my-init-mode-hooks)
+            (setq company-backends '(()))
           )
 )
 
