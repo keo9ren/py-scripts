@@ -1,12 +1,9 @@
 ;;; package --- Summary
 ;;; commentary:
 ;;; Code:
-(load-file "~/.tools/scripts-and-more/emacs/rtags/build/src/rtags.el")
-(load-file "~/.tools/scripts-and-more/emacs/rtags/build/src/company-rtags.el")
-(load-file "~/.tools/scripts-and-more/emacs/rtags/build/src/flycheck-rtags.el")
-;(load-file "/usr/local/share/emacs/site-lisp/rtags/rtags.el")
-;(load-file "/usr/local/share/emacs/site-lisp/rtags/company-rtags.el")
-;(load-file "/usr/local/share/emacs/site-lisp/rtags/flycheck-rtags.el")
+(load-file "/usr/share/emacs/site-lisp/rtags/rtags.el")
+(load-file "/usr/share/emacs/site-lisp/rtags/company-rtags.el")
+(load-file "/usr/share/emacs/site-lisp/rtags/flycheck-rtags.el")
 (require 'use-package)
 (use-package rtags
   :commands rtags
