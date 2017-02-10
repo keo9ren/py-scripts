@@ -7,11 +7,8 @@ import os.path
 from os.path import expanduser
 import subprocess
 import sys
-
-#import apt
-
-#import git
-
+import glob
+import shutil
 
 def main(argv):
     print('Updating your install...')
@@ -25,20 +22,19 @@ def install_emacs():
     home = expanduser("~")
     src_path = home + "/.tools/scripts-and-more/emacs/"
     dest_path = home + "/.emacs.d/elisp/"
-    initfiles = ['anzu','avy','clangformat','company','customvar','evil','flycheck','helm','indentguide',
-                 'magit','rtags','sphinx','spotify','yas','reftex','zeal','ispell','org','gdb','octave','moderncpp',
-                 'texsite','markdown','typescript']
-    for file in initfiles:
-        file += 'setup.el'
-        file_copy(src_path + file, dest_path + file)
-    file_copy(src_path + 'mymodehooks.el', dest_path + 'mymodehooks.el')
-    file_copy(src_path + 'style.el', dest_path + 'style.el')
-    file_copy(src_path + '.emacs', home + '/.emacs.d/init.el')
-    
 
+    for file in glob.glob(src_path + '*.el'):
+        if file != 'init.el':
+            head, tail = os.path.split(file)
+            file_copy(file, dest_path + tail)
+        elif file == 'init.el':
+            file_copy(src_path + 'init.el', home + '/.emacs.d/init.el')
+        else:
+            println('Error')
+    
 def file_copy(source,target):
     print('Copy from {0} to {1} ...'.format(source,target))
-    subprocess.call(['cp',source,target])
+    subprocess.call(['cp','-f',source,target])
     
 #---------------------------------------------------------------------------------------------------
 def install(pkg_name):
