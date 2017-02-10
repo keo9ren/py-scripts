@@ -20,7 +20,7 @@ def main(argv):
 
 def install_emacs():
     home = expanduser("~")
-    src_path = home + "/.tools/scripts-and-more/emacs/"
+    src_path = home + "/.tools/scripts-and-more/emacs/setup/"
     dest_path = home + "/.emacs.d/elisp/"
 
     for file in glob.glob(src_path + '*.el'):
