@@ -40,8 +40,6 @@
                        company-dict; check better
                        company-flx; check better
                        helm-ag;
-                       ;leuven-theme;
-                       ;molokai-theme;
                        moe-theme;
                        modern-cpp-font-lock;
                        tide
