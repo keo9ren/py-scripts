@@ -11,14 +11,6 @@
   (setq-local company-backends '(
   (company-keywords
   company-rtags
-  ;company-clang
-  ;company-semantic
-  ;company-c-headers
-  ;company-files
-  ;company-dabbrev-code
-  ;company-dabbrev
-  ;company-oddmuse
-  ;company-capf)
   )
   ))
   (fci-mode)
@@ -34,14 +26,6 @@
   (setq-local company-backends '(
   (company-keywords
   company-rtags
-  ;company-clang
-  ;company-semantic
-  ;company-c-headers
-  ;company-files
-  ;company-dabbrev-code
-  ;company-dabbrev
-  ;company-oddmuse
-  ;company-capf)
   )
   ))
   (fci-mode)

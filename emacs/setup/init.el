@@ -39,6 +39,7 @@
 (defvar *webmodeenable* t)
 (defvar *sudoeditenable* t)
 (defvar *systemdenable* t)
+(defvar *elispformatenable* t)
 
 (when *installenabled*
   (load-library "install"))
@@ -152,5 +153,7 @@
   (load-library "smartparenssetup")
   (load-library "ternsetup")
 (load-library "companyternsetup")
+(when *elispformatenable*
+  (load-library "elispformat"))
 (provide 'init.el)
 ;;; init.el ends here
