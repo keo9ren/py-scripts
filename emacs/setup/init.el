@@ -43,6 +43,7 @@
 (defvar *fcimodeenable* t)
 (defvar *flyspellenable* t)
 (defvar *writeroomenable* nil)
+(defvar *fillcolumnenable* t)
 (when *installenabled*
   (load-library "install"))
 (when *companyenabled*
@@ -163,6 +164,7 @@
   (load-library "flyspellsetup"))
 (when *writeroomenable*
   (load-library "writeroomsetup"))
-
+(when *fillcolumnenable*
+  (load-library "fillcolumnsetup"))
 (provide 'init.el)
 ;;; init.el ends here
