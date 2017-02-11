@@ -35,11 +35,12 @@
 (defvar *gdbenable* nil)
 (defvar *octaveenable* t)
 (defvar *typescriptenable* t)
-(defvar *evilmultieditenable* t)
+(defvar *evilmultieditenable* nil)
 (defvar *webmodeenable* t)
 (defvar *sudoeditenable* t)
 (defvar *systemdenable* t)
 (defvar *elispformatenable* t)
+(defvar *fcimodeenable* t)
 
 (when *installenabled*
   (load-library "install"))
@@ -154,6 +155,8 @@
   (load-library "ternsetup")
 (load-library "companyternsetup")
 (when *elispformatenable*
-  (load-library "elispformat"))
+  (load-library "elispformatsetup"))
+(when *fcimodeenable*
+  (load-library "fcimodesetup"))
 (provide 'init.el)
 ;;; init.el ends here

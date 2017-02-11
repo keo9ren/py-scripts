@@ -5,7 +5,6 @@
 (defun my-c++-mode-hooks () 
   "MY-C++-MODE-HOOKS." 
   (interactive) 
-  (fci-mode) 
   (flyspell-prog-mode))
                                         ;
 (defun my-c-mode-hooks () 
@@ -15,7 +14,6 @@
   (setq semantic-mode 1) 
   (setq rtags-completions-enabled t) 
   (setq-local company-backends '((company-keywords company-rtags))) 
-  (fci-mode) 
   (flyspell-prog-mode))
                                         ;
 (defun my-cmake-mode-hooks() 
@@ -36,7 +34,6 @@
 (defun my-octave-mode-hooks() 
   "MY-OCTAVE-MODE-HOOKS."
   (setq-local company-backends '((company-files company-dabbrev-code))) 
-  (fci-mode) 
   (set-fill-column 80) 
   (auto-fill-mode 1) 
   (abbrev-mode 1) 
@@ -51,7 +48,6 @@
   (sphinx-doc-mode t) 
   (require 'py-isort) 
   (add-hook 'before-save-hook 'py-isort-before-save) 
-  (fci-mode) 
   (set-fill-column 100) 
   (flyspell-prog-mode))
                                         ;
@@ -75,7 +71,6 @@
   "MY-TEXT-MODE-HOOKS."
   (setq-local company-backends '((company-ispell company-files company-dabbrev))) 
   (turn-on-auto-fill) 
-  (fci-mode) 
   (set-fill-column 80) 
   (flyspell-mode 1))
                                         ;
@@ -83,7 +78,6 @@
   "MY-MARKDOWN-MODE-HOOKS."
   (setq-local company-backends '((company-ispell company-files company-dabbrev))) 
   (turn-on-auto-fill) 
-  (fci-mode) 
   (set-fill-column 80) 
   (flyspell-prog-mode) 
   (when buffer-file-name (add-hook 'after-save-hook 'check-parens nil t))
@@ -107,7 +101,6 @@
   (setq-local company-backends '((company-dabbrev-code company-files company-oddmuse company-capf))) 
   (focus-mode t) 
   (turn-on-auto-fill) 
-  (fci-mode) 
   (set-fill-column 80) 
   (flyspell-prog-mode))
 ;;;;

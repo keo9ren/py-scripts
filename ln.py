@@ -24,10 +24,10 @@ def install_emacs():
     dest_path = home + "/.emacs.d/elisp/"
 
     for file in glob.glob(src_path + '*.el'):
-        if file != 'init.el':
-            head, tail = os.path.split(file)
+        head, tail = os.path.split(file)
+        if tail != 'init.el':
             file_copy(file, dest_path + tail)
-        elif file == 'init.el':
+        elif tail == 'init.el':
             file_copy(src_path + 'init.el', home + '/.emacs.d/init.el')
         else:
             println('Error')
