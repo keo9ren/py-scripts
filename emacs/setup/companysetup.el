@@ -47,6 +47,12 @@
                (add-hook 'python-mode-hook (lambda () 
                                                  (setq-local company-backends
                                                              '((company-files company-jedi company-dabbrev-code)))))
+               (add-hook 'nxml-mode-hook (lambda () 
+                                                 (setq-local company-backends
+                                                             '((company-files company-nxml company-dabbrev-code)))))
+               (add-hook 'shell-mode-hook (lambda () 
+                                                 (setq-local company-backends
+                                                             '((company-files company-shell company-dabbrev-code)))))
 
 
                          ))

@@ -18,13 +18,6 @@
   (require 'py-isort) 
   (add-hook 'before-save-hook 'py-isort-before-save) 
   )
-(defun my-nxml-mode-hooks() 
-  "MY-NXML-MODE-HOOKS."
-  (setq-local company-backends '((company-files company-nxml company-dabbrev-code))) 
-  )
-(defun my-shell-mode-hooks() 
-  "MY-SHELL-MODE-HOOKS."
-  (setq-local company-backends '((company-files company-shell company-dabbrev))))
 (defun my-eshell-mode-hooks () 
   "My-eshell-mode-hooks."
   (define-key eshell-mode-map (kbd "C-c C-h")  'helm-eshell-history) 
