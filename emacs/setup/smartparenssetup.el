@@ -7,6 +7,7 @@
   smartparens 
   :ensure t 
   :init (progn (smartparens-strict-mode) 
+               (add-hook 'typescript-mode-hook #'smartparens-mode)
                (add-hook 'emacs-lisp-mode-hook #'smartparens-mode) 
                (add-hook 'js-mode-hook #'smartparens-mode)))
 (provide 'smartparenssetup.el)

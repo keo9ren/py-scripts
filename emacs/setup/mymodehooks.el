@@ -114,7 +114,6 @@
   (fci-mode) 
   (set-fill-column 80) 
   (flyspell-prog-mode))
-
 ;;;;
 ;;;; ------ apply-mode-hooks ---------------------------------------------
 ;;;;
@@ -133,7 +132,7 @@
 ;; (add-hook 'LaTex-mode-hook #'my-latex-mode-hook)
 ;; (add-hook 'latex-mode-hook #'my-latex-mode-hook)
 ;; (add-hook 'lisp-mode-hook #'my-lisp-mode-hook)
-;; (add-hook 'emacs-lisp-mode-hook #'my-emacs-lisp-mode-hook)
+(add-hook 'emacs-lisp-mode-hook #'my-emacs-lisp-mode-hook)
 ;;;;;
 ;;;;; ------ apply-mode-hooks-end ---------------------------------------------
 
