@@ -12,7 +12,7 @@
 (add-to-list 'load-path "~/.emacs.d/elisp/")
 (defvar *installenabled* t)
 (defvar *magitenabled* t)
-(defvar *rtagsenabled* nil)
+(defvar *rtagsenabled* t)
 (defvar *helmenabled* t)
 (defvar *companyenabled* t)
 (defvar *yasenabled* t)
