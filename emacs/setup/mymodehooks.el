@@ -5,10 +5,6 @@
 (defun my-c++-mode-hooks () 
   "MY-C++-MODE-HOOKS." 
   (interactive) 
-  (cmake-ide-setup) 
-  (setq rtags-completions-enabled t) 
-  (setq semantic-mode 1) 
-  (setq-local company-backends '((company-keywords company-rtags))) 
   (fci-mode) 
   (flyspell-prog-mode))
                                         ;
@@ -118,7 +114,7 @@
 ;;;; ------ apply-mode-hooks ---------------------------------------------
 ;;;;
 ;;;; ------ apply-mode-hooks ---------------------------------------------
-;; (add-hook 'c++-mode-hook #'my-c++-mode-hooks)
+;(add-hook 'c++-mode-hook #'my-c++-mode-hooks)
 ;; (add-hook 'c-mode-hook #'my-c-mode-hooks)
 ;; (add-hook 'cmake-mode-hook #'my-cmake-mode-hooks)
 ;; (add-hook 'org-mode-hook #'my-org-mode-hooks)
