@@ -41,7 +41,7 @@
 (defvar *systemdenable* t)
 (defvar *elispformatenable* t)
 (defvar *fcimodeenable* t)
-
+(defvar *flyspellenable* t)
 (when *installenabled*
   (load-library "install"))
 (when *companyenabled*
@@ -158,5 +158,8 @@
   (load-library "elispformatsetup"))
 (when *fcimodeenable*
   (load-library "fcimodesetup"))
+(when *flyspellenable*
+  (load-library "flyspellsetup"))
+
 (provide 'init.el)
 ;;; init.el ends here
