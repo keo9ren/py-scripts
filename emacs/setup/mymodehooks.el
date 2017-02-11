@@ -59,9 +59,5 @@
                                                  company-math-symbols-unicode company-latex-commands
                                                  company-dabbrev-code))) 
   )
-(defun my-emacs-lisp-mode-hook () 
-  "MY-emacs-elisp-MODE-HOOK."
-  (setq-local company-backends '((company-dabbrev-code company-files company-oddmuse company-capf))) 
-  )
 (provide 'mymodehooks.el)
 ;;; mymodehooks.el ends here
