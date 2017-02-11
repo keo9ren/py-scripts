@@ -6,35 +6,86 @@
 (setq cfg-var:packages '(
                        use-package
                        multi; required for helm-spotify
-                       evil powerline powerline-evil
-                       evil-leader evil-search-highlight-persist evil-terminal-cursor-changer
+                       evil
+                       powerline
+                       powerline-evil
+                       evil-leader
+                       evil-search-highlight-persist
+                       evil-terminal-cursor-changer
                        evil-nerd-commenter
-                       flycheck flycheck-checkbashisms
-                       company company-c-headers company-shell helm-company
-                       company-math company-quickhelp company-statistics
-                       cmake-ide cmake-mode cmake-project cmake-font-lock
-                       auctex company-auctex
-                       helm helm-projectile
-                       helm-flx helm-fuzzier helm-descbinds helm-package helm-pydoc
-                       helm-chrome helm-gitignore helm-git-grep helm-proc
-                       helm-systemd helm-unicode helm-helm-commands helm-google
-                       helm-orgcard helm-open-github helm-commandlinefu
-                       helm-describe-modes helm-git-files
+                       flycheck
+                       flycheck-checkbashisms
+                       company
+                       company-c-headers
+                       company-shell
+                       helm-company
+                       company-math
+                       company-quickhelp
+                       company-statistics
+                       cmake-ide
+                       cmake-mode
+                       cmake-project
+                       cmake-font-lock
+                       auctex
+                       company-auctex
+                       helm
+                       helm-projectile
+                       helm-flx
+                       helm-fuzzier
+                       helm-descbinds
+                       helm-package
+                       helm-pydoc
+                       helm-chrome
+                       helm-gitignore
+                       helm-git-grep
+                       helm-proc
+                       helm-systemd
+                       helm-unicode
+                       helm-helm-commands
+                       helm-google
+                       helm-orgcard
+                       helm-open-github
+                       helm-commandlinefu
+                       helm-describe-modes
+                       helm-git-files
                        helm-c-yasnippet;kdb
-                       dictcc google-translate password-generator
-                       nlinum indent-guide
-                       xcscope helm-cscope
-                       avy link-hint
-                       ace-jump-buffer ace-jump-helm-line
-                       evil-anzu anzu
-                       adjust-parens focus;at least good for emacs-lisp
-                       helm-flyspell smooth-scrolling helm-mode-manager
-                       fill-column-indicator idea-darkula-theme color-theme-approximate
-                       clang-format zeal-at-point web-mode markdown-mode yasnippet
+                       dictcc
+                       google-translate
+                       password-generator
+                       nlinum
+                       indent-guide
+                       xcscope
+                       helm-cscope
+                       avy
+                       link-hint
+                       ace-jump-buffer
+                       ace-jump-helm-line
+                       evil-anzu
+                       anzu
+                       adjust-parens
+                       helm-flyspell
+                       smooth-scrolling
+                       helm-mode-manager
+                       fill-column-indicator
+                       idea-darkula-theme
+                       color-theme-approximate
+                       clang-format
+                       zeal-at-point
+                       web-mode
+                       markdown-mode
+                       yasnippet
                        octave
-                       jedi-core company-jedi fic-mode sphinx-doc py-import-check
-                       sphinx-frontend py-isort
-                       magit evil-magit magit-annex magit-gh-pulls
+                       jedi-core
+                       company-jedi
+                       fic-mode
+                       sphinx-doc
+                       py-import-check
+                       sphinx-frontend
+                       py-isort
+                       magit
+                       evil-magit
+                       magit-annex
+                       magit-gh-pulls
                        magit-gerrit;gerrit not configured
                        popup-kill-ring; to be configured
                        company-dict; check better
@@ -44,6 +95,7 @@
                        modern-cpp-font-lock;
                        tide
                        elisp-format
+                       writeroom-mode
                        ;helm-ls-git ;helm-bibtex; ;helm-bibtexkey; ;list-processes+ ;helm-ag-r; ;x-dict; ;helm-org-rifle; ;helm-c-moccur;
                        ;helm-codesearch;install codesearch to test
                        ;helm-dired-recent-dirs; ;helm-dirset; ;helm-fuzzy-find; ;helm-git; ;helm-make;
