@@ -44,6 +44,12 @@
 (defvar *flyspellenable* t)
 (defvar *writeroomenable* nil)
 (defvar *fillcolumnenable* t)
+(defvar *racerenable* t)
+(defvar *flycheckrustenable* t)
+(defvar *rustmodeenable* t)
+(defvar *rustfmtenable* t)
+(defvar *cargoenable* t)
+
 (when *installenabled*
   (load-library "install"))
 (when *companyenabled*
@@ -166,5 +172,15 @@
   (load-library "writeroomsetup"))
 (when *fillcolumnenable*
   (load-library "fillcolumnsetup"))
+(when *racerenable*
+  (load-library "racersetup"))
+(when *flycheckrustenable*
+  (load-library "flycheckrustsetup"))
+(when *rustmodeenable*
+  (load-library "rustmodesetup"))
+(when *rustfmtenable*
+  (load-library "rustfmtsetup"))
+(when *cargoenable*
+  (load-library "cargosetup"))
 (provide 'init.el)
 ;;; init.el ends here

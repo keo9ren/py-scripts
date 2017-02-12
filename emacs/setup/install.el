@@ -96,6 +96,11 @@
                        tide
                        elisp-format
                        writeroom-mode
+                       racer
+                       cargo
+                       flycheck-rust
+                       rust-mode
+                       rust-playground;see if it is worth it
                        ;helm-ls-git ;helm-bibtex; ;helm-bibtexkey; ;list-processes+ ;helm-ag-r; ;x-dict; ;helm-org-rifle; ;helm-c-moccur;
                        ;helm-codesearch;install codesearch to test
                        ;helm-dired-recent-dirs; ;helm-dirset; ;helm-fuzzy-find; ;helm-git; ;helm-make;
