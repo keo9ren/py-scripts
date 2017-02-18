@@ -35,7 +35,7 @@
 (defvar *gdbenable* nil)
 (defvar *octaveenable* t)
 (defvar *typescriptenable* t)
-(defvar *evilmultieditenable* nil)
+(defvar *evilmultieditenable* t)
 (defvar *webmodeenable* t)
 (defvar *sudoeditenable* t)
 (defvar *systemdenable* t)
@@ -54,6 +54,7 @@
 (defvar *pdftoolsenable* t)
 (defvar *vimishfoldenable* t)
 (defvar *visualregexpenabled* t)
+
 (when *installenabled*
   (load-library "install"))
 (when *companyenabled*
@@ -106,6 +107,8 @@
       (load-library "markdownsetup"))
 (when *visualregexpenabled*
   (load-library "visualregexsetup"))
+(when *visualregexpenabled*
+  (load-library "visualregexsetup"))
 ; should alway be the last
 (load-library "evilsetup")
 (provide '.emacs)
@@ -156,7 +159,7 @@
  )
 
 (when *evilmultieditenable*
-  (load-library "evil-multieditsetup"))
+  (load-library "evilmultieditsetup"))
 
 (when *webmodeenable*
   (load-library "webmodesetup"))
