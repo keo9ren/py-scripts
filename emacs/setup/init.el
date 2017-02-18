@@ -51,6 +51,8 @@
 (defvar *cargoenable* t)
 (defvar *undotreeenable* t)
 (defvar *dmodeenable* t)
+(defvar *pdftoolsenable* t)
+(defvar *vimishfoldenable* t)
 
 (when *installenabled*
   (load-library "install"))
@@ -188,5 +190,9 @@
   (load-library "undotreesetup"))
 (when *dmodeenable*
   (load-library "dmodesetup"))
+(when *pdftoolsenable*
+  (load-library "pdftoolssetup"))
+(when *vimishfoldenable*
+  (load-library "vimishfoldsetup"))
 (provide 'init.el)
 ;;; init.el ends here
