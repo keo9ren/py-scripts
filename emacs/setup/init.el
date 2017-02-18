@@ -49,6 +49,8 @@
 (defvar *rustmodeenable* t)
 (defvar *rustfmtenable* t)
 (defvar *cargoenable* t)
+(defvar *undotreeenable* t)
+(defvar *dmodeenable* t)
 
 (when *installenabled*
   (load-library "install"))
@@ -182,5 +184,9 @@
   (load-library "rustfmtsetup"))
 (when *cargoenable*
   (load-library "cargosetup"))
+(when *undotreeenable*
+  (load-library "undotreesetup"))
+(when *dmodeenable*
+  (load-library "dmodesetup"))
 (provide 'init.el)
 ;;; init.el ends here
