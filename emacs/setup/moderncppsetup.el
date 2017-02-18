@@ -4,7 +4,8 @@
 (require 'use-package)
 
 (use-package modern-cpp-font-lock
-:config (modern-c++-font-lock-global-mode t)
+  :config (add-hook 'c++-mode-hook #'modern-c++-font-lock-mode)
+       
 )
 
 (provide 'moderncppsetup.el)
