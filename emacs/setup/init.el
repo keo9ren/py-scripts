@@ -42,7 +42,7 @@
 (defvar *elispformatenable* t)
 (defvar *fcimodeenable* t)
 (defvar *flyspellenable* t)
-(defvar *writeroomenable* nil)
+(defvar *writeroomenable* t)
 (defvar *fillcolumnenable* t)
 (defvar *racerenable* t)
 (defvar *flycheckrustenable* t)
@@ -53,8 +53,8 @@
 (defvar *dmodeenable* t)
 (defvar *pdftoolsenable* t)
 (defvar *vimishfoldenable* t)
-(defvar *visualregexpenabled* t)
-
+(defvar *visualregexpenable* t)
+(defvar *whichkeyenable* t)
 (when *installenabled*
   (load-library "install"))
 (when *companyenabled*
@@ -105,10 +105,10 @@
       (load-library "texsitesetup"))
 (when *markdownenable*
       (load-library "markdownsetup"))
-(when *visualregexpenabled*
+(when *visualregexpenable*
   (load-library "visualregexsetup"))
-(when *visualregexpenabled*
-  (load-library "visualregexsetup"))
+(when *whichkeyenable*
+  (load-library "whichkeysetup"))
 ; should alway be the last
 (load-library "evilsetup")
 (provide '.emacs)

@@ -95,7 +95,7 @@
                        modern-cpp-font-lock;
                        tide
                        elisp-format
-                       writeroom-mode
+                       darkroom
                        racer
                        cargo
                        flycheck-rust
@@ -110,11 +110,11 @@
                        evil-multiedit
                        fireplace
                        evil-vimish-fold
+                       which-key
                        ;helm-ls-git
                        ;helm-bibtex;
                        ;helm-bibtexkey;
                        ;list-processes+
-                       ;helm-ag-r;
                        ;x-dict;
                        ;helm-org-rifle;
                        ;helm-c-moccur;
@@ -122,7 +122,6 @@
                        ;helm-dired-recent-dirs;
                        ;helm-dirset;
                        ;helm-fuzzy-find;
-                       ;helm-git;
                        ;helm-make;
                        ;helm-pages;
                        ;wgrep-helm;
@@ -131,7 +130,6 @@
                        ;org-repo-todo; to be tested org-pdfview; to be tested org-projectile; to be tested org-vcard; to be tested org-tracktable; to be tested org-bullets; org-present; org-gcal; org-bullets; org-autolist;
                        ;yafolding
                        ;yahoo-weather
-                       ;x86-lookup
                        ;writegood-mode
                        ;which-key
                        ;wanderlust
@@ -155,9 +153,9 @@
                        ;gnuplot-mode; hide-comnt; hl-todo; ibuffer-git;
                        ;ibuffer-projectile;
                        ;igrep; initsplit; inline-crypt; insert-shebang; irfc;
-                       ; jenkins; json-mode; json-reformat; json-snatcher
-                       ; json-rpc; jumplist; kaesar-mode; kaesar-file; kanban;
-                       ; know-your-http-well; kwin; live-py-mode;
+                       ;jenkins; json-mode; json-reformat; json-snatcher
+                       ;json-rpc; jumplist; kaesar-mode; kaesar-file; kanban;
+                       ;know-your-http-well; kwin; live-py-mode;
                        ;llvm-mode; logview; lxc; macro-math; macros+;
                        ;markdown-mode+; markdown-toc;  md-readme;
                        ;mew; milkode; mouse+; multicolumn; nasm-mode; nav; nav-flash; navi-mode; neotree;
@@ -169,7 +167,7 @@
                        ;pass;passthword;password-store;password-vault;
                        ;path-headerline-mode;
                        ;pcre2el;pinentry;popup-switcher;pretty-mode;private-diary;
-                       ;pungi;px;ssh;syslog-mode;systemd;telepathy;travis;
+                       ;pungi;px;ssh;syslog-mode;telepathy;travis;
                        ))
 ;;;
 (defun cfg:install-packages ()
