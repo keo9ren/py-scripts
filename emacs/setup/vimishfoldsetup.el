@@ -9,6 +9,9 @@
                ;(global-set-key (kbd "<menu> v v") #'vimish-fold-delete)
                )
   )
+(use-package evil-vimish-fold
+
+)
 
 
 (provide 'vimishfoldsetup.el)

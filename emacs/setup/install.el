@@ -108,15 +108,63 @@
                        visual-regexp
                        visual-regexp-steroids
                        evil-multiedit
-                       ;helm-ls-git ;helm-bibtex; ;helm-bibtexkey; ;list-processes+ ;helm-ag-r; ;x-dict; ;helm-org-rifle; ;helm-c-moccur;
+                       fireplace
+                       evil-vimish-fold
+                       ;helm-ls-git
+                       ;helm-bibtex;
+                       ;helm-bibtexkey;
+                       ;list-processes+
+                       ;helm-ag-r;
+                       ;x-dict;
+                       ;helm-org-rifle;
+                       ;helm-c-moccur;
                        ;helm-codesearch;install codesearch to test
-                       ;helm-dired-recent-dirs; ;helm-dirset; ;helm-fuzzy-find; ;helm-git; ;helm-make;
-                       ;helm-pages;wgrep-helm;wgrep;
-                       ;org-redmine; to be tested org-repo-todo; to be tested org-pdfview; to be tested org-projectile; to be tested org-vcard; to be tested org-tracktable; to be tested org-bullets; org-present; org-gcal; org-bullets; org-autolist;
-                       ;yafolding; yahoo-weather; x86-lookup; writegood-mode; which-key; wanderlust; vkill; visual-regexp; visual-regexp-steroids; viewer; use-package; auctex-lua; latex-preview-pane; latex-pretty-symbols; latex-unicode-math-mode; latex-math-preview; latex-extra; gscholar-bibtex; bibtex-utils; bibretrieve; bibslurp; ebib; empos; ivy-bibtex;
-                       ;yapfify; grep+; ag; aok; arview; ascii; asilea; asn1-mode; assess; autodisass-llvm-bitcode; bog; butler; calfw; calfw-gcal; camcorder; capture; coffee-mode; col-highlight; csv-mode; csv-nav; define-word; demangle-mode; diffview; dired-dups; dired-efap; dropbox; edbi; edbi-sqlite; edbi-minor-mode; elfeed; elisp-sandbox; elmine; elpy; emacs-setup; emacs-eclim; evil-args; evil-easymotion; evil-cleverparens; evil-commentary; evil-exchange; evil-org; evil-vimish-fold; excorporate; fasd; figlet; flx; flx-ido; flx-isearch; flycheck-clangcheck; flycheck-google-cpplint; flycheck-tip; fsm; fuzzy; fuzzy-match; geben-helm-projectile; german-holidays; gist; gnuplot; gnuplot-mode; hide-comnt; hl-todo; ibuffer-git; ibuffer-projectile; igrep; initsplit; inline-crypt; insert-shebang; irfc; jenkins; json-mode; json-reformat; json-snatcher; json-rpc; jumplist; kaesar-mode; kaesar-file; kanban; know-your-http-well; kwin; live-py-mode; llvm-mode; logview; lxc; macro-math; macros+; markdown-mode+; markdown-preview-eww; markdown-toc; markdownfmt; markup; md-readme; mew; milkode; mouse+; multicolumn; nasm-mode; nav; nav-flash; navi-mode; neotree;
+                       ;helm-dired-recent-dirs;
+                       ;helm-dirset;
+                       ;helm-fuzzy-find;
+                       ;helm-git;
+                       ;helm-make;
+                       ;helm-pages;
+                       ;wgrep-helm;
+                       ;wgrep;
+                       ;org-redmine;
+                       ;org-repo-todo; to be tested org-pdfview; to be tested org-projectile; to be tested org-vcard; to be tested org-tracktable; to be tested org-bullets; org-present; org-gcal; org-bullets; org-autolist;
+                       ;yafolding
+                       ;yahoo-weather
+                       ;x86-lookup
+                       ;writegood-mode
+                       ;which-key
+                       ;wanderlust
+                       ;vkill
+                       ;viewer
+                       ;auctex-lua; latex-preview-pane; latex-pretty-symbols;
+                       ;latex-unicode-math-mode; latex-math-preview;
+                       ;latex-extra; gscholar-bibtex; bibtex-utils; bibretrieve; bibslurp; ebib; empos; ivy-bibtex;
+                       ;yapfify; grep+; ag; aok; arview; ascii; asilea;
+                       ;asn1-mode; assess; autodisass-llvm-bitcode; bog; butler;
+                       ;calfw; calfw-gcal; camcorder; capture; col-highlight;
+                       ;csv-mode; csv-nav; define-word; demangle-mode; diffview;
+                       ;dired-dups; dired-efap; dropbox; edbi; edbi-sqlite;
+                       ;edbi-minor-mode; elfeed; elisp-sandbox; elmine; elpy;
+                       ;emacs-setup; emacs-eclim; evil-args; evil-easymotion;
+                       ;evil-cleverparens; evil-commentary; evil-org;
+                       ;excorporate; fasd; figlet; flx; flx-ido; flx-isearch;
+                       ;flycheck-clangcheck; flycheck-google-cpplint;
+                       ;flycheck-tip; fsm; fuzzy; fuzzy-match;
+                       ;geben-helm-projectile; german-holidays; gist; gnuplot;
+                       ;gnuplot-mode; hide-comnt; hl-todo; ibuffer-git;
+                       ;ibuffer-projectile;
+                       ;igrep; initsplit; inline-crypt; insert-shebang; irfc;
+                       ; jenkins; json-mode; json-reformat; json-snatcher
+                       ; json-rpc; jumplist; kaesar-mode; kaesar-file; kanban;
+                       ; know-your-http-well; kwin; live-py-mode;
+                       ;llvm-mode; logview; lxc; macro-math; macros+;
+                       ;markdown-mode+; markdown-toc;  md-readme;
+                       ;mew; milkode; mouse+; multicolumn; nasm-mode; nav; nav-flash; navi-mode; neotree;
                        ;ninja-mode; noccur; occur-x; nose; notes-mode; omn-mode; on-parens; on-screen;
-                       ;one-time-pad-encrypt; openwith; org-agenda-property; org-alert; org-attach-screenshot; org-caldav;org-dashboard;org-doing;
+                       ;one-time-pad-encrypt; openwith; org-agenda-property;
+                       ;org-alert; org-attach-screenshot
+                       ;org-caldav;org-dashboard;org-doing;
                        ;org-download;org-dropbox;org-themis;org-tree-slide;palette;parse-csv;
                        ;pass;passthword;password-store;password-vault;
                        ;path-headerline-mode;
