@@ -111,6 +111,7 @@
                        fireplace
                        evil-vimish-fold
                        which-key
+                       js-doc
                        ;helm-ls-git
                        ;helm-bibtex;
                        ;helm-bibtexkey;

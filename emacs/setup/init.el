@@ -55,6 +55,7 @@
 (defvar *vimishfoldenable* t)
 (defvar *visualregexpenable* t)
 (defvar *whichkeyenable* t)
+(defvar *jsdocenable* t)
 (when *installenabled*
   (load-library "install"))
 (when *companyenabled*
@@ -109,6 +110,8 @@
   (load-library "visualregexsetup"))
 (when *whichkeyenable*
   (load-library "whichkeysetup"))
+(when *jsdocenable*
+  (load-library "jsdocsetup"))
 ; should alway be the last
 (load-library "evilsetup")
 (provide '.emacs)
