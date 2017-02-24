@@ -34,8 +34,9 @@
          "\\.json\\'"
          )
   :init (progn
-          (add-hook 'web-mode-hook #'td)
-           )
+          (add-hook 'web-mode-hook (lambda () (when (string-equal "ts" (file-name-extension buffer-file-name))
+                                               (td)
+                                               ))))
 )
 (provide 'webmodesetup.el)
 ;;; webmodesetup.el ends here
