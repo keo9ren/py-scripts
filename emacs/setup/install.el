@@ -112,6 +112,7 @@
                        evil-vimish-fold
                        which-key
                        js-doc
+                       company-web
                        ;helm-ls-git
                        ;helm-bibtex;
                        ;helm-bibtexkey;
