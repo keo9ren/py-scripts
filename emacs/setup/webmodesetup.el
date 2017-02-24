@@ -34,7 +34,8 @@
          "\\.json\\'"
          )
   :init (progn
-          (add-hook 'web-mode-hook (lambda () (when (string-equal "ts" (file-name-extension buffer-file-name))
+          (add-hook 'web-mode-hook (lambda () (when (member (file-name-extension
+  buffer-file-name) '("ts" "tsx" "js" "jsx"))
                                                (td)
                                                ))))
 )
