@@ -113,6 +113,7 @@
                        which-key
                        js-doc
                        company-web
+                       arduino-mode
                        ;helm-ls-git
                        ;helm-bibtex;
                        ;helm-bibtexkey;

@@ -56,6 +56,7 @@
 (defvar *visualregexpenable* t)
 (defvar *whichkeyenable* t)
 (defvar *jsdocenable* t)
+(defvar *arduino-mode-enable* t)
 (when *installenabled*
   (load-library "install"))
 (when *companyenabled*
@@ -112,6 +113,8 @@
   (load-library "whichkeysetup"))
 (when *jsdocenable*
   (load-library "jsdocsetup"))
+(when *arduino-mode-enable*
+  (load-library "arduino-mode-setup"))
 ; should alway be the last
 (load-library "evilsetup")
 (provide '.emacs)
