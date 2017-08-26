@@ -24,11 +24,7 @@
   web-mode 
   :ensure t 
   :mode ("\\.phtml\\'" "\\.html?\\'"
-         "\\.tpl\\.php\\'" "\\.[agj]sp\\'"
-         "\\.as[cp]x\\'" "\\.djhtml\\'"
-         "\\.erb\\'" "\\.mustache\\'" "\\.ts\\'"
-         "\\.tsx\\'" "\\.js\\'" "\\.jsx\\'"
-         "\\.json\\'") 
+         ) 
   :init (progn (add-hook
                 'web-mode-hook
                 (lambda () 

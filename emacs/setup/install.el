@@ -114,6 +114,7 @@
                        js-doc
                        company-web
                        arduino-mode
+                       js2-mode
                        ;helm-ls-git
                        ;helm-bibtex;
                        ;helm-bibtexkey;

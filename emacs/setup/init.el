@@ -47,16 +47,16 @@
 (defvar *racerenable* t)
 (defvar *flycheckrustenable* t)
 (defvar *rustmodeenable* t)
-(defvar *rustfmtenable* t)
 (defvar *cargoenable* t)
 (defvar *undotreeenable* t)
 (defvar *dmodeenable* t)
-(defvar *pdftoolsenable* t)
+(defvar *pdftoolsenable* nil)
 (defvar *vimishfoldenable* t)
 (defvar *visualregexpenable* t)
 (defvar *whichkeyenable* t)
 (defvar *jsdocenable* t)
 (defvar *arduino-mode-enable* t)
+(defvar *js2-mode-enable* t)
 (when *installenabled*
   (load-library "install"))
 (when *companyenabled*
@@ -115,6 +115,8 @@
   (load-library "jsdocsetup"))
 (when *arduino-mode-enable*
   (load-library "arduino-mode-setup"))
+(when *js2-mode-enable*
+  (load-library "js2-mode-setup"))
 ; should alway be the last
 (load-library "evilsetup")
 (provide '.emacs)
@@ -193,8 +195,6 @@
   (load-library "flycheckrustsetup"))
 (when *rustmodeenable*
   (load-library "rustmodesetup"))
-(when *rustfmtenable*
-  (load-library "rustfmtsetup"))
 (when *cargoenable*
   (load-library "cargosetup"))
 (when *undotreeenable*
